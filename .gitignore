@@ -1,20 +1,161 @@
-# IDE
-.idea/
-.vscode/
-*.sublime-*
+# ==========================================
+# 操作系统
+# ==========================================
 
 # macOS
 .DS_Store
 ._*
+.Spotlight-V100
+.Trashes
+[eE]xpression.*
 
-# 环境变量
-.env
-.env.local
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
 
-# 临时文件
+# Linux
+*~
+\#*\#
+/flock
+.fuse_hidden*
+.directory
+
+# ==========================================
+# IDE 和编辑器
+# ==========================================
+
+# VS Code
+.vscode/
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# JetBrains
+.idea/
+*.iml
+*.iws
+.idea_modules/
+
+# Sublime Text
+*.sublime-*
+Packages/
+Metadata/
+SNO/
+Session Backup*
+
+# Vim
+[._]*.s[a-v][a-z]
+!*.svg
+[._]*.sw[a-p]
+[._]s[a-rt][a-z]
+[._]sc[a-ik][a-z]
+[._]pa[a-p]*
+
+# Emacs
+*~
+\#*\#
+./\#*
+
+# ==========================================
+# 日志和临时文件
+# ==========================================
+
 *.log
+*.tmp
+*.temp
+*.bak
+*.backup
 *.swp
 *.swo
-
-# 上传的文件
 *~
+*.lock
+
+# ==========================================
+# 环境变量
+# ==========================================
+
+.env
+.env.*
+.env.local
+.env.*.local
+
+# ==========================================
+# 构建产物
+# ==========================================
+
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnp
+.pnp.js
+.yarn-integrity
+
+# PHP
+/vendor/
+composer.phar
+.phpunit.result.cache
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+dist/
+build/
+*.egg
+venv/
+ENV/
+.venv/
+
+# Ruby
+vendor/bundle
+.bundle/
+*.gem
+
+# Java
+*.class
+*.jar
+*.war
+target/
+.gradle/
+
+# Go
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+vendor/
+
+# ==========================================
+# 测试和覆盖率
+# ==========================================
+
+coverage/
+.coverage
+htmlcov/
+.nyc_output/
+.pytest_cache/
+
+# ==========================================
+# 系统文件
+# ==========================================
+
+# Windows
+$RECYCLE.BIN/
+ehthumbs.db
+Icon\r
+
+# Chrome
+Default/
+Extensions/
+
+# Firefox
+places.sqlite
+cookies.sqlite
