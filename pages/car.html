@@ -10,20 +10,115 @@
     <link rel="stylesheet" href="../css/style.css">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9420599375364457"
      crossorigin="anonymous"></script>
+<script src="accordion.js"></script>
 </head>
 <body>
 <header>
     <div class="nav-container"></div>
 </header>
+<div class="container"><div class="accordion-item open">
+        <div class="accordion-header" onclick="toggleAccordion(this.parentElement)">
+            <span class="accordion-title">Related Guides</span>
+            <span class="accordion-arrow">▼</span>
+        </div>
+        <div class="accordion-body">
+        <p><a href="tuning.html">Professional Car Tuning Setups</a> | <a href="track.html">Best Cars For Each Track Type</a> | <a href="collect.html">Barn Find Locations Map</a></p>
+    </div>
+</div>
 
-<div class="container">
-    <div class="banner">
-        <h1>FH6 Complete Car List & Unlock Guide</h1>
-        <p>Full Vehicle Stats, Unlock Methods & Best Cars For Every Game Mode</p>
+
+    <div class="card">
+        </div>
+    </div><div class="accordion-item open">
+        <div class="accordion-header" onclick="toggleAccordion(this.parentElement)">
+            <span class="accordion-title">🚗 Full Car Database</span>
+            <span class="accordion-arrow">▼</span>
+        </div>
+        <div class="accordion-body">
+        <div class="table-wrapper">
+            <table class="car-table" id="car-table">
+                <thead>
+                    <tr>
+                        <th>Car Name</th>
+                        <th>Category</th>
+                        <th>Drive</th>
+                        <th>HP Range</th>
+                        <th>Best For</th>
+                        <th>Tier</th>
+                    </tr>
+                </thead>
+                <tbody id="car-tbody"></tbody>
+            </table>
+        </div>
     </div>
 
     <div class="card">
-        <h2>🔍 Car Search & Filter</h2>
+        </div>
+    </div><div class="accordion-item ">
+        <div class="accordion-header" onclick="toggleAccordion(this.parentElement)">
+            <span class="accordion-title">Car Performance Upgrade Guide</span>
+            <span class="accordion-arrow">▶</span>
+        </div>
+        <div class="accordion-body">
+        <p>Understanding upgrade priorities helps maximize your vehicle potential:</p>
+        <ul>
+            <li><strong>Engine Swaps</strong>: Increase horsepower but may affect weight balance</li>
+            <li><strong>Tire Compounds</strong>: Choose between grip, durability and weather suitability</li>
+            <li><strong>Suspension Geometry</strong>: Adjust camber, toe and caster for track-specific handling</li>
+            <li><strong>Aerodynamic Kits</strong>: Improve downforce at cost of reduced top speed</li>
+            <li><strong>Weight Reduction</strong>: Remove unnecessary components for better power-to-weight ratio</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        </div>
+    </div><div class="accordion-item ">
+        <div class="accordion-header" onclick="toggleAccordion(this.parentElement)">
+            <span class="accordion-title">All Hidden Barn Finds Full Location Guide</span>
+            <span class="accordion-arrow">▶</span>
+        </div>
+        <div class="accordion-body">
+        <p>Barn Finds are special hidden classic cars scattered across the Japan map. These rare vehicles cannot be purchased directly and must be discovered through exploration:</p>
+        <ul>
+            <li><strong>Mt. Fuji Base Barn Find</strong>: Hidden in forest area near mountain base, unlocks 1970s classic JDM sports car</li>
+            <li><strong>Tokyo Bay Warehouse</strong>: Located in industrial port district, contains rare imported muscle car</li>
+            <li><strong>Kyoto Temple Hills</strong>: Found behind ancient shrine, rewards vintage Japanese luxury sedan</li>
+            <li><strong>Hokkaido Snow Farm</strong>: Buried in rural farmland, reveals classic rally championship car</li>
+            <li><strong>Okinawa Coastal Cave</strong>: Hidden in seaside cliff cave, unlocks exclusive beach edition convertible</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        </div>
+    </div><div class="accordion-item ">
+        <div class="accordion-header" onclick="toggleAccordion(this.parentElement)">
+            <span class="accordion-title">Tier List Explained</span>
+            <span class="accordion-arrow">▶</span>
+        </div>
+        <div class="accordion-body">
+        <p>Our car ratings use a D through S classification system based on competitive performance potential, not real-world prestige.</p>
+        <table>
+            <thead>
+                <tr><th>Tier</th><th>Rating</th><th>Typical HP Range</th><th>Best For</th><th>Notes</th></tr>
+            </thead>
+            <tbody>
+                <tr><td><span class="tier-S">S</span></td><td>Best in class</td><td>500hp+</td><td>Competitions, PR stunts</td><td>Top 5% of all cars</td></tr>
+                <tr><td><span class="tier-A">A</span></td><td>Highly competitive</td><td>300-600hp</td><td>Most events & championships</td><td>Viable for 90% of content</td></tr>
+                <tr><td><span class="tier-B">B</span></td><td>Solid choice</td><td>200-500hp</td><td>Story mode, exploration</td><td>Good for beginners</td></tr>
+                <tr><td><span class="tier-C">C</span></td><td>Average</td><td>Under 300hp</td><td>Casual driving, barn finds</td><td>Fun for variety, not meta</td></tr>
+            </tbody>
+        </table>
+        <p>Tier is only one factor — a well-tuned B-tier car will outperform a poorly-tuned S-tier car. Driver skill always matters more than the car.</p>
+    </div>
+
+    <div class="card">
+        </div>
+    </div><div class="accordion-item ">
+        <div class="accordion-header" onclick="toggleAccordion(this.parentElement)">
+            <span class="accordion-title">🔍 Car Search & Filter</span>
+            <span class="accordion-arrow">▶</span>
+        </div>
+        <div class="accordion-body">
         <div class="car-filter">
             <input type="text" id="car-search" placeholder="Search cars by name..." oninput="filterCars()">
             <select id="car-category" onchange="filterCars()">
@@ -53,38 +148,42 @@
 
     <!-- Car Table -->
     <div class="card">
-        <h2>🚗 Full Car Database</h2>
-        <div class="table-wrapper">
-            <table class="car-table" id="car-table">
-                <thead>
-                    <tr>
-                        <th>Car Name</th>
-                        <th>Category</th>
-                        <th>Drive</th>
-                        <th>HP Range</th>
-                        <th>Best For</th>
-                        <th>Tier</th>
-                    </tr>
-                </thead>
-                <tbody id="car-tbody"></tbody>
-            </table>
+        </div>
+    </div><div class="accordion-item ">
+        <div class="accordion-header" onclick="toggleAccordion(this.parentElement)">
+            <span class="accordion-title">How to Acquire Cars in FH6</span>
+            <span class="accordion-arrow">▶</span>
+        </div>
+        <div class="accordion-body">
+        <p>There are five primary ways to add vehicles to your garage in Forza Horizon 6 Japan. Understanding each path helps you prioritize your credits and time.</p>
+        <div class="feature-grid">
+            <div class="feature-box">
+                <h4>🏪 Autoshow Purchase</h4>
+                <p>Browse and buy cars instantly with credits. Prices range from ₵35,000 for common rides to ₵15,000,000+ for rare hypercars. Rotating daily deals offer significant discounts.</p>
+            </div>
+            <div class="feature-box">
+                <h4>🔍 Barn Finds</h4>
+                <p>Hidden throughout the Japan map are 12 barns containing rare and classic vehicles. Drive near the marked location and complete a discovery challenge to unlock. Restoration cost is separate.</p>
+            </div>
+            <div class="feature-box">
+                <h4>🏆 Season Rewards</h4>
+                <p>Complete seasonal championships and trials to earn exclusive vehicles. These often include special liveries, event-only cars, and collector edition models unavailable anywhere else.</p>
+            </div>
+            <div class="feature-box">
+                <h4>📦 Car Pass</h4>
+                <p>Premium subscribers receive 2-4 cars monthly delivered directly to their garage. Includes exclusive editions, early-access launches, and rare imported models.</p>
+            </div>
         </div>
     </div>
 
     <div class="card">
-        <h2>All Hidden Barn Finds Full Location Guide</h2>
-        <p>Barn Finds are special hidden classic cars scattered across the Japan map. These rare vehicles cannot be purchased directly and must be discovered through exploration:</p>
-        <ul>
-            <li><strong>Mt. Fuji Base Barn Find</strong>: Hidden in forest area near mountain base, unlocks 1970s classic JDM sports car</li>
-            <li><strong>Tokyo Bay Warehouse</strong>: Located in industrial port district, contains rare imported muscle car</li>
-            <li><strong>Kyoto Temple Hills</strong>: Found behind ancient shrine, rewards vintage Japanese luxury sedan</li>
-            <li><strong>Hokkaido Snow Farm</strong>: Buried in rural farmland, reveals classic rally championship car</li>
-            <li><strong>Okinawa Coastal Cave</strong>: Hidden in seaside cliff cave, unlocks exclusive beach edition convertible</li>
-        </ul>
-    </div>
-
-    <div class="card">
-        <h2>Best Cars by Category</h2>
+        </div>
+    </div><div class="accordion-item ">
+        <div class="accordion-header" onclick="toggleAccordion(this.parentElement)">
+            <span class="accordion-title">Best Cars by Category</span>
+            <span class="accordion-arrow">▶</span>
+        </div>
+        <div class="accordion-body">
         <h3>Best Street Racing Cars</h3>
         <ul>
             <li><strong>Nissan GT-R Nismo</strong>: Ultimate all-wheel drive grip for Tokyo street circuits</li>
@@ -112,49 +211,13 @@
     </div>
 
     <div class="card">
-        <h2>Car Performance Upgrade Guide</h2>
-        <p>Understanding upgrade priorities helps maximize your vehicle potential:</p>
-        <ul>
-            <li><strong>Engine Swaps</strong>: Increase horsepower but may affect weight balance</li>
-            <li><strong>Tire Compounds</strong>: Choose between grip, durability and weather suitability</li>
-            <li><strong>Suspension Geometry</strong>: Adjust camber, toe and caster for track-specific handling</li>
-            <li><strong>Aerodynamic Kits</strong>: Improve downforce at cost of reduced top speed</li>
-            <li><strong>Weight Reduction</strong>: Remove unnecessary components for better power-to-weight ratio</li>
-        </ul>
-    </div>
-
-    <div class="card">
-        <h2>Related Guides</h2>
-        <p><a href="tuning.html">Professional Car Tuning Setups</a> | <a href="track.html">Best Cars For Each Track Type</a> | <a href="collect.html">Barn Find Locations Map</a></p>
-    </div>
-</div>
-
-
-    <div class="card">
-        <h2>How to Acquire Cars in FH6</h2>
-        <p>There are five primary ways to add vehicles to your garage in Forza Horizon 6 Japan. Understanding each path helps you prioritize your credits and time.</p>
-        <div class="feature-grid">
-            <div class="feature-box">
-                <h4>🏪 Autoshow Purchase</h4>
-                <p>Browse and buy cars instantly with credits. Prices range from ₵35,000 for common rides to ₵15,000,000+ for rare hypercars. Rotating daily deals offer significant discounts.</p>
-            </div>
-            <div class="feature-box">
-                <h4>🔍 Barn Finds</h4>
-                <p>Hidden throughout the Japan map are 12 barns containing rare and classic vehicles. Drive near the marked location and complete a discovery challenge to unlock. Restoration cost is separate.</p>
-            </div>
-            <div class="feature-box">
-                <h4>🏆 Season Rewards</h4>
-                <p>Complete seasonal championships and trials to earn exclusive vehicles. These often include special liveries, event-only cars, and collector edition models unavailable anywhere else.</p>
-            </div>
-            <div class="feature-box">
-                <h4>📦 Car Pass</h4>
-                <p>Premium subscribers receive 2-4 cars monthly delivered directly to their garage. Includes exclusive editions, early-access launches, and rare imported models.</p>
-            </div>
         </div>
-    </div>
-
-    <div class="card">
-        <h2>Best Cars by Racing Discipline</h2>
+    </div><div class="accordion-item ">
+        <div class="accordion-header" onclick="toggleAccordion(this.parentElement)">
+            <span class="accordion-title">Best Cars by Racing Discipline</span>
+            <span class="accordion-arrow">▶</span>
+        </div>
+        <div class="accordion-body">
         <p>Based on performance data and community consensus — these are the standout choices for each category.</p>
 
         <h3>Street Racing</h3>
@@ -195,24 +258,13 @@
     </div>
 
     <div class="card">
-        <h2>Tier List Explained</h2>
-        <p>Our car ratings use a D through S classification system based on competitive performance potential, not real-world prestige.</p>
-        <table>
-            <thead>
-                <tr><th>Tier</th><th>Rating</th><th>Typical HP Range</th><th>Best For</th><th>Notes</th></tr>
-            </thead>
-            <tbody>
-                <tr><td><span class="tier-S">S</span></td><td>Best in class</td><td>500hp+</td><td>Competitions, PR stunts</td><td>Top 5% of all cars</td></tr>
-                <tr><td><span class="tier-A">A</span></td><td>Highly competitive</td><td>300-600hp</td><td>Most events & championships</td><td>Viable for 90% of content</td></tr>
-                <tr><td><span class="tier-B">B</span></td><td>Solid choice</td><td>200-500hp</td><td>Story mode, exploration</td><td>Good for beginners</td></tr>
-                <tr><td><span class="tier-C">C</span></td><td>Average</td><td>Under 300hp</td><td>Casual driving, barn finds</td><td>Fun for variety, not meta</td></tr>
-            </tbody>
-        </table>
-        <p>Tier is only one factor — a well-tuned B-tier car will outperform a poorly-tuned S-tier car. Driver skill always matters more than the car.</p>
-    </div>
-
-    <div class="card">
-        <h2>New Player Car Recommendations</h2>
+        </div>
+    </div><div class="accordion-item ">
+        <div class="accordion-header" onclick="toggleAccordion(this.parentElement)">
+            <span class="accordion-title">New Player Car Recommendations</span>
+            <span class="accordion-arrow">▶</span>
+        </div>
+        <div class="accordion-body">
         <p>Starting out in FH6 Japan with limited credits? These three buys give you maximum versatility across the most content.</p>
         <ol>
             <li><strong>Toyota Supra GR (A-tier, ~₵180,000)</strong> — The perfect first serious car. RWD handling teaches proper technique, the 382-510hp range is accessible on any surface, and the Toyota tuning community means massive upgrade potential. Buy this first.</li>
@@ -333,5 +385,7 @@ sortCars();
 </script>
 <script src="../js/header.js"></script>
 <script src="../js/main.js"></script>
-</body>
-</html>
+
+</html></div>
+    </div></div>
+</body></html>

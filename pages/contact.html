@@ -9,30 +9,173 @@
     <link rel="canonical" href="https://savebook.net/pages/contact.html">
     <link rel="stylesheet" href="../css/style.css">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9420599375364457" crossorigin="anonymous"></script>
+<script src="accordion.js"></script>
 </head>
 <body>
 <header>
     <div class="nav-container"></div>
 </header>
+<div class="container"><div class="accordion-item open">
+        <div class="accordion-header" onclick="toggleAccordion(this.parentElement)">
+            <span class="accordion-title">Related Guides</span>
+            <span class="accordion-arrow">▼</span>
+        </div>
+        <div class="accordion-body">
+        <p><a href="newbie.html">Beginner Guide</a> | <a href="tuning.html">Tuning Guide</a> | <a href="collect.html">Collectibles</a></p>
+    </div>
+</div>
 
-<div class="container">
-    <div class="banner">
-        <h1>Contact Us & Help Center</h1>
-        <p>Get Help With Forza Horizon 6 • Report Issues • Share Feedback</p>
+<footer>
+    <p>© 2026 savebook.net | Forza Horizon 6 All Original Guides</p>
+    <p><a href="../privacy.html">Privacy Policy</a> | <a href="../about.html">About Us</a></p>
+</footer>
+<script>
+function handleContactSubmit(e) {
+    e.preventDefault();
+    document.querySelector('.contact-form').style.display = 'none';
+    document.getElementById('contact-success').style.display = 'block';
+    return false;
+}
+</script>
+<script src="../js/header.js"></script>
+<script src="../js/main.js"></script>
+
+</html></div>
+    </div><div class="accordion-item open">
+        <div class="accordion-header" onclick="toggleAccordion(this.parentElement)">
+            <span class="accordion-title">🔧 Quick Troubleshooting Table</span>
+            <span class="accordion-arrow">▼</span>
+        </div>
+        <div class="accordion-body">
+        <p>Common problems and their most likely solutions. For detailed guides, visit our dedicated troubleshooting pages.</p>
+
+        <table class="calc-table">
+            <thead>
+                <tr><th>Problem</th><th>Most Likely Cause</th><th>Quick Fix</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>🚗 Car won't accelerate</td><td>Traction control on full</td><td>Press LB twice to reduce TC to 0</td></tr>
+                <tr><td>🎮 Controller not responding</td><td>Low battery / disconnected</td><td>Replace batteries / reconnect USB</td></tr>
+                <tr><td>🔇 No sound</td><td>HDMI audio not selected</td><td>Check Windows sound output device</td></tr>
+                <tr><td>📉 Low FPS on PC</td><td>GPU shader cache full</td><td>Delete shader cache in FH6 settings</td></tr>
+                <tr><td>🌐 Online disconnecting</td><td>NAT type Strict</td><td>Enable UPnP on router / use Open NAT</td></tr>
+                <tr><td>💾 Save not syncing</td><td>Microsoft account mismatch</td><td>Verify same account on Xbox and PC</td></tr>
+                <tr><td>❌ Can't find Barn Find</td><td>Unlock condition not met</td><td>Check collectibles guide for unlock requirement</td></tr>
+                <tr><td>📷 Photo mode disabled</td><td>During active event</td><td>Exit event / return to free roam</td></tr>
+                <tr><td>🏁 Wrong car in race</td><td>Event class restriction</td><td>Check required PI class in event info</td></tr>
+                <tr><td>🛞 Tire blowout</td><td>Damage from collision</td><td>Drive carefully / reduce aggression</td></tr>
+                <tr><td>❄️ Snow car sliding uncontrollably</td><td>Using summer tires</td><td>Buy snow/winter tires from HorizonAutoshop</td></tr>
+                <tr><td>💰 Credits missing after race</td><td>Credit bonus still pending</td><td>Wait 30 seconds / check skill combo multiplier</td></tr>
+                <tr><td>🎵 No music in game</td><td>Audio output set to TV</td><td>Change audio to headset/speakers in Settings</td></tr>
+                <tr><td>🏆 Achievement not unlocking</td><tdtd>Progress requirement not met</td><td>Double-check requirements / relog game</td></tr>
+                <tr><td>📍 Fast Travel unavailable</td><tdtd>Insufficient credits</td><td>Collect nearby Fast Travel boards to reduce cost</td></tr>
+            </tbody>
+        </table>
     </div>
 
-    <div class="toc">
-        <h3>Quick Nav</h3>
-        <nav class="toc-nav">
-            <a href="#faq">FAQ</a>
-            <a href="#contact">Contact Form</a>
-            <a href="#troubleshoot">Troubleshooting</a>
-            <a href="#social">Follow Us</a>
-        </nav>
+    <div class="card" id="social">
+        </div>
+    </div><div class="accordion-item ">
+        <div class="accordion-header" onclick="toggleAccordion(this.parentElement)">
+            <span class="accordion-title">📱 Follow Us & Community</span>
+            <span class="accordion-arrow">▶</span>
+        </div>
+        <div class="accordion-body">
+        <p>Stay updated with the latest Forza Horizon 6 guides, news, and community content from savebook.net across social media.</p>
+
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:16px; margin-top:20px;">
+            <a href="#" style="display:flex; align-items:center; gap:12px; padding:16px; background:#f5f5f5; border-radius:12px; text-decoration:none; transition:all 0.2s;" onmouseover="this.style.background='#e8f5e9'" onmouseout="this.style.background='#f5f5f5'">
+                <span style="font-size:28px;">𝕏</span>
+                <div>
+                    <strong style="color:#333;">X / Twitter</strong>
+                    <p style="color:#888; font-size:13px; margin:4px 0 0;">@savebooknet</p>
+                </div>
+            </a>
+            <a href="#" style="display:flex; align-items:center; gap:12px; padding:16px; background:#f5f5f5; border-radius:12px; text-decoration:none; transition:all 0.2s;" onmouseover="this.style.background='#e8f5e9'" onmouseout="this.style.background='#f5f5f5'">
+                <span style="font-size:28px;">📺</span>
+                <div>
+                    <strong style="color:#333;">YouTube</strong>
+                    <p style="color:#888; font-size:13px; margin:4px 0 0;">savebook FH6 Guides</p>
+                </div>
+            </a>
+            <a href="#" style="display:flex; align-items:center; gap:12px; padding:16px; background:#f5f5f5; border-radius:12px; text-decoration:none; transition:all 0.2s;" onmouseover="this.style.background='#e8f5e9'" onmouseout="this.style.background='#f5f5f5'">
+                <span style="font-size:28px;">💬</span>
+                <div>
+                    <strong style="color:#333;">Discord</strong>
+                    <p style="color:#888; font-size:13px; margin:4px 0 0;">savebook Community</p>
+                </div>
+            </a>
+            <a href="#" style="display:flex; align-items:center; gap:12px; padding:16px; background:#f5f5f5; border-radius:12px; text-decoration:none; transition:all 0.2s;" onmouseover="this.style.background='#e8f5e9'" onmouseout="this.style.background='#f5f5f5'">
+                <span style="font-size:28px;">📷</span>
+                <div>
+                    <strong style="color:#333;">Instagram</strong>
+                    <p style="color:#888; font-size:13px; margin:4px 0 0;">@savebooknet</p>
+                </div>
+            </a>
+        </div>
+
+        <p style="margin-top:20px; font-size:13px; color:#888;">We also have a <strong>Forza Horizon 6 Discord server</strong> with over 5,000 members. Join to share tunes, discuss strategies, and report bugs directly. Invite link available on request via the contact form above.</p>
     </div>
 
-    <div class="card" id="faq">
-        <h2>❓ Frequently Asked Questions</h2>
+    <img src="../images/game-systems/hero.jpg" alt="" class="page-img" style="border-radius:12px; margin-bottom:32px;">
+
+    <div class="card">
+        </div>
+    </div><div class="accordion-item ">
+        <div class="accordion-header" onclick="toggleAccordion(this.parentElement)">
+            <span class="accordion-title">📬 Contact Form</span>
+            <span class="accordion-arrow">▶</span>
+        </div>
+        <div class="accordion-body">
+        <p>Have a question not covered in the FAQ? Want to report incorrect information? Have a suggestion for new guide content? Fill out the form below and we'll get back to you within 48 hours.</p>
+
+        <form class="contact-form" onsubmit="return handleContactSubmit(event)">
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="contact-name">Your Name *</label>
+                    <input type="text" id="contact-name" name="name" placeholder="John" required style="width:100%; padding:12px; border:2px solid #a5d6a7; border-radius:8px; font-size:15px; background:#fafafa;">
+                </div>
+                <div class="form-group">
+                    <label for="contact-email">Email Address *</label>
+                    <input type="email" id="contact-email" name="email" placeholder="john@example.com" required style="width:100%; padding:12px; border:2px solid #a5d6a7; border-radius:8px; font-size:15px; background:#fafafa;">
+                </div>
+            </div>
+
+            <div class="form-group" style="margin-top:16px;">
+                <label for="contact-subject">Subject *</label>
+                <select id="contact-subject" name="subject" required style="width:100%; padding:12px; border:2px solid #a5d6a7; border-radius:8px; font-size:15px; background:#fafafa;">
+                    <option value="">Select a topic...</option>
+                    <option value="guide-correction">Guide Correction / Inaccuracy</option>
+                    <option value="new-content">Request New Guide Content</option>
+                    <option value="bug-report">Website Bug Report</option>
+                    <option value="advertising">Advertising / Partnership</option>
+                    <option value="general">General Question</option>
+                    <option value="feedback">Site Feedback</option>
+                </select>
+            </div>
+
+            <div class="form-group" style="margin-top:16px;">
+                <label for="contact-message">Message *</label>
+                <textarea id="contact-message" name="message" rows="6" placeholder="Please describe your question or feedback in detail..." required style="width:100%; padding:12px; border:2px solid #a5d6a7; border-radius:8px; font-size:15px; background:#fafafa; resize:vertical; min-height:120px;"></textarea>
+            </div>
+
+            <button type="submit" style="margin-top:20px; padding:14px 40px; background:linear-gradient(135deg, #4caf50, #388e3c); color:#fff; border:none; border-radius:10px; font-size:16px; font-weight:700; cursor:pointer; transition:all 0.3s;" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 20px rgba(76,175,80,0.4)'" onmouseout="this.style.transform=''; this.style.boxShadow=''">📤 Send Message</button>
+        </form>
+
+        <div id="contact-success" style="display:none; margin-top:20px; padding:16px; background:#e8f5e9; border-radius:10px; border:2px solid #4caf50; text-align:center;">
+            <h3 style="color:#2e7d32; margin-bottom:8px;">✅ Message Sent!</h3>
+            <p style="color:#558b2f;">Thank you for your message. We typically respond within 24-48 hours.</p>
+        </div>
+    </div>
+
+    <div class="card" id="troubleshoot">
+        </div>
+    </div><div class="accordion-item ">
+        <div class="accordion-header" onclick="toggleAccordion(this.parentElement)">
+            <span class="accordion-title">❓ Frequently Asked Questions</span>
+            <span class="accordion-arrow">▶</span>
+        </div>
+        <div class="accordion-body">
         <p>Find answers to the most common Forza Horizon 6 questions below. If you can't find what you're looking for, use the contact form at the bottom of this page.</p>
 
         <h3>🎮 Gameplay & Mechanics</h3>
@@ -145,135 +288,6 @@
     </div>
 
     <div class="card" id="contact">
-        <h2>📬 Contact Form</h2>
-        <p>Have a question not covered in the FAQ? Want to report incorrect information? Have a suggestion for new guide content? Fill out the form below and we'll get back to you within 48 hours.</p>
-
-        <form class="contact-form" onsubmit="return handleContactSubmit(event)">
-            <div class="form-row">
-                <div class="form-group">
-                    <label for="contact-name">Your Name *</label>
-                    <input type="text" id="contact-name" name="name" placeholder="John" required style="width:100%; padding:12px; border:2px solid #a5d6a7; border-radius:8px; font-size:15px; background:#fafafa;">
-                </div>
-                <div class="form-group">
-                    <label for="contact-email">Email Address *</label>
-                    <input type="email" id="contact-email" name="email" placeholder="john@example.com" required style="width:100%; padding:12px; border:2px solid #a5d6a7; border-radius:8px; font-size:15px; background:#fafafa;">
-                </div>
-            </div>
-
-            <div class="form-group" style="margin-top:16px;">
-                <label for="contact-subject">Subject *</label>
-                <select id="contact-subject" name="subject" required style="width:100%; padding:12px; border:2px solid #a5d6a7; border-radius:8px; font-size:15px; background:#fafafa;">
-                    <option value="">Select a topic...</option>
-                    <option value="guide-correction">Guide Correction / Inaccuracy</option>
-                    <option value="new-content">Request New Guide Content</option>
-                    <option value="bug-report">Website Bug Report</option>
-                    <option value="advertising">Advertising / Partnership</option>
-                    <option value="general">General Question</option>
-                    <option value="feedback">Site Feedback</option>
-                </select>
-            </div>
-
-            <div class="form-group" style="margin-top:16px;">
-                <label for="contact-message">Message *</label>
-                <textarea id="contact-message" name="message" rows="6" placeholder="Please describe your question or feedback in detail..." required style="width:100%; padding:12px; border:2px solid #a5d6a7; border-radius:8px; font-size:15px; background:#fafafa; resize:vertical; min-height:120px;"></textarea>
-            </div>
-
-            <button type="submit" style="margin-top:20px; padding:14px 40px; background:linear-gradient(135deg, #4caf50, #388e3c); color:#fff; border:none; border-radius:10px; font-size:16px; font-weight:700; cursor:pointer; transition:all 0.3s;" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 20px rgba(76,175,80,0.4)'" onmouseout="this.style.transform=''; this.style.boxShadow=''">📤 Send Message</button>
-        </form>
-
-        <div id="contact-success" style="display:none; margin-top:20px; padding:16px; background:#e8f5e9; border-radius:10px; border:2px solid #4caf50; text-align:center;">
-            <h3 style="color:#2e7d32; margin-bottom:8px;">✅ Message Sent!</h3>
-            <p style="color:#558b2f;">Thank you for your message. We typically respond within 24-48 hours.</p>
         </div>
-    </div>
-
-    <div class="card" id="troubleshoot">
-        <h2>🔧 Quick Troubleshooting Table</h2>
-        <p>Common problems and their most likely solutions. For detailed guides, visit our dedicated troubleshooting pages.</p>
-
-        <table class="calc-table">
-            <thead>
-                <tr><th>Problem</th><th>Most Likely Cause</th><th>Quick Fix</th></tr>
-            </thead>
-            <tbody>
-                <tr><td>🚗 Car won't accelerate</td><td>Traction control on full</td><td>Press LB twice to reduce TC to 0</td></tr>
-                <tr><td>🎮 Controller not responding</td><td>Low battery / disconnected</td><td>Replace batteries / reconnect USB</td></tr>
-                <tr><td>🔇 No sound</td><td>HDMI audio not selected</td><td>Check Windows sound output device</td></tr>
-                <tr><td>📉 Low FPS on PC</td><td>GPU shader cache full</td><td>Delete shader cache in FH6 settings</td></tr>
-                <tr><td>🌐 Online disconnecting</td><td>NAT type Strict</td><td>Enable UPnP on router / use Open NAT</td></tr>
-                <tr><td>💾 Save not syncing</td><td>Microsoft account mismatch</td><td>Verify same account on Xbox and PC</td></tr>
-                <tr><td>❌ Can't find Barn Find</td><td>Unlock condition not met</td><td>Check collectibles guide for unlock requirement</td></tr>
-                <tr><td>📷 Photo mode disabled</td><td>During active event</td><td>Exit event / return to free roam</td></tr>
-                <tr><td>🏁 Wrong car in race</td><td>Event class restriction</td><td>Check required PI class in event info</td></tr>
-                <tr><td>🛞 Tire blowout</td><td>Damage from collision</td><td>Drive carefully / reduce aggression</td></tr>
-                <tr><td>❄️ Snow car sliding uncontrollably</td><td>Using summer tires</td><td>Buy snow/winter tires from HorizonAutoshop</td></tr>
-                <tr><td>💰 Credits missing after race</td><td>Credit bonus still pending</td><td>Wait 30 seconds / check skill combo multiplier</td></tr>
-                <tr><td>🎵 No music in game</td><td>Audio output set to TV</td><td>Change audio to headset/speakers in Settings</td></tr>
-                <tr><td>🏆 Achievement not unlocking</td><tdtd>Progress requirement not met</td><td>Double-check requirements / relog game</td></tr>
-                <tr><td>📍 Fast Travel unavailable</td><tdtd>Insufficient credits</td><td>Collect nearby Fast Travel boards to reduce cost</td></tr>
-            </tbody>
-        </table>
-    </div>
-
-    <div class="card" id="social">
-        <h2>📱 Follow Us & Community</h2>
-        <p>Stay updated with the latest Forza Horizon 6 guides, news, and community content from savebook.net across social media.</p>
-
-        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:16px; margin-top:20px;">
-            <a href="#" style="display:flex; align-items:center; gap:12px; padding:16px; background:#f5f5f5; border-radius:12px; text-decoration:none; transition:all 0.2s;" onmouseover="this.style.background='#e8f5e9'" onmouseout="this.style.background='#f5f5f5'">
-                <span style="font-size:28px;">𝕏</span>
-                <div>
-                    <strong style="color:#333;">X / Twitter</strong>
-                    <p style="color:#888; font-size:13px; margin:4px 0 0;">@savebooknet</p>
-                </div>
-            </a>
-            <a href="#" style="display:flex; align-items:center; gap:12px; padding:16px; background:#f5f5f5; border-radius:12px; text-decoration:none; transition:all 0.2s;" onmouseover="this.style.background='#e8f5e9'" onmouseout="this.style.background='#f5f5f5'">
-                <span style="font-size:28px;">📺</span>
-                <div>
-                    <strong style="color:#333;">YouTube</strong>
-                    <p style="color:#888; font-size:13px; margin:4px 0 0;">savebook FH6 Guides</p>
-                </div>
-            </a>
-            <a href="#" style="display:flex; align-items:center; gap:12px; padding:16px; background:#f5f5f5; border-radius:12px; text-decoration:none; transition:all 0.2s;" onmouseover="this.style.background='#e8f5e9'" onmouseout="this.style.background='#f5f5f5'">
-                <span style="font-size:28px;">💬</span>
-                <div>
-                    <strong style="color:#333;">Discord</strong>
-                    <p style="color:#888; font-size:13px; margin:4px 0 0;">savebook Community</p>
-                </div>
-            </a>
-            <a href="#" style="display:flex; align-items:center; gap:12px; padding:16px; background:#f5f5f5; border-radius:12px; text-decoration:none; transition:all 0.2s;" onmouseover="this.style.background='#e8f5e9'" onmouseout="this.style.background='#f5f5f5'">
-                <span style="font-size:28px;">📷</span>
-                <div>
-                    <strong style="color:#333;">Instagram</strong>
-                    <p style="color:#888; font-size:13px; margin:4px 0 0;">@savebooknet</p>
-                </div>
-            </a>
-        </div>
-
-        <p style="margin-top:20px; font-size:13px; color:#888;">We also have a <strong>Forza Horizon 6 Discord server</strong> with over 5,000 members. Join to share tunes, discuss strategies, and report bugs directly. Invite link available on request via the contact form above.</p>
-    </div>
-
-    <img src="../images/game-systems/hero.jpg" alt="" class="page-img" style="border-radius:12px; margin-bottom:32px;">
-
-    <div class="card">
-        <h2>Related Guides</h2>
-        <p><a href="newbie.html">Beginner Guide</a> | <a href="tuning.html">Tuning Guide</a> | <a href="collect.html">Collectibles</a></p>
-    </div>
-</div>
-
-<footer>
-    <p>© 2026 savebook.net | Forza Horizon 6 All Original Guides</p>
-    <p><a href="../privacy.html">Privacy Policy</a> | <a href="../about.html">About Us</a></p>
-</footer>
-<script>
-function handleContactSubmit(e) {
-    e.preventDefault();
-    document.querySelector('.contact-form').style.display = 'none';
-    document.getElementById('contact-success').style.display = 'block';
-    return false;
-}
-</script>
-<script src="../js/header.js"></script>
-<script src="../js/main.js"></script>
-</body>
-</html>
+    </div></div>
+</body></html>
