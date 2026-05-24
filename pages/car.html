@@ -15,9 +15,8 @@
 <header>
     <div class="nav-container">
         <a href="../index.html" class="logo">
-            <img src="../logo.svg" alt="savebook.net - Forza Horizon 6 Guides" >
+            <img src="../logo.svg" alt="savebook.net - Forza Horizon 6 Guides">
         </a>
-        <!-- 导航由 js/header.js 动态生成 -->
     </div>
 </header>
 
@@ -27,17 +26,58 @@
         <p>Full Vehicle Stats, Unlock Methods & Best Cars For Every Game Mode</p>
     </div>
 
-
     <div class="card">
-        <h2>FH6 Car Library Overview</h2>
-        <img class="page-img" src="../images/all_cars.png" alt="Forza Horizon 6 full car collection gallery">
-        <p class="img-caption">Complete vehicle lineup of Forza Horizon 6, including street cars, drift cars, supercars and off-road vehicles</p>
-        <p>Forza Horizon 6 features a massive collection of licensed vehicles from major global manufacturers, covering street cars, drift-specific models, off-road trucks, supercars and classic vintage cars. Every vehicle has unique performance stats suitable for different tracks and game modes.</p>
+        <h2>🔍 Car Search & Filter</h2>
+        <div class="car-filter">
+            <input type="text" id="car-search" placeholder="Search cars by name..." oninput="filterCars()">
+            <select id="car-category" onchange="filterCars()">
+                <option value="">All Categories</option>
+                <option value="street">🏁 Street Racing</option>
+                <option value="drift">🏎️ Drift</option>
+                <option value="offroad">🗻 Off-Road</option>
+                <option value="hypercar">🚗 Hypercar</option>
+                <option value="rally">� Rally</option>
+                <option value="classic">🚙 Classic / Barn Find</option>
+            </select>
+            <select id="car-drive" onchange="filterCars()">
+                <option value="">All Drive Types</option>
+                <option value="RWD">RWD</option>
+                <option value="AWD">AWD</option>
+                <option value="FWD">FWD</option>
+            </select>
+            <select id="car-sort" onchange="sortCars()">
+                <option value="name">Sort: Name A-Z</option>
+                <option value="name-desc">Sort: Name Z-A</option>
+                <option value="hp">Sort: HP High→Low</option>
+                <option value="hp-asc">Sort: HP Low→High</option>
+            </select>
+        </div>
+        <p class="car-count" id="car-count">Showing all cars</p>
+    </div>
+
+    <!-- Car Table -->
+    <div class="card">
+        <h2>🚗 Full Car Database</h2>
+        <div class="table-wrapper">
+            <table class="car-table" id="car-table">
+                <thead>
+                    <tr>
+                        <th>Car Name</th>
+                        <th>Category</th>
+                        <th>Drive</th>
+                        <th>HP Range</th>
+                        <th>Best For</th>
+                        <th>Tier</th>
+                    </tr>
+                </thead>
+                <tbody id="car-tbody"></tbody>
+            </table>
+        </div>
     </div>
 
     <div class="card">
         <h2>All Hidden Barn Finds Full Location Guide</h2>
-        <p>Barn Finds are special hidden classic cars scattered across the Japan map. These rare vehicles cannot be purchased directly and must be discovered through exploration. Here are all barn find locations:</p>
+        <p>Barn Finds are special hidden classic cars scattered across the Japan map. These rare vehicles cannot be purchased directly and must be discovered through exploration:</p>
         <ul>
             <li><strong>Mt. Fuji Base Barn Find</strong>: Hidden in forest area near mountain base, unlocks 1970s classic JDM sports car</li>
             <li><strong>Tokyo Bay Warehouse</strong>: Located in industrial port district, contains rare imported muscle car</li>
@@ -55,37 +95,23 @@
             <li><strong>Toyota Supra GR</strong>: Balanced power and handling for technical urban tracks</li>
             <li><strong>Mazda RX-7 Spirit R</strong>: Lightweight rotary engine perfect for tight corner sequences</li>
         </ul>
-
         <h3>Best Drift Cars</h3>
         <ul>
             <li><strong>Nissan Silvia S15</strong>: Classic drift platform with excellent angle control</li>
             <li><strong>Toyota AE86 Trueno</strong>: Legendary Initial D car for mountain touge drifting</li>
             <li><strong>Mazda RX-8</strong>: Modern rotary drift car with balanced chassis</li>
         </ul>
-
         <h3>Best Off-Road Vehicles</h3>
         <ul>
             <li><strong>Ford F-150 Raptor</strong>: Dominant desert truck for rough terrain races</li>
             <li><strong>Subaru WRX STI Rally Car</strong>: Professional rally specification for mixed surfaces</li>
             <li><strong>Mitsubishi Lancer Evolution X</strong>: Versatile AWD rally car for all conditions</li>
         </ul>
-
         <h3>Best Hypercars</h3>
         <ul>
             <li><strong>Bugatti Chiron</strong>: Highest top speed for highway speed trap events</li>
             <li><strong>Koenigsegg Jesko</strong>: Extreme aerodynamics for high-speed circuit racing</li>
             <li><strong>Pagani Huayra BC</strong>: Active aerodynamics provide superior cornering grip</li>
-        </ul>
-    </div>
-
-    <div class="card">
-        <h2>Rare Limited Edition Cars</h2>
-        <p>Certain exclusive vehicles can only be obtained through special methods:</p>
-        <ul>
-            <li><strong>Premium Edition Bonus Cars</strong>: Available only to Premium edition purchasers</li>
-            <li><strong>Seasonal Championship Rewards</strong>: Earned by completing limited-time tournament series</li>
-            <li><strong>Hidden Achievement Unlocks</strong>: Secret cars unlocked by completing specific challenges</li>
-            <li><strong>DLC Expansion Vehicles</strong>: Additional cars from paid downloadable content packs</li>
         </ul>
     </div>
 
@@ -101,7 +127,6 @@
         </ul>
     </div>
 
-
     <div class="card">
         <h2>Related Guides</h2>
         <p><a href="tuning.html">Professional Car Tuning Setups</a> | <a href="track.html">Best Cars For Each Track Type</a> | <a href="collect.html">Barn Find Locations Map</a></p>
@@ -110,8 +135,114 @@
 
 <footer>
     <p>© 2026 savebook.net | Forza Horizon 6 All Original Guides</p>
-    <p><a href="/privacy.html">Privacy Policy</a> | <a href="/about.html">About Us</a></p>
+    <p><a href="../privacy.html">Privacy Policy</a> | <a href="../about.html">About Us</a></p>
 </footer>
+
+<style>
+.car-filter { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 12px; }
+.car-filter input[type="text"] { flex: 2; min-width: 180px; padding: 10px 12px; border-radius: 8px; border: 1px solid #333; background: #162447; color: #fff; font-size: 14px; }
+.car-filter select { flex: 1; min-width: 140px; padding: 10px 12px; border-radius: 8px; border: 1px solid #333; background: #162447; color: #fff; font-size: 14px; cursor: pointer; }
+.car-filter input:focus, .car-filter select:focus { border-color: #ff6b35; outline: none; }
+.car-count { font-size: 13px; color: #888; margin-bottom: 12px; }
+.table-wrapper { overflow-x: auto; border-radius: 8px; }
+.car-table { width: 100%; border-collapse: collapse; min-width: 600px; }
+.car-table th { background: #0d1b2a; color: #ff6b35; padding: 12px 10px; text-align: left; font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px; white-space: nowrap; }
+.car-table td { padding: 10px 10px; border-bottom: 1px solid #1e3a5f; font-size: 14px; }
+.car-table tbody tr:hover td { background: #162447; }
+.tier-S { color: #ffd700; font-weight: 700; }
+.tier-A { color: #c0c0c0; font-weight: 600; }
+.tier-B { color: #cd7f32; }
+.tier-C { color: #888; }
+</style>
+
+<script>
+var allCars = [
+    {name:"Nissan GT-R Nismo",category:"street",drive:"AWD",hp:"600-720",bestFor:"Tokyo Street Racing",tier:"S"},
+    {name:"Toyota Supra GR",category:"street",drive:"RWD",hp:"382-510",bestFor:"Technical Urban Tracks",tier:"A"},
+    {name:"Mazda RX-7 Spirit R",category:"street",drive:"RWD",hp:"280-370",bestFor:"Tight Corner Sequences",tier:"A"},
+    {name:"Honda NSX Type R",category:"street",drive:"AWD",hp:"500-600",bestFor:"Circuit Time Trials",tier:"S"},
+    {name:"BMW M4 Competition",category:"street",drive:"RWD",hp:"450-540",bestFor:"Street Circuit",tier:"A"},
+    {name:"Porsche 911 GT3 RS",category:"hypercar",drive:"RWD",hp:"518-560",bestFor:"Time Trial / Track Days",tier:"S"},
+    {name:"Ferrari 296 GTB",category:"hypercar",drive:"RWD",hp:"830-850",bestFor:"High Speed Circuit",tier:"S"},
+    {name:"Lamborghini Revuelto",category:"hypercar",drive:"AWD",hp:"1015+",bestFor:"Speed Trap Events",tier:"S"},
+    {name:"Bugatti Chiron",category:"hypercar",drive:"AWD",hp:"1479-1600",bestFor:"Top Speed Runs",tier:"S"},
+    {name:"Koenigsegg Jesko",category:"hypercar",drive:"RWD",hp:"1280-1600",bestFor:"High-Speed Circuit",tier:"S"},
+    {name:"Nissan Silvia S15",category:"drift",drive:"RWD",hp:"350-500",bestFor:"Mountain Touge Drift",tier:"A"},
+    {name:"Toyota AE86 Sprinter Trueno",category:"drift",drive:"RWD",hp:"150-300",bestFor:"Technical Touge Drift",tier:"A"},
+    {name:"Mazda RX-8",category:"drift",drive:"RWD",hp:"400-600",bestFor:"Continuous Angle Drift",tier:"A"},
+    {name:"Nissan 370Z",category:"drift",drive:"RWD",hp:"350-500",bestFor:"Beginner Drift",tier:"A"},
+    {name:"Mazda RX-7 FD",category:"drift",drive:"RWD",hp:"380-550",bestFor:"High-Angle Drift",tier:"A"},
+    {name:"Ford F-150 Raptor",category:"offroad",drive:"AWD",hp:"450-700",bestFor:"Desert Rough Terrain",tier:"A"},
+    {name:"Subaru WRX STI Rally Car",category:"offroad",drive:"AWD",hp:"550-650",bestFor:"Rally Mixed Surfaces",tier:"A"},
+    {name:"Mitsubishi Lancer Evo X",category:"rally",drive:"AWD",hp:"400-550",bestFor:"All-Weather Rally",tier:"A"},
+    {name:"Toyota GR Yaris",category:"rally",drive:"AWD",hp:"260-350",bestFor:"Compact Rally King",tier:"A"},
+    {name:"Ford Mustang GT",category:"classic",drive:"RWD",hp:"450-760",bestFor:"Drag & Street",tier:"B"},
+    {name:"Chevrolet Camaro ZL1",category:"classic",drive:"RWD",hp:"650-800",bestFor:"Muscle Car Racing",tier:"B"},
+    {name:"Dodge Challenger Demon",category:"classic",drive:"RWD",hp:"840-1000",bestFor:"Drag Racing",tier:"A"},
+    {name:"Pagani Huayra BC",category:"hypercar",drive:"RWD",hp:"789-900",bestFor:"Cornering Grip",tier:"S"},
+    {name:"Honda Civic Type R",category:"street",drive:"FWD",hp:"315-400",bestFor:"Hot Hatch City",tier:"A"},
+    {name:"Alfa Romeo Giulia GTA",category:"street",drive:"RWD",hp:"510-540",bestFor:"Track Day",tier:"A"},
+    {name:"Toyota Land Cruiser Arctic",category:"offroad",drive:"AWD",hp:"380-450",bestFor:"Snow / Extreme Off-road",tier:"B"},
+    {name:"Nissan Skyline GT-R R34",category:"classic",drive:"AWD",hp:"500-650",bestFor:"JDM Legend / Race",tier:"S"},
+    {name:"Mitsubishi Lancer Evo VII",category:"rally",drive:"AWD",hp:"350-480",bestFor:"Classic Rally",tier:"B"},
+    {name:"Audi Quattro S1",category:"rally",drive:"AWD",hp:"450-550",bestFor:"Group B Rally Legend",tier:"A"},
+    {name:"McLaren 765LT",category:"hypercar",drive:"RWD",hp:"765-800",bestFor:"Track Performance",tier:"S"}
+];
+
+var filtered = allCars.slice();
+var currentSort = 'name';
+
+function filterCars() {
+    var search = document.getElementById('car-search').value.toLowerCase();
+    var cat = document.getElementById('car-category').value;
+    var drive = document.getElementById('car-drive').value;
+    filtered = allCars.filter(function(c) {
+        return (!search || c.name.toLowerCase().includes(search) || c.bestFor.toLowerCase().includes(search))
+            && (!cat || c.category === cat)
+            && (!drive || c.drive === drive);
+    });
+    sortCars();
+    document.getElementById('car-count').textContent = 'Showing ' + filtered.length + ' of ' + allCars.length + ' cars';
+}
+
+function sortCars() {
+    var sortType = document.getElementById('car-sort').value;
+    if (sortType === 'name') {
+        filtered.sort(function(a,b){ return a.name.localeCompare(b.name); });
+    } else if (sortType === 'name-desc') {
+        filtered.sort(function(a,b){ return b.name.localeCompare(a.name); });
+    } else if (sortType === 'hp') {
+        filtered.sort(function(a,b){ return parseInt(b.hp) - parseInt(a.hp); });
+    } else if (sortType === 'hp-asc') {
+        filtered.sort(function(a,b){ return parseInt(a.hp) - parseInt(b.hp); });
+    }
+    renderCars();
+}
+
+function renderCars() {
+    var tbody = document.getElementById('car-tbody');
+    tbody.innerHTML = '';
+    for (var i = 0; i < filtered.length; i++) {
+        var c = filtered[i];
+        var tr = document.createElement('tr');
+        var tierClass = 'tier-' + c.tier;
+        var catLabel = {
+            street:'🏁 Street',drift:'🏎️ Drift',offroad:'🗻 Off-Road',
+            hypercar:'🚗 Hypercar',rally:'� Rally',classic:'🚙 Classic'
+        }[c.category] || c.category;
+        tr.innerHTML = 
+            '<td><strong>' + c.name + '</strong></td>' +
+            '<td>' + catLabel + '</td>' +
+            '<td>' + c.drive + '</td>' +
+            '<td>' + c.hp + ' hp</td>' +
+            '<td>' + c.bestFor + '</td>' +
+            '<td class="' + tierClass + '">Tier ' + c.tier + '</td>';
+        tbody.appendChild(tr);
+    }
+}
+
+sortCars();
+</script>
 <script src="../js/header.js"></script>
 <script src="../js/main.js"></script>
 </body>

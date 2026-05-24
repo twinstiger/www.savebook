@@ -1,0 +1,16 @@
+{
+  "name": "www.savebook",
+  "version": "1.0.0",
+  "description": "Forza Horizon 6 Complete Guides - savebook.net",
+  "private": true,
+  "scripts": {
+    "dev": "python3 -m http.server 8080",
+    "build": "echo 'Static site - no build step required'"
+  },
+  "repository": {
+    "url": "git+https://github.com/yourusername/www.savebook.git"
+  },
+  "keywords": ["forza-horizon", "fh6", "gaming-guides", "tuning"],
+  "author": "",
+  "license": "MIT"
+}

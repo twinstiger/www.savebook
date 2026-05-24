@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FH6 Car Tuning Guide - Best Drift & Race Setups For All Cars | savebook.net</title>
     <meta name="keywords" content="FH6 car tuning, Forza Horizon 6 drift setup, FH6 race tuning, best FH6 car tunes">
-    <meta name="description" content="Professional Forza Horizon 6 car tuning guide with tested drift, street race and off-road setups for all common FH6 vehicles, perfect for beginners and pro players. ">
+    <meta name="description" content="Professional Forza Horizon 6 car tuning guide with tested drift, street race and off-road setups for all common FH6 vehicles, perfect for beginners and pro players.">
     <link rel="canonical" href="https://savebook.net/pages/tuning.html">
     <link rel="stylesheet" href="../css/style.css">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9420599375364457"
@@ -15,9 +15,8 @@
 <header>
     <div class="nav-container">
         <a href="../index.html" class="logo">
-            <img src="../logo.svg" alt="savebook.net - Forza Horizon 6 Guides" >
+            <img src="../logo.svg" alt="savebook.net - Forza Horizon 6 Guides">
         </a>
-        <!-- 导航由 js/header.js 动态生成 -->
     </div>
 </header>
 
@@ -27,19 +26,18 @@
         <p>Tested Drift, Street Race & Off-Road Tuning Setups for All Meta Cars</p>
     </div>
 
-    <!-- 目录导航 -->
     <div class="toc">
         <h3>Quick Nav</h3>
         <nav class="toc-nav">
             <a href="#intro">Tuning Intro</a>
             <a href="#basics">Basic Parameters</a>
+            <a href="#calculator">Tuning Calculator</a>
             <a href="#drift">Drift Tuning</a>
             <a href="#street">Street Racing</a>
             <a href="#offroad">Off-Road/Snow</a>
             <a href="#meta">Top Cars</a>
         </nav>
     </div>
-
 
     <div class="card" id="intro">
         <h2>FH6 Tuning System Introduction</h2>
@@ -87,6 +85,89 @@
         </ul>
     </div>
 
+    <!-- ============ TUNING CALCULATOR ============ -->
+    <div class="card" id="calculator">
+        <h2>🔧 FH6 Tuning Calculator</h2>
+        <p>Select your driving style and conditions to get a recommended tuning setup instantly.</p>
+
+        <div class="calc-form">
+            <div class="calc-row">
+                <div class="calc-group">
+                    <label for="calc-type">Driving Style</label>
+                    <select id="calc-type">
+                        <option value="drift">🏎️ Drift / Touge</option>
+                        <option value="street">🏁 Street Racing</option>
+                        <option value="offroad">🗻 Off-Road / Rally</option>
+                        <option value="drag">⚡ Drag Racing</option>
+                    </select>
+                </div>
+                <div class="calc-group">
+                    <label for="calc-drive">Drive Type</label>
+                    <select id="calc-drive">
+                        <option value="rwd">RWD (Rear-Wheel Drive)</option>
+                        <option value="awd">AWD (All-Wheel Drive)</option>
+                        <option value="fwd">FWD (Front-Wheel Drive)</option>
+                    </select>
+                </div>
+            </div>
+            <div class="calc-row">
+                <div class="calc-group">
+                    <label for="calc-condition">Track Condition</label>
+                    <select id="calc-condition">
+                        <option value="dry">☀️ Dry / Clear</option>
+                        <option value="wet">🌧️ Wet / Rain</option>
+                        <option value="snow">❄️ Snow / Ice</option>
+                        <option value="dirt">🏜️ Dirt / Gravel</option>
+                    </select>
+                </div>
+                <div class="calc-group">
+                    <label for="calc-skill">Skill Level</label>
+                    <select id="calc-skill">
+                        <option value="beginner">🌱 Beginner</option>
+                        <option value="intermediate">⭐ Intermediate</option>
+                        <option value="advanced">🔥 Advanced / Pro</option>
+                    </select>
+                </div>
+            </div>
+            <div class="calc-row">
+                <div class="calc-group full">
+                    <label for="calc-car">Car Characteristic (Optional)</label>
+                    <select id="calc-car">
+                        <option value="balance">⚖️ Balanced / Daily Drive</option>
+                        <option value="power">🐎 High Power (500hp+)</option>
+                        <option value="light">🪶 Light Weight / Grip</option>
+                        <option value="heavy">🪨 Heavy / AWD Muscle</option>
+                    </select>
+                </div>
+            </div>
+            <button class="calc-btn" onclick="calculateTuning()">🎯 Calculate My Tuning</button>
+        </div>
+
+        <!-- Results -->
+        <div id="calc-results" style="display:none;">
+            <div class="ad-banner" style="margin: 20px 0;">
+                <ins class="adsbygoogle" data-ad-client="ca-pub-9420599375364457"
+                     data-ad-slot="YOUR_AD_SLOT_ID" data-ad-format="auto"
+                     data-full-width-responsive="true"></ins>
+            </div>
+            <h3 id="calc-result-title">Your Recommended Tuning Setup</h3>
+            <div id="calc-result-desc"></div>
+            <table class="calc-table" id="calc-table">
+                <thead>
+                    <tr>
+                        <th>Parameter</th>
+                        <th>Recommended Value</th>
+                        <th>Why It Matters</th>
+                    </tr>
+                </thead>
+                <tbody id="calc-tbody"></tbody>
+            </table>
+            <div style="margin-top:16px; font-size:13px; color:#aaa; text-align:center;">
+                ⚠️ These values are tested starting points. Fine-tune in-game based on actual feel.
+            </div>
+        </div>
+    </div>
+
     <div class="card" id="drift">
         <h2>Universal Beginner Drift Tuning Setup</h2>
         <p>This universal drift setup applies to most rear-wheel-drive and four-wheel-drive drift cars, suitable for mountain touge and drift event challenges:</p>
@@ -97,7 +178,7 @@
             <li><strong>Gear Ratio:</strong> Acceleration priority, top speed moderate</li>
             <li><strong>Suspension:</strong> Front soft / Rear stiff (anti-squat)</li>
             <li><strong>Camber:</strong> Front -2.5° / Rear -1.8°</li>
-            <li><strong>Anti-roll bar:</strong> Front stiff -> Rear soft for initiatiON</li>
+            <li><strong>Anti-roll bar:</strong> Front stiff -> Rear soft for initiation</li>
             <li><strong>Differential:</strong> Rear lock 80-90% for continuous drift</li>
         </ul>
 
@@ -110,12 +191,9 @@
         </ul>
     </div>
 
-    <!-- 广告位：文章中间 -->
     <div class="ad-banner">
-        <ins class="adsbygoogle"
-             data-ad-client="ca-pub-9420599375364457"
-             data-ad-slot="YOUR_AD_SLOT_ID"
-             data-ad-format="auto"
+        <ins class="adsbygoogle" data-ad-client="ca-pub-9420599375364457"
+             data-ad-slot="YOUR_AD_SLOT_ID" data-ad-format="auto"
              data-full-width-responsive="true"></ins>
     </div>
 
@@ -186,27 +264,335 @@
         </ul>
     </div>
 
-
     <div class="card">
         <h2>Related Guides</h2>
         <p><a href="track.html">Track Matching Tuning Skills</a> | <a href="car.html">Best Tuning Cars List</a> | <a href="newbie.html">Beginner Operation Settings</a></p>
     </div>
 </div>
 
-    <!-- 广告位：文章底部 -->
-    <div class="ad-banner">
-        <ins class="adsbygoogle"
-             data-ad-client="ca-pub-9420599375364457"
-             data-ad-slot="YOUR_AD_SLOT_ID"
-             data-ad-format="auto"
-             data-full-width-responsive="true"></ins>
-    </div>
-
 <footer>
     <p>© 2026 savebook.net | Forza Horizon 6 All Original Guides</p>
-    <p><a href="/privacy.html">Privacy Policy</a> | <a href="/about.html">About Us</a></p>
+    <p><a href="../privacy.html">Privacy Policy</a> | <a href="../about.html">About Us</a></p>
 </footer>
 <script src="../js/header.js"></script>
 <script src="../js/main.js"></script>
+<script>
+// ===== FH6 Tuning Calculator Logic =====
+var tuningDB = {
+    drift: {
+        rwd: {
+            dry: {
+                beginner: { tirePressure:"2.0-2.2 bar", gearRatio:"Short (accel focus)", suspensionFront:"Soft", suspensionRear:"Stiff", camberFront:"-2.5°", camberRear:"-1.8°", antirollFront:"Stiff", antirollRear:"Soft", brakeBias:"58% front", differential:"85% rear lock", rideHeight:"Low", finalDrive:"+10% shorter", notes:"Easy drift initiation, forgiving feel" },
+                intermediate: { tirePressure:"2.2-2.4 bar", gearRatio:"Balanced", suspensionFront:"Medium", suspensionRear:"Stiff", camberFront:"-3.0°", camberRear:"-2.0°", antirollFront:"Medium", antirollRear:"Soft", brakeBias:"55% front", differential:"80% rear lock", rideHeight:"Low", finalDrive:"+5% shorter", notes:"More aggressive angle, tighter feel" },
+                advanced: { tirePressure:"2.4-2.6 bar", gearRatio:"Long (top speed)", suspensionFront:"Stiff", suspensionRear:"Very Stiff", camberFront:"-3.5°", camberRear:"-2.5°", antirollFront:"Stiff", antirollRear:"Very Soft", brakeBias:"52% front", differential:"75% rear lock", rideHeight:"Ultra Low", finalDrive:"Stock", notes:"Max angle, snap-on feel, race-level control" }
+            },
+            wet: {
+                beginner: { tirePressure:"1.8-2.0 bar", gearRatio:"Short", suspensionFront:"Very Soft", suspensionRear:"Soft", camberFront:"-2.0°", camberRear:"-1.5°", antirollFront:"Soft", antirollRear:"Soft", brakeBias:"60% front", differential:"90% rear lock", rideHeight:"Standard", finalDrive:"+15% shorter", notes:"Maximum grip in wet conditions, slow it down" },
+                intermediate: { tirePressure:"2.0-2.2 bar", gearRatio:"Short", suspensionFront:"Soft", suspensionRear:"Medium", camberFront:"-2.5°", camberRear:"-1.8°", antirollFront:"Soft", antirollRear:"Medium", brakeBias:"58% front", differential:"85% rear lock", rideHeight:"Low", finalDrive:"+10% shorter", notes:"Balanced wet drift, moderate angle" },
+                advanced: { tirePressure:"2.2-2.4 bar", gearRatio:"Balanced", suspensionFront:"Medium", suspensionRear:"Stiff", camberFront:"-2.8°", camberRear:"-2.0°", antirollFront:"Medium", antirollRear:"Soft", brakeBias:"55% front", differential:"80% rear lock", rideHeight:"Low", finalDrive:"+5% shorter", notes:"Aggressive but controlled in rain" }
+            },
+            snow: {
+                beginner: { tirePressure:"1.6-1.8 bar", gearRatio:"Very Short", suspensionFront:"Very Soft", suspensionRear:"Soft", camberFront:"-1.5°", camberRear:"-1.0°", antirollFront:"Very Soft", antirollRear:"Very Soft", brakeBias:"65% front", differential:"95% rear lock", rideHeight:"Standard", finalDrive:"+20% shorter", notes:"Soft and forgiving, prioritize grip over angle" },
+                intermediate: { tirePressure:"1.8-2.0 bar", gearRatio:"Short", suspensionFront:"Soft", suspensionRear:"Medium", camberFront:"-2.0°", camberRear:"-1.5°", antirollFront:"Soft", antirollRear:"Soft", brakeBias:"60% front", differential:"90% rear lock", rideHeight:"Standard", finalDrive:"+15% shorter", notes:"Moderate angle with good snow traction" },
+                advanced: { tirePressure:"2.0-2.2 bar", gearRatio:"Short-medium", suspensionFront:"Medium", suspensionRear:"Medium", camberFront:"-2.5°", camberRear:"-1.8°", antirollFront:"Medium", antirollRear:"Soft", brakeBias:"58% front", differential:"85% rear lock", rideHeight:"Low", finalDrive:"+10% shorter", notes:"High-angle snow drifts, requires precision throttle" }
+            },
+            dirt: {
+                beginner: { tirePressure:"1.6-1.8 bar", gearRatio:"Short", suspensionFront:"Very Soft", suspensionRear:"Soft", camberFront:"-2.0°", camberRear:"-1.5°", antirollFront:"Soft", antirollRear:"Very Soft", brakeBias:"60% front", differential:"90% rear lock", rideHeight:"High", finalDrive:"+15% shorter", notes:"Soft suspension absorbs bumps, plenty of grip" },
+                intermediate: { tirePressure:"1.8-2.0 bar", gearRatio:"Short", suspensionFront:"Soft", suspensionRear:"Medium", camberFront:"-2.5°", camberRear:"-1.8°", antirollFront:"Medium", antirollRear:"Soft", brakeBias:"58% front", differential:"85% rear lock", rideHeight:"Standard", finalDrive:"+10% shorter", notes:"Balanced dirt drift, good dirt road feel" },
+                advanced: { tirePressure:"2.0-2.2 bar", gearRatio:"Balanced", suspensionFront:"Medium", suspensionRear:"Stiff", camberFront:"-2.8°", camberRear:"-2.0°", antirollFront:"Stiff", antirollRear:"Medium", brakeBias:"55% front", differential:"80% rear lock", rideHeight:"Low", finalDrive:"+5% shorter", notes:"Fast dirt drifts, aggressive line changes" }
+            }
+        },
+        awd: {
+            dry: {
+                beginner: { tirePressure:"2.0-2.2 bar", gearRatio:"Short", suspensionFront:"Soft", suspensionRear:"Medium", camberFront:"-2.0°", camberRear:"-1.5°", antirollFront:"Medium", antirollRear:"Soft", brakeBias:"55% front", differential:"65/35 split (front/rear)", rideHeight:"Low", finalDrive:"+10% shorter", notes:"AWD drift initiation is easier, less countersteer needed" },
+                intermediate: { tirePressure:"2.2-2.4 bar", gearRatio:"Balanced", suspensionFront:"Medium", suspensionRear:"Stiff", camberFront:"-2.5°", camberRear:"-1.8°", antirollFront:"Stiff", antirollRear:"Medium", brakeBias:"52% front", differential:"50/50 (symmetrical)", rideHeight:"Low", finalDrive:"+5% shorter", notes:"Balanced AWD grip, can hold longer drift angles" },
+                advanced: { tirePressure:"2.4-2.6 bar", gearRatio:"Long", suspensionFront:"Stiff", suspensionRear:"Very Stiff", camberFront:"-3.0°", camberRear:"-2.2°", antirollFront:"Very Stiff", antirollRear:"Stiff", brakeBias:"50% front", differential:"50/50 locked", rideHeight:"Ultra Low", finalDrive:"Stock", notes:"Maximum AWD grip, extreme sustained angle" }
+            },
+            wet: {
+                beginner: { tirePressure:"1.8-2.0 bar", gearRatio:"Short", suspensionFront:"Soft", suspensionRear:"Soft", camberFront:"-2.0°", camberRear:"-1.5°", antirollFront:"Soft", antirollRear:"Soft", brakeBias:"58% front", differential:"60/40 split", rideHeight:"Standard", finalDrive:"+15% shorter", notes:"More grip, less wheelspin in wet AWD" },
+                intermediate: { tirePressure:"2.0-2.2 bar", gearRatio:"Short-medium", suspensionFront:"Medium", suspensionRear:"Medium", camberFront:"-2.5°", camberRear:"-1.8°", antirollFront:"Medium", antirollRear:"Medium", brakeBias:"55% front", differential:"55/45 split", rideHeight:"Low", finalDrive:"+10% shorter", notes:"Controlled AWD slides in rain" },
+                advanced: { tirePressure:"2.2-2.4 bar", gearRatio:"Balanced", suspensionFront:"Stiff", suspensionRear:"Stiff", camberFront:"-2.8°", camberRear:"-2.0°", antirollFront:"Stiff", antirollRear:"Stiff", brakeBias:"52% front", differential:"50/50 locked", rideHeight:"Low", finalDrive:"+5% shorter", notes:"Fast wet AWD drifts, needs throttle control" }
+            },
+            snow: {
+                beginner: { tirePressure:"1.6-1.8 bar", gearRatio:"Very Short", suspensionFront:"Very Soft", suspensionRear:"Soft", camberFront:"-1.5°", camberRear:"-1.0°", antirollFront:"Soft", antirollRear:"Soft", brakeBias:"60% front", differential:"60/40 split", rideHeight:"Standard", finalDrive:"+20% shorter", notes:"AWD shines in snow, easy snow drifts" },
+                intermediate: { tirePressure:"1.8-2.0 bar", gearRatio:"Short", suspensionFront:"Soft", suspensionRear:"Medium", camberFront:"-2.0°", camberRear:"-1.5°", antirollFront:"Medium", antirollRear:"Medium", brakeBias:"58% front", differential:"55/45 split", rideHeight:"Low", finalDrive:"+15% shorter", notes:"Fast snow drifts with AWD traction" },
+                advanced: { tirePressure:"2.0-2.2 bar", gearRatio:"Short-medium", suspensionFront:"Medium", suspensionRear:"Stiff", camberFront:"-2.5°", camberRear:"-1.8°", antirollFront:"Stiff", antirollRear:"Medium", brakeBias:"55% front", differential:"50/50 locked", rideHeight:"Low", finalDrive:"+10% shorter", notes:"High-speed AWD snow drifts" }
+            },
+            dirt: {
+                beginner: { tirePressure:"1.6-1.8 bar", gearRatio:"Short", suspensionFront:"Very Soft", suspensionRear:"Soft", camberFront:"-2.0°", camberRear:"-1.5°", antirollFront:"Soft", antirollRear:"Very Soft", brakeBias:"58% front", differential:"60/40", rideHeight:"High", finalDrive:"+15% shorter", notes:"AWD handles dirt bumps well" },
+                intermediate: { tirePressure:"1.8-2.0 bar", gearRatio:"Short", suspensionFront:"Soft", suspensionRear:"Medium", camberFront:"-2.5°", camberRear:"-1.8°", antirollFront:"Medium", antirollRear:"Soft", brakeBias:"55% front", differential:"55/45", rideHeight:"Standard", finalDrive:"+10% shorter", notes:"Balanced dirt AWD slides" },
+                advanced: { tirePressure:"2.0-2.2 bar", gearRatio:"Balanced", suspensionFront:"Medium", suspensionRear:"Stiff", camberFront:"-2.8°", camberRear:"-2.0°", antirollFront:"Stiff", antirollRear:"Medium", brakeBias:"52% front", differential:"50/50 locked", rideHeight:"Low", finalDrive:"+5% shorter", notes:"Fast dirt AWD drifts with big angle" }
+            }
+        },
+        fwd: {
+            dry: {
+                beginner: { tirePressure:"2.0-2.2 bar", gearRatio:"Short", suspensionFront:"Soft", suspensionRear:"Medium", camberFront:"-2.5°", camberRear:"-1.5°", antirollFront:"Soft", antirollRear:"Soft", brakeBias:"60% front", differential:"85% front lock", rideHeight:"Low", finalDrive:"+10% shorter", notes:"FWD can drift with lift-off or handbrake" },
+                intermediate: { tirePressure:"2.2-2.4 bar", gearRatio:"Short-medium", suspensionFront:"Medium", suspensionRear:"Stiff", camberFront:"-3.0°", camberRear:"-1.8°", antirollFront:"Medium", antirollRear:"Medium", brakeBias:"58% front", differential:"90% front lock", rideHeight:"Low", finalDrive:"+5% shorter", notes:"Controlled FWD slides, relies on throttle" },
+                advanced: { tirePressure:"2.4-2.6 bar", gearRatio:"Balanced", suspensionFront:"Stiff", suspensionRear:"Very Stiff", camberFront:"-3.5°", camberRear:"-2.2°", antirollFront:"Stiff", antirollRear:"Stiff", brakeBias:"55% front", differential:"95% front lock", rideHeight:"Ultra Low", finalDrive:"Stock", notes:"Aggressive FWD angle, lift-off initiated" }
+            },
+            wet: {
+                beginner: { tirePressure:"1.8-2.0 bar", gearRatio:"Short", suspensionFront:"Soft", suspensionRear:"Soft", camberFront:"-2.0°", camberRear:"-1.5°", antirollFront:"Soft", antirollRear:"Soft", brakeBias:"62% front", differential:"90% front lock", rideHeight:"Standard", finalDrive:"+15% shorter", notes:"FWD needs more slip in wet, be gentle" },
+                intermediate: { tirePressure:"2.0-2.2 bar", gearRatio:"Short", suspensionFront:"Medium", suspensionRear:"Medium", camberFront:"-2.5°", camberRear:"-1.8°", antirollFront:"Medium", antirollRear:"Soft", brakeBias:"60% front", differential:"85% front lock", rideHeight:"Low", finalDrive:"+10% shorter", notes:"Moderate wet FWD slides" },
+                advanced: { tirePressure:"2.2-2.4 bar", gearRatio:"Balanced", suspensionFront:"Stiff", suspensionRear:"Stiff", camberFront:"-3.0°", camberRear:"-2.0°", antirollFront:"Stiff", antirollRear:"Medium", brakeBias:"58% front", differential:"90% front lock", rideHeight:"Low", finalDrive:"+5% shorter", notes:"Fast wet FWD, precision throttle control" }
+            },
+            snow: {
+                beginner: { tirePressure:"1.6-1.8 bar", gearRatio:"Very Short", suspensionFront:"Very Soft", suspensionRear:"Very Soft", camberFront:"-1.5°", camberRear:"-1.0°", antirollFront:"Very Soft", antirollRear:"Very Soft", brakeBias:"65% front", differential:"95% front lock", rideHeight:"Standard", finalDrive:"+20% shorter", notes:"FWD snow drifts are very forgiving" },
+                intermediate: { tirePressure:"1.8-2.0 bar", gearRatio:"Short", suspensionFront:"Soft", suspensionRear:"Medium", camberFront:"-2.0°", camberRear:"-1.5°", antirollFront:"Soft", antirollRear:"Soft", brakeBias:"62% front", differential:"90% front lock", rideHeight:"Standard", finalDrive:"+15% shorter", notes:"Good snow FWD grip and slides" },
+                advanced: { tirePressure:"2.0-2.2 bar", gearRatio:"Short-medium", suspensionFront:"Medium", suspensionRear:"Stiff", camberFront:"-2.5°", camberRear:"-1.8°", antirollFront:"Medium", antirollRear:"Medium", brakeBias:"60% front", differential:"85% front lock", rideHeight:"Low", finalDrive:"+10% shorter", notes:"Fast snow FWD, needs careful throttle" }
+            },
+            dirt: {
+                beginner: { tirePressure:"1.6-1.8 bar", gearRatio:"Short", suspensionFront:"Very Soft", suspensionRear:"Very Soft", camberFront:"-2.0°", camberRear:"-1.5°", antirollFront:"Soft", antirollRear:"Very Soft", brakeBias:"60% front", differential:"90% front lock", rideHeight:"High", finalDrive:"+15% shorter", notes:"Soft dirt FWD, plenty of slip" },
+                intermediate: { tirePressure:"1.8-2.0 bar", gearRatio:"Short", suspensionFront:"Soft", suspensionRear:"Medium", camberFront:"-2.5°", camberRear:"-1.8°", antirollFront:"Medium", antirollRear:"Soft", brakeBias:"58% front", differential:"85% front lock", rideHeight:"Standard", finalDrive:"+10% shorter", notes:"Balanced dirt FWD, good sliding" },
+                advanced: { tirePressure:"2.0-2.2 bar", gearRatio:"Balanced", suspensionFront:"Medium", suspensionRear:"Stiff", camberFront:"-2.8°", camberRear:"-2.0°", antirollFront:"Stiff", antirollRear:"Medium", brakeBias:"55% front", differential:"90% front lock", rideHeight:"Low", finalDrive:"+5% shorter", notes:"Fast dirt FWD drifts" }
+            }
+        }
+    },
+    street: {
+        rwd: {
+            dry: {
+                beginner: { tirePressure:"2.2-2.4 bar", gearRatio:"Balanced", suspensionFront:"Medium", suspensionRear:"Medium", camberFront:"-2.0°", camberRear:"-1.5°", antirollFront:"Medium", antirollRear:"Medium", brakeBias:"50% (neutral)", differential:"65% rear lock", rideHeight:"Low", finalDrive:"Stock", notes:"Balanced street setup, stable and predictable" },
+                intermediate: { tirePressure:"2.4-2.6 bar", gearRatio:"Slightly short", suspensionFront:"Stiff", suspensionRear:"Stiff", camberFront:"-2.5°", camberRear:"-1.8°", antirollFront:"Stiff", antirollRear:"Stiff", brakeBias:"52% front", differential:"60% rear lock", rideHeight:"Low", finalDrive:"-5% shorter", notes:"Faster cornering, maintains grip" },
+                advanced: { tirePressure:"2.6-2.8 bar", gearRatio:"Slightly long", suspensionFront:"Very Stiff", suspensionRear:"Very Stiff", camberFront:"-3.0°", camberRear:"-2.2°", antirollFront:"Very Stiff", antirollRear:"Very Stiff", brakeBias:"55% front", differential:"55% rear lock", rideHeight:"Ultra Low", finalDrive:"-10% shorter", notes:"Race-level grip, razor-sharp responses" }
+            },
+            wet: {
+                beginner: { tirePressure:"1.8-2.0 bar", gearRatio:"Short", suspensionFront:"Soft", suspensionRear:"Medium", camberFront:"-2.0°", camberRear:"-1.5°", antirollFront:"Soft", antirollRear:"Soft", brakeBias:"55% front", differential:"75% rear lock", rideHeight:"Standard", finalDrive:"+5% shorter", notes:"More grip in wet, safe street driving" },
+                intermediate: { tirePressure:"2.0-2.2 bar", gearRatio:"Balanced", suspensionFront:"Medium", suspensionRear:"Medium", camberFront:"-2.5°", camberRear:"-1.8°", antirollFront:"Medium", antirollRear:"Medium", brakeBias:"52% front", differential:"65% rear lock", rideHeight:"Low", finalDrive:"Stock", notes:"Balanced wet street, some sporty feel" },
+                advanced: { tirePressure:"2.2-2.4 bar", gearRatio:"Balanced", suspensionFront:"Stiff", suspensionRear:"Stiff", camberFront:"-2.8°", camberRear:"-2.0°", antirollFront:"Stiff", antirollRear:"Stiff", brakeBias:"50% (neutral)", differential:"60% rear lock", rideHeight:"Low", finalDrive:"-5% shorter", notes:"Fast wet laps, maintains high cornering forces" }
+            },
+            snow: {
+                beginner: { tirePressure:"1.6-1.8 bar", gearRatio:"Short", suspensionFront:"Soft", suspensionRear:"Soft", camberFront:"-1.5°", camberRear:"-1.0°", antirollFront:"Soft", antirollRear:"Soft", brakeBias:"55% front", differential:"80% rear lock", rideHeight:"Standard", finalDrive:"+10% shorter", notes:"Maximum snow traction for street" },
+                intermediate: { tirePressure:"1.8-2.0 bar", gearRatio:"Short-medium", suspensionFront:"Medium", suspensionRear:"Medium", camberFront:"-2.0°", camberRear:"-1.5°", antirollFront:"Medium", antirollRear:"Medium", brakeBias:"52% front", differential:"70% rear lock", rideHeight:"Standard", finalDrive:"+5% shorter", notes:"Sporty snow driving, some fun slides" },
+                advanced: { tirePressure:"2.0-2.2 bar", gearRatio:"Balanced", suspensionFront:"Stiff", suspensionRear:"Stiff", camberFront:"-2.5°", camberRear:"-1.8°", antirollFront:"Stiff", antirollRear:"Stiff", brakeBias:"50% (neutral)", differential:"65% rear lock", rideHeight:"Low", finalDrive:"Stock", notes:"Fast snow laps, requires skill" }
+            },
+            dirt: {
+                beginner: { tirePressure:"1.6-1.8 bar", gearRatio:"Short", suspensionFront:"Soft", suspensionRear:"Soft", camberFront:"-2.0°", camberRear:"-1.5°", antirollFront:"Soft", antirollRear:"Very Soft", brakeBias:"55% front", differential:"75% rear lock", rideHeight:"High", finalDrive:"+10% shorter", notes:"Comfortable dirt road driving" },
+                intermediate: { tirePressure:"1.8-2.0 bar", gearRatio:"Balanced", suspensionFront:"Medium", suspensionRear:"Medium", camberFront:"-2.5°", camberRear:"-1.8°", antirollFront:"Medium", antirollRear:"Soft", brakeBias:"52% front", differential:"65% rear lock", rideHeight:"Standard", finalDrive:"+5% shorter", notes:"Fast dirt road driving, some slides" },
+                advanced: { tirePressure:"2.0-2.2 bar", gearRatio:"Slightly long", suspensionFront:"Stiff", suspensionRear:"Stiff", camberFront:"-2.8°", camberRear:"-2.0°", antirollFront:"Stiff", antirollRear:"Medium", brakeBias:"50% (neutral)", differential:"60% rear lock", rideHeight:"Low", finalDrive:"Stock", notes:"Fastest dirt road lap times" }
+            }
+        },
+        awd: {
+            dry: {
+                beginner: { tirePressure:"2.2-2.4 bar", gearRatio:"Balanced", suspensionFront:"Medium", suspensionRear:"Medium", camberFront:"-2.0°", camberRear:"-1.5°", antirollFront:"Medium", antirollRear:"Medium", brakeBias:"50% (neutral)", differential:"55/45 split", rideHeight:"Low", finalDrive:"Stock", notes:"AWD balance, safe and predictable grip" },
+                intermediate: { tirePressure:"2.4-2.6 bar", gearRatio:"Slightly short", suspensionFront:"Stiff", suspensionRear:"Stiff", camberFront:"-2.5°", camberRear:"-1.8°", antirollFront:"Stiff", antirollRear:"Stiff", brakeBias:"50% (neutral)", differential:"50/50 (symmetrical)", rideHeight:"Low", finalDrive:"-5% shorter", notes:"Maximum AWD grip on street" },
+                advanced: { tirePressure:"2.6-2.8 bar", gearRatio:"Slightly long", suspensionFront:"Very Stiff", suspensionRear:"Very Stiff", camberFront:"-3.0°", camberRear:"-2.2°", antirollFront:"Very Stiff", antirollRear:"Very Stiff", brakeBias:"48% front", differential:"50/50 locked", rideHeight:"Ultra Low", finalDrive:"-10% shorter", notes:"Extreme AWD grip, razor corners" }
+            },
+            wet: {
+                beginner: { tirePressure:"1.8-2.0 bar", gearRatio:"Balanced", suspensionFront:"Soft", suspensionRear:"Medium", camberFront:"-2.0°", camberRear:"-1.5°", antirollFront:"Soft", antirollRear:"Soft", brakeBias:"52% front", differential:"55/45 split", rideHeight:"Standard", finalDrive:"+5% shorter", notes:"AWD wet confidence, safe street" },
+                intermediate: { tirePressure:"2.0-2.2 bar", gearRatio:"Balanced", suspensionFront:"Medium", suspensionRear:"Medium", camberFront:"-2.5°", camberRear:"-1.8°", antirollFront:"Medium", antirollRear:"Medium", brakeBias:"50% (neutral)", differential:"50/50", rideHeight:"Low", finalDrive:"Stock", notes:"Fast wet AWD, all grip" },
+                advanced: { tirePressure:"2.2-2.4 bar", gearRatio:"Slightly short", suspensionFront:"Stiff", suspensionRear:"Stiff", camberFront:"-2.8°", camberRear:"-2.0°", antirollFront:"Stiff", antirollRear:"Stiff", brakeBias:"48% front", differential:"50/50 locked", rideHeight:"Low", finalDrive:"-5% shorter", notes:"Fastest wet AWD laps" }
+            },
+            snow: {
+                beginner: { tirePressure:"1.6-1.8 bar", gearRatio:"Short", suspensionFront:"Soft", suspensionRear:"Soft", camberFront:"-1.5°", camberRear:"-1.0°", antirollFront:"Soft", antirollRear:"Soft", brakeBias:"55% front", differential:"60/40 split", rideHeight:"Standard", finalDrive:"+10% shorter", notes:"AWD snow mastery, very safe" },
+                intermediate: { tirePressure:"1.8-2.0 bar", gearRatio:"Short-medium", suspensionFront:"Medium", suspensionRear:"Medium", camberFront:"-2.0°", camberRear:"-1.5°", antirollFront:"Medium", antirollRear:"Medium", brakeBias:"52% front", differential:"55/45 split", rideHeight:"Low", finalDrive:"+5% shorter", notes:"Fast AWD snow driving" },
+                advanced: { tirePressure:"2.0-2.2 bar", gearRatio:"Balanced", suspensionFront:"Stiff", suspensionRear:"Stiff", camberFront:"-2.5°", camberRear:"-1.8°", antirollFront:"Stiff", antirollRear:"Stiff", brakeBias:"50% (neutral)", differential:"50/50 locked", rideHeight:"Low", finalDrive:"Stock", notes:"Fastest AWD snow laps" }
+            },
+            dirt: {
+                beginner: { tirePressure:"1.6-1.8 bar", gearRatio:"Short", suspensionFront:"Soft", suspensionRear:"Soft", camberFront:"-2.0°", camberRear:"-1.5°", antirollFront:"Soft", antirollRear:"Very Soft", brakeBias:"55% front", differential:"55/45 split", rideHeight:"High", finalDrive:"+10% shorter", notes:"AWD dirt comfort, confident grip" },
+                intermediate: { tirePressure:"1.8-2.0 bar", gearRatio:"Balanced", suspensionFront:"Medium", suspensionRear:"Medium", camberFront:"-2.5°", camberRear:"-1.8°", antirollFront:"Medium", antirollRear:"Soft", brakeBias:"50% (neutral)", differential:"50/50", rideHeight:"Standard", finalDrive:"+5% shorter", notes:"Fast AWD dirt road" },
+                advanced: { tirePressure:"2.0-2.2 bar", gearRatio:"Slightly long", suspensionFront:"Stiff", suspensionRear:"Stiff", camberFront:"-2.8°", camberRear:"-2.0°", antirollFront:"Stiff", antirollRear:"Medium", brakeBias:"48% front", differential:"50/50 locked", rideHeight:"Low", finalDrive:"Stock", notes:"Fastest AWD dirt laps" }
+            }
+        },
+        fwd: {
+            dry: {
+                beginner: { tirePressure:"2.2-2.4 bar", gearRatio:"Short", suspensionFront:"Medium", suspensionRear:"Medium", camberFront:"-2.5°", camberRear:"-1.5°", antirollFront:"Medium", antirollRear:"Soft", brakeBias:"55% front", differential:"75% front lock", rideHeight:"Low", finalDrive:"+5% shorter", notes:"FWD understeer balance, safe turns" },
+                intermediate: { tirePressure:"2.4-2.6 bar", gearRatio:"Balanced", suspensionFront:"Stiff", suspensionRear:"Stiff", camberFront:"-3.0°", camberRear:"-1.8°", antirollFront:"Stiff", antirollRear:"Medium", brakeBias:"58% front", differential:"85% front lock", rideHeight:"Low", finalDrive:"Stock", notes:"Sporty FWD, less understeer" },
+                advanced: { tirePressure:"2.6-2.8 bar", gearRatio:"Slightly long", suspensionFront:"Very Stiff", suspensionRear:"Very Stiff", camberFront:"-3.5°", camberRear:"-2.2°", antirollFront:"Very Stiff", antirollRear:"Stiff", brakeBias:"60% front", differential:"95% front lock", rideHeight:"Ultra Low", finalDrive:"-5% shorter", notes:"Race FWD, minimal understeer" }
+            },
+            wet: {
+                beginner: { tirePressure:"1.8-2.0 bar", gearRatio:"Short", suspensionFront:"Soft", suspensionRear:"Medium", camberFront:"-2.0°", camberRear:"-1.5°", antirollFront:"Soft", antirollRear:"Soft", brakeBias:"58% front", differential:"85% front lock", rideHeight:"Standard", finalDrive:"+10% shorter", notes:"More front grip in wet FWD" },
+                intermediate: { tirePressure:"2.0-2.2 bar", gearRatio:"Balanced", suspensionFront:"Medium", suspensionRear:"Medium", camberFront:"-2.5°", camberRear:"-1.8°", antirollFront:"Medium", antirollRear:"Medium", brakeBias:"60% front", differential:"80% front lock", rideHeight:"Low", finalDrive:"+5% shorter", notes:"Balanced wet FWD" },
+                advanced: { tirePressure:"2.2-2.4 bar", gearRatio:"Slightly short", suspensionFront:"Stiff", suspensionRear:"Stiff", camberFront:"-3.0°", camberRear:"-2.0°", antirollFront:"Stiff", antirollRear:"Stiff", brakeBias:"62% front", differential:"90% front lock", rideHeight:"Low", finalDrive:"Stock", notes:"Fast wet FWD laps" }
+            },
+            snow: {
+                beginner: { tirePressure:"1.6-1.8 bar", gearRatio:"Very Short", suspensionFront:"Soft", suspensionRear:"Soft", camberFront:"-1.5°", camberRear:"-1.0°", antirollFront:"Soft", antirollRear:"Soft", brakeBias:"60% front", differential:"95% front lock", rideHeight:"Standard", finalDrive:"+15% shorter", notes:"FWD snow traction king" },
+                intermediate: { tirePressure:"1.8-2.0 bar", gearRatio:"Short", suspensionFront:"Medium", suspensionRear:"Medium", camberFront:"-2.0°", camberRear:"-1.5°", antirollFront:"Medium", antirollRear:"Medium", brakeBias:"58% front", differential:"85% front lock", rideHeight:"Standard", finalDrive:"+10% shorter", notes:"Good snow FWD balance" },
+                advanced: { tirePressure:"2.0-2.2 bar", gearRatio:"Balanced", suspensionFront:"Stiff", suspensionRear:"Stiff", camberFront:"-2.5°", camberRear:"-1.8°", antirollFront:"Stiff", antirollRear:"Stiff", brakeBias:"55% front", differential:"90% front lock", rideHeight:"Low", finalDrive:"+5% shorter", notes:"Fast snow FWD" }
+            },
+            dirt: {
+                beginner: { tirePressure:"1.6-1.8 bar", gearRatio:"Short", suspensionFront:"Soft", suspensionRear:"Soft", camberFront:"-2.0°", camberRear:"-1.5°", antirollFront:"Soft", antirollRear:"Very Soft", brakeBias:"58% front", differential:"85% front lock", rideHeight:"High", finalDrive:"+10% shorter", notes:"FWD dirt comfort" },
+                intermediate: { tirePressure:"1.8-2.0 bar", gearRatio:"Balanced", suspensionFront:"Medium", suspensionRear:"Medium", camberFront:"-2.5°", camberRear:"-1.8°", antirollFront:"Medium", antirollRear:"Soft", brakeBias:"55% front", differential:"80% front lock", rideHeight:"Standard", finalDrive:"+5% shorter", notes:"Fast FWD dirt" },
+                advanced: { tirePressure:"2.0-2.2 bar", gearRatio:"Slightly long", suspensionFront:"Stiff", suspensionRear:"Stiff", camberFront:"-2.8°", camberRear:"-2.0°", antirollFront:"Stiff", antirollRear:"Medium", brakeBias:"55% front", differential:"90% front lock", rideHeight:"Low", finalDrive:"Stock", notes:"Fastest FWD dirt" }
+            }
+        }
+    },
+    offroad: {
+        rwd: {
+            dirt: {
+                beginner: { tirePressure:"1.4-1.6 bar", gearRatio:"Very Short", suspensionFront:"Very Soft", suspensionRear:"Very Soft", camberFront:"-1.0°", camberRear:"-0.5°", antirollFront:"Very Soft", antirollRear:"Very Soft", brakeBias:"55% front", differential:"70% rear lock", rideHeight:"High", finalDrive:"+20% shorter", notes:"Maximum off-road compliance, big aired-out tires" },
+                intermediate: { tirePressure:"1.6-1.8 bar", gearRatio:"Short", suspensionFront:"Soft", suspensionRear:"Medium", camberFront:"-1.5°", camberRear:"-1.0°", antirollFront:"Soft", antirollRear:"Soft", brakeBias:"52% front", differential:"65% rear lock", rideHeight:"High", finalDrive:"+15% shorter", notes:"Fast rally driving, good suspension travel" },
+                advanced: { tirePressure:"1.8-2.0 bar", gearRatio:"Balanced", suspensionFront:"Medium", suspensionRear:"Stiff", camberFront:"-2.0°", camberRear:"-1.5°", antirollFront:"Medium", antirollRear:"Medium", brakeBias:"50% (neutral)", differential:"60% rear lock", rideHeight:"Medium", finalDrive:"+10% shorter", notes:"Fastest rally times, balanced grip" }
+            },
+            snow: {
+                beginner: { tirePressure:"1.2-1.4 bar", gearRatio:"Very Short", suspensionFront:"Very Soft", suspensionRear:"Very Soft", camberFront:"-1.0°", camberRear:"-0.5°", antirollFront:"Very Soft", antirollRear:"Very Soft", brakeBias:"60% front", differential:"85% rear lock", rideHeight:"High", finalDrive:"+25% shorter", notes:"Float on snow, maximum grip" },
+                intermediate: { tirePressure:"1.4-1.6 bar", gearRatio:"Short", suspensionFront:"Soft", suspensionRear:"Medium", camberFront:"-1.5°", camberRear:"-1.0°", antirollFront:"Soft", antirollRear:"Soft", brakeBias:"55% front", differential:"75% rear lock", rideHeight:"High", finalDrive:"+20% shorter", notes:"Fast snow rally, good floatation" },
+                advanced: { tirePressure:"1.6-1.8 bar", gearRatio:"Short-medium", suspensionFront:"Medium", suspensionRear:"Stiff", camberFront:"-2.0°", camberRear:"-1.5°", antirollFront:"Medium", antirollRear:"Medium", brakeBias:"50% (neutral)", differential:"70% rear lock", rideHeight:"Medium", finalDrive:"+15% shorter", notes:"Fast snow rally, aggressive lines" }
+            },
+            wet: {
+                beginner: { tirePressure:"1.4-1.6 bar", gearRatio:"Very Short", suspensionFront:"Very Soft", suspensionRear:"Very Soft", camberFront:"-1.5°", camberRear:"-1.0°", antirollFront:"Very Soft", antirollRear:"Very Soft", brakeBias:"55% front", differential:"80% rear lock", rideHeight:"High", finalDrive:"+20% shorter", notes:"Maximum mud grip, aired-out tires" },
+                intermediate: { tirePressure:"1.6-1.8 bar", gearRatio:"Short", suspensionFront:"Soft", suspensionRear:"Medium", camberFront:"-2.0°", camberRear:"-1.5°", antirollFront:"Soft", antirollRear:"Soft", brakeBias:"52% front", differential:"70% rear lock", rideHeight:"High", finalDrive:"+15% shorter", notes:"Fast wet mud driving" },
+                advanced: { tirePressure:"1.8-2.0 bar", gearRatio:"Short-medium", suspensionFront:"Medium", suspensionRear:"Stiff", camberFront:"-2.5°", camberRear:"-1.8°", antirollFront:"Medium", antirollRear:"Medium", brakeBias:"50% (neutral)", differential:"65% rear lock", rideHeight:"Medium", finalDrive:"+10% shorter", notes:"Fastest mud rally times" }
+            }
+        },
+        awd: {
+            dirt: {
+                beginner: { tirePressure:"1.4-1.6 bar", gearRatio:"Very Short", suspensionFront:"Very Soft", suspensionRear:"Very Soft", camberFront:"-1.0°", camberRear:"-0.5°", antirollFront:"Very Soft", antirollRear:"Very Soft", brakeBias:"55% front", differential:"60/40 split", rideHeight:"High", finalDrive:"+20% shorter", notes:"AWD off-road is unstoppable, soft and compliant" },
+                intermediate: { tirePressure:"1.6-1.8 bar", gearRatio:"Short", suspensionFront:"Soft", suspensionRear:"Medium", camberFront:"-1.5°", camberRear:"-1.0°", antirollFront:"Soft", antirollRear:"Soft", brakeBias:"50% (neutral)", differential:"55/45 split", rideHeight:"High", finalDrive:"+15% shorter", notes:"Fast AWD rally, good balance" },
+                advanced: { tirePressure:"1.8-2.0 bar", gearRatio:"Balanced", suspensionFront:"Medium", suspensionRear:"Stiff", camberFront:"-2.0°", camberRear:"-1.5°", antirollFront:"Medium", antirollRear:"Medium", brakeBias:"48% front", differential:"50/50 locked", rideHeight:"Medium", finalDrive:"+10% shorter", notes:"Fastest AWD rally, extreme grip" }
+            },
+            snow: {
+                beginner: { tirePressure:"1.2-1.4 bar", gearRatio:"Very Short", suspensionFront:"Very Soft", suspensionRear:"Very Soft", camberFront:"-1.0°", camberRear:"-0.5°", antirollFront:"Very Soft", antirollRear:"Very Soft", brakeBias:"60% front", differential:"60/40 split", rideHeight:"High", finalDrive:"+25% shorter", notes:"AWD floatation in snow is unmatched" },
+                intermediate: { tirePressure:"1.4-1.6 bar", gearRatio:"Short", suspensionFront:"Soft", suspensionRear:"Medium", camberFront:"-1.5°", camberRear:"-1.0°", antirollFront:"Soft", antirollRear:"Soft", brakeBias:"55% front", differential:"55/45 split", rideHeight:"High", finalDrive:"+20% shorter", notes:"Fast AWD snow rally" },
+                advanced: { tirePressure:"1.6-1.8 bar", gearRatio:"Short-medium", suspensionFront:"Medium", suspensionRear:"Stiff", camberFront:"-2.0°", camberRear:"-1.5°", antirollFront:"Medium", antirollRear:"Medium", brakeBias:"50% (neutral)", differential:"50/50 locked", rideHeight:"Medium", finalDrive:"+15% shorter", notes:"Maximum AWD snow speed" }
+            },
+            wet: {
+                beginner: { tirePressure:"1.4-1.6 bar", gearRatio:"Very Short", suspensionFront:"Very Soft", suspensionRear:"Very Soft", camberFront:"-1.5°", camberRear:"-1.0°", antirollFront:"Very Soft", antirollRear:"Very Soft", brakeBias:"55% front", differential:"60/40 split", rideHeight:"High", finalDrive:"+20% shorter", notes:"AWD mud mastery" },
+                intermediate: { tirePressure:"1.6-1.8 bar", gearRatio:"Short", suspensionFront:"Soft", suspensionRear:"Medium", camberFront:"-2.0°", camberRear:"-1.5°", antirollFront:"Soft", antirollRear:"Soft", brakeBias:"50% (neutral)", differential:"55/45 split", rideHeight:"High", finalDrive:"+15% shorter", notes:"Fast AWD mud" },
+                advanced: { tirePressure:"1.8-2.0 bar", gearRatio:"Short-medium", suspensionFront:"Medium", suspensionRear:"Stiff", camberFront:"-2.5°", camberRear:"-1.8°", antirollFront:"Medium", antirollRear:"Medium", brakeBias:"48% front", differential:"50/50 locked", rideHeight:"Medium", finalDrive:"+10% shorter", notes:"Fastest AWD mud" }
+            }
+        },
+        fwd: {
+            dirt: {
+                beginner: { tirePressure:"1.4-1.6 bar", gearRatio:"Very Short", suspensionFront:"Very Soft", suspensionRear:"Very Soft", camberFront:"-1.5°", camberRear:"-1.0°", antirollFront:"Very Soft", antirollRear:"Very Soft", brakeBias:"55% front", differential:"85% front lock", rideHeight:"High", finalDrive:"+20% shorter", notes:"FWD off-road, budget-friendly but capable" },
+                intermediate: { tirePressure:"1.6-1.8 bar", gearRatio:"Short", suspensionFront:"Soft", suspensionRear:"Medium", camberFront:"-2.0°", camberRear:"-1.5°", antirollFront:"Soft", antirollRear:"Soft", brakeBias:"52% front", differential:"90% front lock", rideHeight:"High", finalDrive:"+15% shorter", notes:"Fast FWD rally" },
+                advanced: { tirePressure:"1.8-2.0 bar", gearRatio:"Balanced", suspensionFront:"Medium", suspensionRear:"Stiff", camberFront:"-2.5°", camberRear:"-1.8°", antirollFront:"Medium", antirollRear:"Medium", brakeBias:"50% (neutral)", differential:"95% front lock", rideHeight:"Medium", finalDrive:"+10% shorter", notes:"Fastest FWD rally" }
+            },
+            snow: {
+                beginner: { tirePressure:"1.2-1.4 bar", gearRatio:"Very Short", suspensionFront:"Very Soft", suspensionRear:"Very Soft", camberFront:"-1.0°", camberRear:"-0.5°", antirollFront:"Very Soft", antirollRear:"Very Soft", brakeBias:"60% front", differential:"95% front lock", rideHeight:"High", finalDrive:"+25% shorter", notes:"FWD snow is impressive with right tires" },
+                intermediate: { tirePressure:"1.4-1.6 bar", gearRatio:"Short", suspensionFront:"Soft", suspensionRear:"Medium", camberFront:"-1.5°", camberRear:"-1.0°", antirollFront:"Soft", antirollRear:"Soft", brakeBias:"58% front", differential:"90% front lock", rideHeight:"High", finalDrive:"+20% shorter", notes:"Fast FWD snow" },
+                advanced: { tirePressure:"1.6-1.8 bar", gearRatio:"Short-medium", suspensionFront:"Medium", suspensionRear:"Stiff", camberFront:"-2.0°", camberRear:"-1.5°", antirollFront:"Medium", antirollRear:"Medium", brakeBias:"55% front", differential:"95% front lock", rideHeight:"Medium", finalDrive:"+15% shorter", notes:"Fastest FWD snow rally" }
+            },
+            wet: {
+                beginner: { tirePressure:"1.4-1.6 bar", gearRatio:"Very Short", suspensionFront:"Very Soft", suspensionRear:"Very Soft", camberFront:"-1.5°", camberRear:"-1.0°", antirollFront:"Very Soft", antirollRear:"Very Soft", brakeBias:"55% front", differential:"90% front lock", rideHeight:"High", finalDrive:"+20% shorter", notes:"FWD mud capable" },
+                intermediate: { tirePressure:"1.6-1.8 bar", gearRatio:"Short", suspensionFront:"Soft", suspensionRear:"Medium", camberFront:"-2.0°", camberRear:"-1.5°", antirollFront:"Soft", antirollRear:"Soft", brakeBias:"52% front", differential:"85% front lock", rideHeight:"High", finalDrive:"+15% shorter", notes:"Fast FWD mud" },
+                advanced: { tirePressure:"1.8-2.0 bar", gearRatio:"Short-medium", suspensionFront:"Medium", suspensionRear:"Stiff", camberFront:"-2.5°", camberRear:"-1.8°", antirollFront:"Medium", antirollRear:"Medium", brakeBias:"50% (neutral)", differential:"95% front lock", rideHeight:"Medium", finalDrive:"+10% shorter", notes:"Fastest FWD mud" }
+            }
+        }
+    },
+    drag: {
+        rwd: {
+            dry: {
+                beginner: { tirePressure:"2.8-3.0 bar", gearRatio:"Very Short", suspensionFront:"Very Stiff", suspensionRear:"Very Stiff", camberFront:"-2.0°", camberRear:"-1.5°", antirollFront:"Very Stiff", antirollRear:"Very Stiff", brakeBias:"65% front", differential:"100% rear lock", rideHeight:"Ultra Low", finalDrive:"+30% shorter", notes:"Drag setup: launch hard, minimal wheelies" },
+                intermediate: { tirePressure:"3.0-3.2 bar", gearRatio:"Ultra Short", suspensionFront:"Ultra Stiff", suspensionRear:"Ultra Stiff", camberFront:"-1.5°", camberRear:"-1.0°", antirollFront:"Ultra Stiff", antirollRear:"Ultra Stiff", brakeBias:"70% front", differential:"100% rear lock", rideHeight:"Maximum low", finalDrive:"+40% shorter", notes:" serious drag: hard launch, maximize traction" },
+                advanced: { tirePressure:"3.2-3.5 bar", gearRatio:"Ultra Short", suspensionFront:"Ultra Stiff", suspensionRear:"Ultra Stiff", camberFront:"-1.0°", camberRear:"-0.5°", antirollFront:"Ultra Stiff", antirollRear:"Ultra Stiff", brakeBias:"75% front", differential:"100% rear lock", rideHeight:"Maximum low", finalDrive:"+50% shorter", notes:" competition drag: everything on edge" }
+            }
+        },
+        awd: {
+            dry: {
+                beginner: { tirePressure:"2.8-3.0 bar", gearRatio:"Very Short", suspensionFront:"Very Stiff", suspensionRear:"Very Stiff", camberFront:"-1.5°", camberRear:"-1.0°", antirollFront:"Very Stiff", antirollRear:"Very Stiff", brakeBias:"60% front", differential:"50/50 locked", rideHeight:"Ultra Low", finalDrive:"+30% shorter", notes:"AWD launch advantage, great grip" },
+                intermediate: { tirePressure:"3.0-3.2 bar", gearRatio:"Ultra Short", suspensionFront:"Ultra Stiff", suspensionRear:"Ultra Stiff", camberFront:"-1.0°", camberRear:"-0.5°", antirollFront:"Ultra Stiff", antirollRear:"Ultra Stiff", brakeBias:"55% front", differential:"50/50 locked", rideHeight:"Maximum low", finalDrive:"+40% shorter", notes:"Fast AWD launch" },
+                advanced: { tirePressure:"3.2-3.5 bar", gearRatio:"Ultra Short", suspensionFront:"Ultra Stiff", suspensionRear:"Ultra Stiff", camberFront:"-0.5°", camberRear:"0°", antirollFront:"Ultra Stiff", antirollRear:"Ultra Stiff", brakeBias:"50% (neutral)", differential:"50/50 locked", rideHeight:"Maximum low", finalDrive:"+50% shorter", notes:"Competition AWD drag" }
+            }
+        },
+        fwd: {
+            dry: {
+                beginner: { tirePressure:"2.8-3.0 bar", gearRatio:"Very Short", suspensionFront:"Very Stiff", suspensionRear:"Very Stiff", camberFront:"-2.5°", camberRear:"-1.5°", antirollFront:"Very Stiff", antirollRear:"Very Stiff", brakeBias:"65% front", differential:"100% front lock", rideHeight:"Ultra Low", finalDrive:"+30% shorter", notes:"FWD drag: front-wheel torque, launch at high RPM" },
+                intermediate: { tirePressure:"3.0-3.2 bar", gearRatio:"Ultra Short", suspensionFront:"Ultra Stiff", suspensionRear:"Ultra Stiff", camberFront:"-2.0°", camberRear:"-1.0°", antirollFront:"Ultra Stiff", antirollRear:"Ultra Stiff", brakeBias:"70% front", differential:"100% front lock", rideHeight:"Maximum low", finalDrive:"+40% shorter", notes:"Fast FWD launches" },
+                advanced: { tirePressure:"3.2-3.5 bar", gearRatio:"Ultra Short", suspensionFront:"Ultra Stiff", suspensionRear:"Ultra Stiff", camberFront:"-1.5°", camberRear:"-0.5°", antirollFront:"Ultra Stiff", antirollRear:"Ultra Stiff", brakeBias:"75% front", differential:"100% front lock", rideHeight:"Maximum low", finalDrive:"+50% shorter", notes:"Competition FWD drag" }
+            }
+        }
+    }
+};
+
+// Aliases: snow/ice also uses snow keys, dirt uses dirt keys
+function calculateTuning() {
+    var type = document.getElementById('calc-type').value;
+    var drive = document.getElementById('calc-drive').value;
+    var condition = document.getElementById('calc-condition').value;
+    var skill = document.getElementById('calc-skill').value;
+    var carChar = document.getElementById('calc-car').value;
+
+    var db = tuningDB[type];
+    if (!db) db = tuningDB.street;
+    var driveDB = db[drive];
+    if (!driveDB) { driveDB = db.rwd; }
+    var condDB = driveDB[condition];
+    if (!condDB) { condDB = driveDB.dry; }
+    var result = condDB[skill];
+    if (!result) { result = condDB.beginner; }
+
+    // Apply car characteristic modifiers
+    if (carChar === 'power') {
+        result = JSON.parse(JSON.stringify(result));
+        result.notes = "[HIGH POWER] " + result.notes;
+    } else if (carChar === 'light') {
+        result = JSON.parse(JSON.stringify(result));
+        result.notes = "[LIGHT WEIGHT] " + result.notes;
+    } else if (carChar === 'heavy') {
+        result = JSON.parse(JSON.stringify(result));
+        result.notes = "[HEAVY/AWD MUSCLE] " + result.notes;
+    }
+
+    var labels = {
+        tirePressure: ['Tire Pressure', 'Front and rear. Lower = more grip, higher = faster response.'],
+        gearRatio: ['Gear Ratio', 'Short = fast launch/accel. Long = higher top speed.'],
+        suspensionFront: ['Suspension Front', 'Soft = better grip on bumps. Stiff = less body roll in corners.'],
+        suspensionRear: ['Suspension Rear', 'Stiff rear = anti-squat for launches. Soft = more slides.'],
+        camberFront: ['Front Camber', 'Negative camber improves cornering grip. Too much = uneven tire wear.'],
+        camberRear: ['Rear Camber', 'Slight negative = better rear grip in corners.'],
+        antirollFront: ['Front Anti-Roll Bar', 'Stiff front = less body roll, sharper turn-in.'],
+        antirollRear: ['Rear Anti-Roll Bar', 'Soft rear = more rear rotation, easier drift initiation.'],
+        brakeBias: ['Brake Balance', 'More front = easier drift start. More rear = stable high-speed.'],
+        differential: ['Differential', 'Higher lock % = more wheelspin / drift. Lower = more grip and stability.'],
+        rideHeight: ['Ride Height', 'Lower = lower center of gravity = better cornering.'],
+        finalDrive: ['Final Drive', 'Shorter = faster acceleration. Longer = higher top speed.'],
+        notes: ['Setup Notes', '']
+    };
+
+    var displayOrder = ['tirePressure','gearRatio','suspensionFront','suspensionRear','camberFront','camberRear','antirollFront','antirollRear','brakeBias','differential','rideHeight','finalDrive','notes'];
+
+    var tbody = document.getElementById('calc-tbody');
+    tbody.innerHTML = '';
+    for (var i = 0; i < displayOrder.length; i++) {
+        var key = displayOrder[i];
+        var val = result[key];
+        if (!val) continue;
+        var label = labels[key] || [key, ''];
+        if (key === 'notes') continue;
+        var tr = document.createElement('tr');
+        var td0 = document.createElement('td');
+        td0.innerHTML = '<strong>' + label[0] + '</strong>';
+        var td1 = document.createElement('td');
+        td1.innerHTML = val;
+        var td2 = document.createElement('td');
+        td2.innerHTML = label[1];
+        td2.style.fontSize = '13px';
+        td2.style.color = '#aaa';
+        tr.appendChild(td0);
+        tr.appendChild(td1);
+        tr.appendChild(td2);
+        tbody.appendChild(tr);
+    }
+
+    var desc = document.getElementById('calc-result-desc');
+    var skillLabel = {beginner:'🌱 Beginner', intermediate:'⭐ Intermediate', advanced:'🔥 Advanced/Pro'};
+    var condLabel = {dry:'☀️ Dry', wet:'🌧️ Wet', snow:'❄️ Snow', dirt:'🏜️ Dirt'};
+    var typeLabel = {drift:'🏎️ Drift', street:'🏁 Street Racing', offroad:'🗻 Off-Road', drag:'⚡ Drag'};
+    desc.innerHTML = 'Style: <strong>' + typeLabel[type] + '</strong> | Drive: <strong>' + drive.toUpperCase() + '</strong> | Track: <strong>' + condLabel[condition] + '</strong> | Level: <strong>' + skillLabel[skill] + '</strong> | Car: <strong>' + carChar + '</strong>';
+
+    if (result.notes) {
+        var notesRow = document.createElement('tr');
+        notesRow.innerHTML = '<td colspan="3" style="background:#1e3a5f; padding:12px; border-radius:8px; text-align:center;">💡 ' + result.notes + '</td>';
+        tbody.appendChild(notesRow);
+    }
+
+    document.getElementById('calc-results').style.display = 'block';
+    document.getElementById('calc-results').scrollIntoView({behavior: 'smooth', block: 'center'});
+}
+</script>
+<style>
+.calc-form { background: #0d1b2a; border-radius: 12px; padding: 20px; margin: 16px 0; }
+.calc-row { display: flex; gap: 16px; margin-bottom: 14px; flex-wrap: wrap; }
+.calc-group { flex: 1; min-width: 160px; display: flex; flex-direction: column; gap: 6px; }
+.calc-group.full { flex: 1 1 100%; }
+.calc-group label { font-weight: 600; font-size: 13px; color: #aaa; text-transform: uppercase; letter-spacing: 0.5px; }
+.calc-group select { padding: 10px 12px; border-radius: 8px; border: 1px solid #333; background: #162447; color: #fff; font-size: 14px; cursor: pointer; outline: none; }
+.calc-group select:focus { border-color: #ff6b35; }
+.calc-btn { width: 100%; padding: 14px; background: linear-gradient(135deg, #ff6b35, #e63946); color: #fff; border: none; border-radius: 10px; font-size: 16px; font-weight: 700; cursor: pointer; transition: all 0.3s; margin-top: 6px; }
+.calc-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(255,107,53,0.4); }
+.calc-table { width: 100%; border-collapse: collapse; margin-top: 16px; }
+.calc-table th { background: #0d1b2a; color: #ff6b35; padding: 10px 12px; text-align: left; font-size: 13px; text-transform: uppercase; letter-spacing: 0.5px; }
+.calc-table td { padding: 10px 12px; border-bottom: 1px solid #1e3a5f; font-size: 14px; }
+.calc-table tr:hover td { background: #162447; }
+</style>
 </body>
 </html>

@@ -1,30 +1,34 @@
 // savebook.net main script
 
-// 返回顶部按钮功能
+// PWA Service Worker Registration
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function() {
+    navigator.serviceWorker.register('/sw.js').then(function(reg) {
+      console.log('SW registered:', reg.scope);
+    }).catch(function(err) {
+      console.log('SW registration failed:', err);
+    });
+  });
+}
+
+// Back to top button
 document.addEventListener('DOMContentLoaded', function() {
-    // 创建返回顶部按钮
     var btn = document.createElement('button');
     btn.className = 'back-to-top';
     btn.innerHTML = '↑';
     btn.title = 'Back to Top';
     document.body.appendChild(btn);
 
-    // 滚动时显示/隐藏按钮
     window.addEventListener('scroll', function() {
-        if (window.scrollY > 300) {
-            btn.classList.add('visible');
-        } else {
-            btn.classList.remove('visible');
-        }
+        btn.classList.toggle('visible', window.scrollY > 300);
     });
 
-    // 点击返回顶部
     btn.addEventListener('click', function() {
         window.scrollTo({top: 0, behavior: 'smooth'});
     });
 });
 
-// Google AdSense 自动加载所有广告位
+// Google AdSense auto-load
 (function() {
     var ads = document.querySelectorAll('.adsbygoogle');
     ads.forEach(function(ad) {
