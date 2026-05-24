@@ -28,7 +28,7 @@ body {
     background: var(--bg-primary);
     color: var(--text);
     font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
-    font-size: 14px;
+    font-size: 16px;
     line-height: 1.55;
     min-height: 100vh;
 }
@@ -87,8 +87,15 @@ header {
 .nav-links a:hover, .nav-links a.active { color: var(--accent); background: var(--accent-dim); }
 .nav-links .dropdown-toggle { cursor: pointer; }
 .nav-links .dropdown-toggle::after {
-    content: ' ▼'; font-size: 9px; margin-left: 3px; opacity: 0.6;
+    content: ' ▾'; font-size: 10px; margin-left: 4px; opacity: 0.5; font-family: monospace;
 }
+.nav-item {
+    display: block; color: var(--text-secondary); text-decoration: none;
+    padding: 18px 14px; font-size: 15px; font-weight: 600;
+    cursor: pointer; transition: color 0.2s;
+}
+.nav-item:hover, .nav-item.active { color: var(--accent); }
+
 
 /* Dropdown */
 .dropdown {
@@ -155,7 +162,7 @@ header {
     font-size: clamp(0.95rem, 1.6vw, 1.2rem);
 }
 .card h3 { border-left: 3px solid var(--border); padding-left: 12px; margin-top: 0; }
-.card p { color: var(--text-secondary); }
+.card p { color: var(--text-secondary); font-size: 1rem; }
 
 /* Feature cards grid */
 .feature-grid {
@@ -393,7 +400,7 @@ body.light-mode {
     display: flex; align-items: center; gap: 8px;
 }
 .info-card h4 .icon { font-size: 1.1rem; }
-.info-card p { margin: 0 0 8px; font-size: 0.85rem; color: var(--text-secondary); }
+.info-card p { margin: 0 0 8px; font-size: 0.92rem; color: var(--text-secondary); }
 .info-card .tag { font-size: 0.75rem; margin-top: 8px; }
 .info-card table { margin: 0; }
 .info-card th { font-size: 0.75rem; padding: 6px 10px; }

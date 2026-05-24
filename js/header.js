@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function() {
     navHTML += '<li><a href="' + getPath('index.html') + '" class="' + (isActive('index.html') ? 'active' : '') + '">Home</a></li>';
 
     // Guides (dropdown)
-    navHTML += '<li><span class="nav-item dropdown-toggle ' + (isActive('barn-finds.html') || isActive('game-systems.html') || isActive('collect.html') || isActive('tuning.html') || isActive('newbie.html') || isActive('touge.html') ? 'active' : '') + '">Guides</span>';
+    navHTML += '<li><span class="nav-item ' + (isActive('barn-finds.html') || isActive('game-systems.html') || isActive('collect.html') || isActive('tuning.html') || isActive('newbie.html') || isActive('touge.html') ? 'active' : '') + '">Guides</span>';
     navHTML += '<ul class="dropdown">';
     navHTML += '<li><a href="' + getPath('pages/barn-finds.html') + '">Barn Finds</a></li>';
     navHTML += '<li><a href="' + getPath('pages/game-systems.html') + '">Game Systems</a></li>';
@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function() {
     navHTML += '</ul></li>';
 
     // Seasonal (dropdown)
-    navHTML += '<li><span class="nav-item dropdown-toggle ' + (isActive('s1-2026.html') ? 'active' : '') + '">Seasonal</span>';
+    navHTML += '<li><span class="nav-item ' + (isActive('s1-2026.html') ? 'active' : '') + '">Seasonal</span>';
     navHTML += '<ul class="dropdown">';
     navHTML += '<li><a href="' + (isInSubdir ? 'index.html' : 'pages/seasonal/index.html') + '">Season 1 2026</a></li>';
     navHTML += '</ul></li>';
