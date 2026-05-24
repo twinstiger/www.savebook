@@ -14,116 +14,110 @@
 </header>
 
 <div class="container">
-    <!-- Hero Banner with image -->
     <div class="hero-banner">
         <img src="../images/barn-finds/hero.jpg" alt="Barn Finds">
         <div class="hero-overlay">
-            <h2>Barn Finds - 隐藏车库完整攻略</h2>
-            <p>12个隐藏车辆位置 · 难度等级 · 获取路线</p>
+            <h2>Barn Finds — Complete Hidden Car Guide</h2>
+            <p>12 locations · Difficulty ratings · Route maps</p>
         </div>
     </div>
 
-    <!-- Stats Row -->
     <div class="stat-row">
-        <div class="stat-item"><div class="val">12</div><div class="label">隐藏车辆</div></div>
-        <div class="stat-item"><div class="val">4</div><div class="label">区域类型</div></div>
-        <div class="stat-item"><div class="val">S1~A</div><div class="label">车辆等级</div></div>
-        <div class="stat-item"><div class="val">30min</div><div class="label">最快完成</div></div>
+        <div class="stat-item"><div class="val">12</div><div class="label">Hidden Cars</div></div>
+        <div class="stat-item"><div class="val">4</div><div class="label">Regions</div></div>
+        <div class="stat-item"><div class="val">S1~A</div><div class="label">Class Range</div></div>
+        <div class="stat-item"><div class="val">30min</div><div class="label">Fastest Clear</div></div>
     </div>
 
-    <!-- Tab Navigation -->
     <div class="tab-nav">
-        <button class="tab-btn active" onclick="switchTab(this, 'overview')">总览</button>
-        <button class="tab-btn" onclick="switchTab(this, 'locations')">位置地图</button>
-        <button class="tab-btn" onclick="switchTab(this, 'carlist')">车辆列表</button>
-        <button class="tab-btn" onclick="switchTab(this, 'tips')">攻略技巧</button>
+        <button class="tab-btn active" onclick="switchTab(this, 'overview')">Overview</button>
+        <button class="tab-btn" onclick="switchTab(this, 'locations')">Locations</button>
+        <button class="tab-btn" onclick="switchTab(this, 'carlist')">Vehicle List</button>
+        <button class="tab-btn" onclick="switchTab(this, 'tips')">Tips & Strategy</button>
     </div>
 
-    <!-- Tab 1: Overview -->
     <div class="tab-panel active" id="overview">
         <div class="info-grid">
             <div class="info-card">
-                <h4><span class="icon">🏙️</span>城市区域</h4>
-                <p>东京/大阪城区内隐藏车库，工业区最多。适合A级车辆快速收集。</p>
-                <span class="tag">适合 A-Class</span>
+                <h4><span class="icon">🏙️</span>Urban Areas</h4>
+                <p>Tokyo and Osaka industrial zones. Best for fast A-Class collection runs.</p>
+                <span class="tag">A-Class</span>
             </div>
             <div class="info-card">
-                <h4><span class="icon">🏔️</span>山路地带</h4>
-                <p>富士山/箱根区域，狭窄多弯。推荐S1级高性能车辆。</p>
-                <span class="tag">适合 S1-Class</span>
+                <h4><span class="icon">🏔️</span>Mountain Passes</h4>
+                <p>Mt. Fuji and Hakone region. Narrow, winding. S1 high-performance recommended.</p>
+                <span class="tag">S1-Class</span>
             </div>
             <div class="info-card">
-                <h4><span class="icon">🌾</span>乡村田野</h4>
-                <p>名古屋/京都农村，位置分散。适合长途跋涉。</p>
-                <span class="tag">适合 B-Class</span>
+                <h4><span class="icon">🌾</span>Rural Areas</h4>
+                <p>Nagoya and Kyoto countryside. Scattered locations. Long-range travel required.</p>
+                <span class="tag">B-Class</span>
             </div>
             <div class="info-card">
-                <h4><span class="icon">🌊</span>海岸沿线</h4>
-                <p>沿海公路与港口区域，停车场内较容易发现。</p>
-                <span class="tag">适合 A-Class</span>
+                <h4><span class="icon">🌊</span>Coastal Roads</h4>
+                <p>Harbor and waterfront areas. Parking lots and warehouses are common spots.</p>
+                <span class="tag">A-Class</span>
             </div>
         </div>
 
         <div class="img-gallery">
             <div class="img-gallery-item">
                 <img src="../images/barn-finds/urban.jpg" alt="Urban Barn">
-                <div class="caption">东京工业区</div>
+                <div class="caption">Tokyo Industrial District</div>
             </div>
             <div class="img-gallery-item">
                 <img src="../images/barn-finds/mountain.jpg" alt="Mountain Barn">
-                <div class="caption">富士山脚下</div>
+                <div class="caption">Mt. Fuji Foothills</div>
             </div>
             <div class="img-gallery-item">
                 <img src="../images/barn-finds/rural.jpg" alt="Rural Barn">
-                <div class="caption">京都农村</div>
+                <div class="caption">Kyoto Countryside</div>
             </div>
             <div class="img-gallery-item">
                 <img src="../images/barn-finds/coastal.jpg" alt="Coastal Barn">
-                <div class="caption">大阪港口</div>
+                <div class="caption">Osaka Harbor</div>
             </div>
         </div>
     </div>
 
-    <!-- Tab 2: Locations -->
     <div class="tab-panel" id="locations">
         <div class="info-grid">
             <div class="info-card">
                 <h4><span class="icon">1</span>Tokyo Port Industrial</h4>
-                <p>集装箱仓库区深处，需穿过两个大门。白色外墙老仓库。</p>
-                <span class="tag">城市 · 简单</span>
+                <p>Deep in the container yard area. Pass through two gates. Old white-walled warehouse.</p>
+                <span class="tag">Urban · Easy</span>
             </div>
             <div class="info-card">
                 <h4><span class="icon">2</span>Osaka Bay Warehouse</h4>
-                <p>港口货运区，从主路左转第二个仓库入口。</p>
-                <span class="tag">城市 · 中等</span>
+                <p>Fright area of the port. Left turn from main road, second warehouse entrance.</p>
+                <span class="tag">Urban · Medium</span>
             </div>
             <div class="info-card">
                 <h4><span class="icon">3</span>Mt.Fuji 5th Station</h4>
-                <p>停车场角落，需从主停车场绕到后侧树林内。</p>
-                <span class="tag">山路 · 简单</span>
+                <p>Parking lot corner. Wrap around from main lot to rear tree line area.</p>
+                <span class="tag">Mountain · Easy</span>
             </div>
             <div class="info-card">
                 <h4><span class="icon">4</span>Hakone Forest Road</h4>
-                <p>第7弯道出口后的隐蔽岔路，直走200米即到。</p>
-                <span class="tag">山路 · 较难</span>
+                <p>Hidden fork after Turn 7 exit. Go straight 200m to find it.</p>
+                <span class="tag">Mountain · Hard</span>
             </div>
             <div class="info-card">
                 <h4><span class="icon">5</span>Kyoto Rice Fields</h4>
-                <p>乡间小路旁废弃谷仓，黄昏时分最明显。</p>
-                <span class="tag">乡村 · 中等</span>
+                <p>Abandoned barn on country road. Most visible at dusk.</p>
+                <span class="tag">Rural · Medium</span>
             </div>
             <div class="info-card">
                 <h4><span class="icon">6</span>Hamamatsu Farm</h4>
-                <p>农场主建筑后侧红色铁皮仓库，有明显标识。</p>
-                <span class="tag">乡村 · 简单</span>
+                <p>Behind the main farm building. Red tin shed with clear markings.</p>
+                <span class="tag">Rural · Easy</span>
             </div>
         </div>
     </div>
 
-    <!-- Tab 3: Car List -->
     <div class="tab-panel" id="carlist">
         <table class="compact-table">
-            <thead><tr><th>#</th><th>车辆</th><th>年份</th><th>等级</th><th>驱动</th><th>难度</th></tr></thead>
+            <thead><tr><th>#</th><th>Vehicle</th><th>Year</th><th>Class</th><th>Drive</th><th>Difficulty</th></tr></thead>
             <tbody>
                 <tr><td>1</td><td>Toyota AE86 Sprinter Trueno</td><td>1983</td><td>A 800</td><td>RWD</td><td>⭐</td></tr>
                 <tr><td>2</td><td>Nissan Silvia S15</td><td>1999</td><td>A 800</td><td>RWD</td><td>⭐⭐</td></tr>
@@ -135,28 +129,26 @@
                 <tr><td>8</td><td>Honda S2000</td><td>2000</td><td>A 800</td><td>RWD</td><td>⭐</td></tr>
                 <tr><td>9</td><td>Mitsubishi Lancer Evo VI</td><td>1999</td><td>A 800</td><td>AWD</td><td>⭐⭐</td></tr>
                 <tr><td>10</td><td>Toyota 2000GT</td><td>1967</td><td>A 800</td><td>RWD</td><td>⭐⭐⭐</td></tr>
-                <tr><td>11</td><td>Mazda Roadster MX-5</td><td>1997</td><td>B 700</td><td>RWD</td><td>⭐</td></tr>
+                <tr><td>11</td><td>Mazda MX-5 Roadster</td><td>1997</td><td>B 700</td><td>RWD</td><td>⭐</td></tr>
                 <tr><td>12</td><td>Nissan Fairlady Z432</td><td>1969</td><td>A 800</td><td>RWD</td><td>⭐⭐⭐</td></tr>
             </tbody>
         </table>
     </div>
 
-    <!-- Tab 4: Tips -->
     <div class="tab-panel" id="tips">
         <ul class="checklist">
-            <li>先解锁Festival Site的fast travel点，收集效率提升3倍</li>
-            <li>城市区域Barn Find建议清晨（车流最少）前往</li>
-            <li>山路区域雨天不可见，注意天气系统</li>
-            <li>所有Barn Find车辆都可卖给电脑换钱，不影响收藏</li>
-            <li>乡村区域位置较远，建议配合快速旅行使用</li>
-            <li>每找到一辆Barn Find会触发一段车辆历史展示动画，建议看完</li>
-            <li>收集完12辆后有额外成就奖励车辆（Toyota FT-86 Concept）</li>
+            <li>Unlock Festival Site fast travel first — triples collection efficiency</li>
+            <li>Visit urban Barn Finds early morning when traffic is minimal</li>
+            <li>Mountain area Barn Finds are invisible in rain — watch the weather system</li>
+            <li>All Barn Find cars can be sold to the AI for credits without affecting collection</li>
+            <li>Rural locations are far apart — pair with fast travel for best results</li>
+            <li>Each Barn Find triggers a vehicle history cutscene — worth watching</li>
+            <li>Completing all 12 unlocks an achievement reward car (Toyota FT-86 Concept)</li>
         </ul>
     </div>
 </div>
 
 <script src="../js/header.js"></script>
-<script src="../js/accordion.js"></script>
 <script>
 function switchTab(btn, panelId) {
     document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));

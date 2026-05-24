@@ -14,60 +14,56 @@
 </header>
 
 <div class="container">
-    <!-- Hero Banner -->
     <div class="hero-banner">
         <img src="../images/collect/hero.jpg" alt="Collectibles">
         <div class="hero-overlay">
-            <h2>Collectibles - 全收集快速路线</h2>
-            <p>XP Horn · Artisan Badge · Bonus Board · 图文攻略</p>
+            <h2>Collectibles — Full Map Fast Route</h2>
+            <p>XP Horn · Artisan Badge · Bonus Board · Visual guides</p>
         </div>
     </div>
 
-    <!-- Stats Row -->
     <div class="stat-row">
-        <div class="stat-item"><div class="val">50+</div><div class="label">XP Horn</div></div>
-        <div class="stat-item"><div class="val">40+</div><div class="label">Artisan Badge</div></div>
-        <div class="stat-item"><div class="val">25</div><div class="label">Bonus Board</div></div>
-        <div class="stat-item"><div class="val">20min</div><div class="label">最快清图</div></div>
+        <div class="stat-item"><div class="val">50+</div><div class="label">XP Horns</div></div>
+        <div class="stat-item"><div class="val">40+</div><div class="label">Artisan Badges</div></div>
+        <div class="stat-item"><div class="val">25</div><div class="label">Bonus Boards</div></div>
+        <div class="stat-item"><div class="val">20min</div><div class="label">Full Clear</div></div>
     </div>
 
-    <!-- Tab Navigation -->
     <div class="tab-nav">
-        <button class="tab-btn active" onclick="switchTab(this, 'overview')">总览</button>
-        <button class="tab-btn" onclick="switchTab(this, 'horn')">XP Horn</button>
+        <button class="tab-btn active" onclick="switchTab(this, 'overview')">Overview</button>
+        <button class="tab-btn" onclick="switchTab(this, 'horn')">XP Horns</button>
         <button class="tab-btn" onclick="switchTab(this, 'badge')">Artisan Badge</button>
-        <button class="tab-btn" onclick="switchTab(this, 'board')">Bonus Board</button>
+        <button class="tab-btn" onclick="switchTab(this, 'board')">Bonus Boards</button>
     </div>
 
-    <!-- Tab 1: Overview -->
     <div class="tab-panel active" id="overview">
         <div class="info-grid">
             <div class="info-card">
                 <h4><span class="icon">📯</span>XP Horn</h4>
-                <p>地图上发出红色光柱的号角，撞到后获得500-2000 XP奖励。</p>
-                <span class="tag">每个 +500~2000 XP</span>
+                <p>Red beam emitters on the map. Driving through gives 500-2000 XP bonus.</p>
+                <span class="tag">+500~2000 XP each</span>
             </div>
             <div class="info-card">
                 <h4><span class="icon">🏅</span>Artisan Badge</h4>
-                <p>完成特定技能后自动解锁的徽章，证明你掌握了某项技术。</p>
-                <span class="tag">里程碑奖励</span>
+                <p>Unlocked by completing specific skills. Shows mastery of techniques.</p>
+                <span class="tag">Milestone Reward</span>
             </div>
             <div class="info-card">
                 <h4><span class="icon">🎯</span>Bonus Board</h4>
-                <p>标有数字的木板，飞镖式射击目标。分布在建筑物侧面和桥下。</p>
-                <span class="tag">射击挑战</span>
+                <p>Numbered target boards. Shoot with horn shockwave from your car.</p>
+                <span class="tag">Shooting Challenge</span>
             </div>
             <div class="info-card">
-                <h4><span class="icon">💡</span>快速技巧</h4>
-                <p>使用快速旅行后，Horn会重置，可以重复刷XP。Badge需要真实完成技能。</p>
-                <span class="tag">高效刷法</span>
+                <h4><span class="icon">💡</span>Quick Tip</h4>
+                <p>After fast travel, Horns reset — infinite XP farming possible. Badges require real skill completion.</p>
+                <span class="tag">Efficient Farming</span>
             </div>
         </div>
 
         <div class="img-gallery">
             <div class="img-gallery-item">
                 <img src="../images/collect/horns.jpg" alt="XP Horn">
-                <div class="caption">XP Horn 外观</div>
+                <div class="caption">XP Horn Appearance</div>
             </div>
             <div class="img-gallery-item">
                 <img src="../images/collect/badge.jpg" alt="Artisan Badge">
@@ -76,66 +72,63 @@
         </div>
     </div>
 
-    <!-- Tab 2: XP Horn -->
     <div class="tab-panel" id="horn">
         <div class="info-grid">
             <div class="info-card">
-                <h4><span class="icon">🏙️</span>城市密集区</h4>
-                <p>东京/大阪城区，每平方千米最多。推荐S2级车辆快速穿越。</p>
-                <span class="tag">高密度区</span>
+                <h4><span class="icon">🏙️</span>Urban Dense Zone</h4>
+                <p>Tokyo/Osaka. Highest density per sq km. S2 cars for speed running.</p>
+                <span class="tag">High Density</span>
             </div>
             <div class="info-card">
-                <h4><span class="icon">🛣️</span>高速路沿线</h4>
-                <p>高速公路出口和休息区，位置分散但容易到达。</p>
-                <span class="tag">低密度区</span>
+                <h4><span class="icon">🛣️</span>Highway Route</h4>
+                <p>Expressway exits and rest areas. Scattered but easy access.</p>
+                <span class="tag">Low Density</span>
             </div>
             <div class="info-card">
-                <h4><span class="icon">🏔️</span>山路弯道</h4>
-                <p>每个Hairpin弯内侧都有，掉头即可连续获取。</p>
-                <span class="tag">连续获取</span>
+                <h4><span class="icon">🏔️</span>Mountain Hairpins</h4>
+                <p>Inside every hairpin on Hakone. One U-turn = get them all consecutively.</p>
+                <span class="tag">Chain Collection</span>
             </div>
         </div>
         <ul class="checklist">
-            <li>快速旅行到Tokyo Expressway出口，Horn密度最高</li>
-            <li>Hakone山路有8个连续Horn，一个掉头全部拿到</li>
-            <li>高速公路中间隔离带也有Horn，注意对向车道</li>
-            <li>每个Horn +500~2000 XP，50个总计约+50000 XP</li>
+            <li>Fast travel to Tokyo Expressway exit — highest Horn density</li>
+            <li>Hakone mountain has 8 consecutive Horns — one U-turn grab them all</li>
+            <li>Highway center dividers also have Horns — watch oncoming lane</li>
+            <li>Each Horn +500~2000 XP, 50 total ≈ +50000 XP</li>
         </ul>
     </div>
 
-    <!-- Tab 3: Badge -->
     <div class="tab-panel" id="badge">
         <div class="info-grid">
             <div class="info-card">
-                <h4><span class="icon">🔧</span>调校相关</h4>
-                <p>完成调校挑战后解锁：完美换挡、漂移角度、刹车点控制。</p>
-                <span class="tag">调校技能</span>
+                <h4><span class="icon">🔧</span>Tuning Related</h4>
+                <p>From tuning challenges: Perfect gear shift, drift angle, brake point control.</p>
+                <span class="tag">Tuning Skills</span>
             </div>
             <div class="info-card">
-                <h4><span class="icon">🏎️</span>车辆相关</h4>
-                <p>驾驶特定品牌达到特定里程后解锁：Honda忠诚度、Toyota大师等。</p>
-                <span class="tag">品牌忠诚</span>
+                <h4><span class="icon">🏎️</span>Vehicle Related</h4>
+                <p>Drive specific brands to mileage targets: Honda Loyalty, Toyota Master etc.</p>
+                <span class="tag">Brand Loyalty</span>
             </div>
             <div class="info-card">
-                <h4><span class="icon">🗺️</span>探索相关</h4>
-                <p>探索地图特定区域解锁：日本文化建筑、高速公路100%探索。</p>
-                <span class="tag">探索进度</span>
+                <h4><span class="icon">🗺️</span>Exploration Related</h4>
+                <p>Explore map regions: Japanese cultural buildings, 100% highway coverage.</p>
+                <span class="tag">Exploration</span>
             </div>
         </div>
     </div>
 
-    <!-- Tab 4: Board -->
     <div class="tab-panel" id="board">
         <div class="info-grid">
             <div class="info-card">
-                <h4><span class="icon">🎯</span>射击方式</h4>
-                <p>靠近木板后按住刹车不放，按喇叭发出冲击波击落数字牌。</p>
-                <span class="tag">操作教学</span>
+                <h4><span class="icon">🎯</span>Shooting Method</h4>
+                <p>Get close, hold brake, honk horn to send shockwave that knocks down number boards.</p>
+                <span class="tag">How to Play</span>
             </div>
             <div class="info-card">
-                <h4><span class="icon">📍</span>位置分布</h4>
-                <p>大阪城公园桥下、神户港口仓库、东京高速路隔音墙。</p>
-                <span class="tag">关键地点</span>
+                <h4><span class="icon">📍</span>Key Locations</h4>
+                <p>Osaka Castle park bridge, Kobe harbor warehouses, Tokyo expressway sound barriers.</p>
+                <span class="tag">Key Spots</span>
             </div>
         </div>
     </div>

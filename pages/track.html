@@ -17,145 +17,147 @@
     <div class="hero-banner">
         <img src="../images/tracks/hero.jpg" alt="Track Guide">
         <div class="hero-overlay">
-            <h2>赛道攻略 - 城市/山路/计时赛</h2>
-            <p>视频详解 + 关键路线图 · 推荐车辆 · 最佳时间</p>
+            <h2>Track Guide — City / Mountain / Time Trial</h2>
+            <p>Video walkthroughs · Route maps · Best cars · Best times</p>
         </div>
     </div>
 
     <div class="stat-row">
-        <div class="stat-item"><div class="val">3</div><div class="label">赛道类型</div></div>
-        <div class="stat-item"><div class="val">12</div><div class="label">推荐路线</div></div>
-        <div class="stat-item"><div class="val">3</div><div class="label">视频教程</div></div>
-        <div class="stat-item"><div class="val">A~S1</div><div class="label">适用等级</div></div>
+        <div class="stat-item"><div class="val">3</div><div class="label">Track Types</div></div>
+        <div class="stat-item"><div class="val">12</div><div class="label">Key Routes</div></div>
+        <div class="stat-item"><div class="val">3</div><div class="label">Video Tutorials</div></div>
+        <div class="stat-item"><div class="val">A~S1</div><div class="label">Class Range</div></div>
     </div>
 
     <div class="tab-nav">
-        <button class="tab-btn active" onclick="switchTab(this, 'city')">🏙️ 城市竞速</button>
-        <button class="tab-btn" onclick="switchTab(this, 'mountain')">🏔️ 山路漂移</button>
-        <button class="tab-btn" onclick="switchTab(this, 'time')">⏱️ 计时赛</button>
-        <button class="tab-btn" onclick="switchTab(this, 'routes')">🗺️ 路线图</button>
+        <button class="tab-btn active" onclick="switchTab(this, 'city')">🏙️ City Racing</button>
+        <button class="tab-btn" onclick="switchTab(this, 'mountain')">🏔️ Mountain Touge</button>
+        <button class="tab-btn" onclick="switchTab(this, 'time')">⏱️ Time Trial</button>
+        <button class="tab-btn" onclick="switchTab(this, 'routes')">🗺️ Route Maps</button>
     </div>
 
-    <!-- City Racing -->
     <div class="tab-panel active" id="city">
         <div class="info-grid">
             <div class="info-card">
                 <h4><span class="icon">📍</span>Tokyo Expressway</h4>
-                <p>高架环形赛道，多层结构，最快圈速1:45（S1级车辆）。</p>
-                <span class="tag">城市 · 中等难度</span>
+                <p>Elevated loop circuit, multi-level. Fastest lap 1:45 with S1 car.</p>
+                <span class="tag">City · Medium</span>
             </div>
             <div class="info-card">
                 <h4><span class="icon">📍</span>Osaka Bay Circuit</h4>
-                <p>港口区域临时赛道，路面较宽，适合新手练习。</p>
-                <span class="tag">城市 · 入门</span>
+                <p>Port area temporary track. Wide roads, good for beginners.</p>
+                <span class="tag">City · Beginner</span>
             </div>
             <div class="info-card">
                 <h4><span class="icon">📍</span>Shibuya Sprint</h4>
-                <p>繁华街区短程冲刺，2.1km，包含3个90度弯角。</p>
-                <span class="tag">城市 · 冲刺</span>
+                <p>Busy district short sprint, 2.1km. Three 90-degree corners.</p>
+                <span class="tag">City · Sprint</span>
             </div>
             <div class="info-card">
-                <h4><span class="icon">🚗</span>推荐车辆</h4>
-                <p>优先选择AWD性能车（如GT-R、Supra），城市弯道需要稳定牵引力。</p>
+                <h4><span class="icon">🚗</span>Best Cars</h4>
+                <p>AWD performance cars (GT-R, Supra) for stability on city corners.</p>
                 <span class="tag">A~S1 Class</span>
             </div>
         </div>
+        <div class="video-section" style="margin:16px 0;">
+            <div class="video-wrapper" style="aspect-ratio:16/9;border-radius:8px;overflow:hidden;">
+                <iframe src="https://www.youtube.com/embed/oz6cktQBmwE" title="City Racing Guide" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <p class="img-caption">Tokyo Expressway — Urban Circuit Technique</p>
+        </div>
         <div class="img-gallery">
             <div class="img-gallery-item">
-                <img src="../images/tracks/track-oz6cktQBmwE-maxresdefault.jpg" alt="City Racing">
-                <div class="caption">城市竞速视频教程</div>
-            </div>
-            <div class="img-gallery-item">
-                <img src="../images/tracks/city.jpg" alt="City Track">
-                <div class="caption">Tokyo Expressway</div>
+                <img src="../images/tracks/city.jpg" alt="City Track" style="width:100%;height:100%;object-fit:cover;">
+                <div class="caption">Tokyo Expressway — Layout</div>
             </div>
         </div>
     </div>
 
-    <!-- Mountain Touge -->
     <div class="tab-panel" id="mountain">
         <div class="info-grid">
             <div class="info-card">
                 <h4><span class="icon">🏔️</span>Hakone Turn 7</h4>
-                <p>日本最 iconic 的山路弯道之一，收紧半径hairpin。建议前驱/S1车辆。</p>
-                <span class="tag">山路 · 高难度</span>
+                <p>Japan's most iconic mountain hairpin. Tightening radius. FWD/S1 recommended.</p>
+                <span class="tag">Mountain · Hard</span>
             </div>
             <div class="info-card">
                 <h4><span class="icon">🏔️</span>Mt. Tsukuba Climb</h4>
-                <p>6km上山路段，掉头弯和长距离加速交替。建议A~S1级漂移调校。</p>
-                <span class="tag">山路 · 中等难度</span>
+                <p>6km uphill. Hairpins and long straights alternate. A~S1 drift tune.</p>
+                <span class="tag">Mountain · Medium</span>
             </div>
             <div class="info-card">
                 <h4><span class="icon">🏔️</span>Izu Peninsula Coast</h4>
-                <p>沿海山路，弯道密但半径较大，适合中级玩家练习。</p>
-                <span class="tag">山路 · 入门</span>
+                <p>Coastal mountain road. Dense but wider radius. Great for intermediate.</p>
+                <span class="tag">Mountain · Beginner</span>
             </div>
             <div class="info-card">
-                <h4><span class="icon">🚗</span>推荐车辆</h4>
-                <p>AE86/Silvia/S2000都是经典touge战车。400hp左右最佳，不要超过600hp。</p>
+                <h4><span class="icon">🚗</span>Best Cars</h4>
+                <p>AE86/Silvia/S2000 are classic touge weapons. 400hp ideal, max 600hp.</p>
                 <span class="tag">RWD · A~S1 Class</span>
             </div>
         </div>
+        <div class="video-section" style="margin:16px 0;">
+            <div class="video-wrapper" style="aspect-ratio:16/9;border-radius:8px;overflow:hidden;">
+                <iframe src="https://www.youtube.com/embed/Cps1W_xjM_c" title="Mountain Touge Racing Guide" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <p class="img-caption">Hakone Pass — Turn 7 Hairpin & Mountain Road Technique</p>
+        </div>
         <div class="img-gallery">
             <div class="img-gallery-item">
-                <img src="../images/tracks/track-Cps1W_xjM_c-maxresdefault.jpg" alt="Mountain Touge">
-                <div class="caption">山路漂移教程</div>
-            </div>
-            <div class="img-gallery-item">
-                <img src="../images/tracks/mountain.jpg" alt="Mountain Track">
-                <div class="caption">Hakone Pass</div>
+                <img src="../images/tracks/mountain.jpg" alt="Hakone Pass" style="width:100%;height:100%;object-fit:cover;">
+                <div class="caption">Hakone Pass — Route Map</div>
             </div>
         </div>
     </div>
 
-    <!-- Time Trial -->
     <div class="tab-panel" id="time">
         <div class="info-grid">
             <div class="info-card">
                 <h4><span class="icon">⏱️</span>Hakone Sprint</h4>
-                <p>5.2km完整上山路，从山底到第5驿站。最快单圈2:12（S1车辆）。</p>
-                <span class="tag">计时 · 中等</span>
+                <p>5.2km full mountain run, base to 5th station. Best lap 2:12 (S1).</p>
+                <span class="tag">Time Trial · Medium</span>
             </div>
             <div class="info-card">
                 <h4><span class="icon">⏱️</span>Tokyo City Circuit</h4>
-                <p>高速公路环形一圈，4.8km，高速弯为主。最快单圈1:38（S2车辆）。</p>
-                <span class="tag">计时 · 中等</span>
+                <p>Highway loop, 4.8km. High-speed corners. Best lap 1:38 (S2).</p>
+                <span class="tag">Time Trial · Medium</span>
             </div>
             <div class="info-card">
                 <h4><span class="icon">⏱️</span>Fuji Speedway</h4>
-                <p>官方赛道，4.2km，多弯高速。需要S1~S2级调校。</p>
-                <span class="tag">计时 · 高难度</span>
+                <p>Official circuit, 4.2km. Fast corners. S1~S2 tune required.</p>
+                <span class="tag">Time Trial · Hard</span>
             </div>
             <div class="info-card">
-                <h4><span class="icon">🚗</span>推荐车辆</h4>
-                <p>S2级hypercar是计时赛首选，700+hp才能打破记录。</p>
+                <h4><span class="icon">🚗</span>Best Cars</h4>
+                <p>S2 hypercars are top choice. 700+hp needed for record times.</p>
                 <span class="tag">S1~S2 Class</span>
             </div>
         </div>
+        <div class="video-section" style="margin:16px 0;">
+            <div class="video-wrapper" style="aspect-ratio:16/9;border-radius:8px;overflow:hidden;">
+                <iframe src="https://www.youtube.com/embed/Eg8gcLMbJmo" title="Time Trial Guide" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <p class="img-caption">Time Trial Technique — Speed Optimization & Corner Entry</p>
+        </div>
         <div class="img-gallery">
             <div class="img-gallery-item">
-                <img src="../images/tracks/track-Eg8gcLMbJmo-maxresdefault.jpg" alt="Time Trial">
-                <div class="caption">计时赛教程</div>
-            </div>
-            <div class="img-gallery-item">
-                <img src="../images/tracks/timetrial.jpg" alt="Time Trial Track">
-                <div class="caption">Fuji Speedway</div>
+                <img src="../images/tracks/timetrial.jpg" alt="Fuji Speedway" style="width:100%;height:100%;object-fit:cover;">
+                <div class="caption">Fuji Speedway — Track Layout</div>
             </div>
         </div>
     </div>
 
-    <!-- Routes Map -->
     <div class="tab-panel" id="routes">
         <div class="info-grid">
             <div class="info-card">
-                <h4><span class="icon">🗺️</span>最佳路线规划</h4>
-                <p>从Tokyo出发 → Hakone山路 → Lake Kawaguchiko → Fuji Speedway，全程约120km。</p>
-                <span class="tag">推荐路线</span>
+                <h4><span class="icon">🗺️</span>Best Route Plan</h4>
+                <p>Tokyo → Hakone Mountain → Lake Kawaguchiko → Fuji Speedway. ~120km total.</p>
+                <span class="tag">Recommended Route</span>
             </div>
             <div class="info-card">
-                <h4><span class="icon">🗺️</span>快速旅行点</h4>
-                <p>解锁所有Festival Site后，快速旅行可覆盖90%赛道入口。</p>
-                <span class="tag">效率提示</span>
+                <h4><span class="icon">🗺️</span>Fast Travel Points</h4>
+                <p>Unlock all Festival Sites first. Fast travel covers 90% of track entrances.</p>
+                <span class="tag">Efficiency Tip</span>
             </div>
         </div>
     </div>
