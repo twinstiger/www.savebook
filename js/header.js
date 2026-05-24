@@ -1,54 +1,92 @@
-// Header组件 - 用于所有页面动态加载导航
+// header.js - Clean horizontal nav with dropdowns
 document.addEventListener('DOMContentLoaded', function() {
-    // 获取当前页面路径
-    const currentPath = window.location.pathname;
-    const currentPage = currentPath.split('/').pop() || 'index.html';
-    
-    // 判断是否在子目录
-    const isInSubdir = currentPath.includes('/pages/');
-    
-    // 定义导航项 - 使用相对路径
-    const navItems = [
-        { name: 'Home', url: 'index.html', page: 'index.html' },
-        { name: 'System Specs', url: 'system-requirements.html', page: 'system-requirements.html' },
-        { name: 'Beginner Guide', url: 'newbie.html', page: 'newbie.html' },
-        { name: 'Track Guides', url: 'track.html', page: 'track.html' },
-        { name: 'Car List', url: 'car.html', page: 'car.html' },
-        { name: 'Car Tuning', url: 'tuning.html', page: 'tuning.html' },
-        { name: 'Rare Cars', url: 'barn-finds.html', page: 'barn-finds.html' },
-        { name: 'Collectibles', url: 'collect.html', page: 'collect.html' },
-        { name: 'Game Systems', url: 'game-systems.html', page: 'game-systems.html' },
-        { name: 'Updates', url: 'news.html', page: 'news.html' },
-        { name: 'Tools', url: 'tools.html', page: 'tools.html' },
-        { name: 'Contact Us', url: 'contact.html', page: 'contact.html' }
-    ];
-    
-    // 生成导航HTML
-    let navHtml = '<nav class="nav-tabs">';
-    navItems.forEach(item => {
-        const isActive = currentPage === item.page ? ' active' : '';
-        // 根据当前页面位置生成正确的链接
-        let linkUrl;
-        if (item.page === 'index.html') {
-            // 首页特殊处理
-            linkUrl = isInSubdir ? '../index.html' : 'index.html';
-        } else {
-            // 其他页面
-            linkUrl = isInSubdir ? item.url : 'pages/' + item.url;
+    var currentPath = window.location.pathname;
+    var currentPage = currentPath.split('/').pop() || 'index.html';
+    var isInSubdir = currentPath.includes('/pages/') || currentPath.includes('/guides') || currentPath.includes('/seasonal');
+
+    function getPath(target) {
+        if (target === 'index.html') return isInSubdir ? '../index.html' : 'index.html';
+        if (isInSubdir && target !== 'index.html') {
+            // guides/ and seasonal/ are subdirs of pages/
+            if (target.startsWith('pages/')) return target.replace('pages/', '');
+            return '../' + target;
         }
-        navHtml += `<a href="${linkUrl}" class="nav-tab${isActive}">${item.name}</a>`;
-    });
-    navHtml += '</nav>';
-    
-    // 替换或创建header中的nav元素
-    const headerContainer = document.querySelector('.nav-container');
-    if (headerContainer) {
-        const existingNav = headerContainer.querySelector('nav');
-        if (existingNav) {
-            existingNav.outerHTML = navHtml;
-        } else {
-            // 如果没有nav元素，直接添加到nav-container
-            headerContainer.insertAdjacentHTML('beforeend', navHtml);
-        }
+        return target.startsWith('pages/') || target.startsWith('guides/') || target.startsWith('seasonal/') ? target : 'pages/' + target;
     }
+
+    function isActive(page) { return currentPage === page; }
+
+    var navHTML = '<ul class="nav-links">';
+
+    // Home
+    navHTML += '<li><a href="' + getPath('index.html') + '" class="' + (isActive('index.html') ? 'active' : '') + '">Home</a></li>';
+
+    // Guides (dropdown)
+    navHTML += '<li><span class="nav-item dropdown-toggle ' + (isActive('barn-finds.html') || isActive('game-systems.html') || isActive('collect.html') || isActive('tuning.html') || isActive('newbie.html') || isActive('touge.html') ? 'active' : '') + '">Guides</span>';
+    navHTML += '<ul class="dropdown">';
+    navHTML += '<li><a href="' + getPath('pages/barn-finds.html') + '">Barn Finds</a></li>';
+    navHTML += '<li><a href="' + getPath('pages/game-systems.html') + '">Game Systems</a></li>';
+    navHTML += '<li><a href="' + getPath('pages/collect.html') + '">Collectibles</a></li>';
+    navHTML += '<li><a href="' + getPath('pages/tuning.html') + '">Tuning</a></li>';
+    navHTML += '<li><a href="' + getPath('pages/newbie.html') + '">Newbie Guide</a></li>';
+    navHTML += '<li><a href="' + getPath('pages/touge.html') + '">Touge / Track</a></li>';
+    navHTML += '</ul></li>';
+
+    // Seasonal (dropdown)
+    navHTML += '<li><span class="nav-item dropdown-toggle ' + (isActive('s1-2026.html') ? 'active' : '') + '">Seasonal</span>';
+    navHTML += '<ul class="dropdown">';
+    navHTML += '<li><a href="' + (isInSubdir ? 'index.html' : 'pages/seasonal/index.html') + '">Season 1 2026</a></li>';
+    navHTML += '</ul></li>';
+
+    // Track
+    navHTML += '<li><a href="' + getPath('pages/track.html') + '" class="' + (isActive('track.html') ? 'active' : '') + '">Track</a></li>';
+
+    // Car
+    navHTML += '<li><a href="' + getPath('pages/car.html') + '" class="' + (isActive('car.html') ? 'active' : '') + '">Car</a></li>';
+
+    // Tools
+    navHTML += '<li><a href="' + getPath('pages/tools.html') + '" class="' + (isActive('tools.html') ? 'active' : '') + '">Tools</a></li>';
+
+    // Contact
+    navHTML += '<li><a href="' + getPath('pages/contact.html') + '" class="' + (isActive('contact.html') ? 'active' : '') + '">Contact</a></li>';
+
+    navHTML += '</ul>';
+
+    // Hamburger
+    var hamburger = '<button class="hamburger" aria-label="Menu" onclick="this.classList.toggle(\'open\');document.querySelector(\'.nav-links\').classList.toggle(\'open\')">';
+    hamburger += '<span></span><span></span><span></span></button>';
+
+    // Dark mode toggle
+    var themeToggle = '<button id="theme-toggle" aria-label="Toggle dark/light mode" onclick="document.body.classList.toggle(\'light-mode\')">🌙</button>';
+
+    var container = document.querySelector('.nav-container');
+    if (container) {
+        // Build right side
+        var rightDiv = document.createElement('div');
+        rightDiv.className = 'nav-right';
+        rightDiv.innerHTML = navHTML + themeToggle + hamburger;
+
+        // Logo
+        var logo = container.querySelector('.logo');
+        if (!logo) {
+            logo = document.createElement('a');
+            logo.href = isInSubdir ? '../index.html' : 'index.html';
+            logo.className = 'logo';
+            logo.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 50" width="160" height="33"><text x="0" y="35" font-family="Orbitron,Arial Black,sans-serif" font-weight="900" font-size="30" fill="#f1faee">savebook</text><text x="148" y="35" font-family="Orbitron,Arial Black,sans-serif" font-weight="400" font-size="18" fill="#8a8a8a">.net</text><rect x="150" y="12" width="16" height="16" fill="#e63946" rx="2"/><rect x="153" y="15" width="5" height="5" fill="#f1faee"/><rect x="160" y="15" width="5" height="5" fill="#f1faee"/><rect x="153" y="22" width="5" height="5" fill="#f1faee"/><rect x="160" y="22" width="5" height="5" fill="#f1faee"/></svg>';
+            container.insertBefore(logo, container.firstChild);
+        }
+
+        container.appendChild(rightDiv);
+    }
+
+    // Dropdown hover
+    var dropdownItems = document.querySelectorAll('.nav-links li');
+    dropdownItems.forEach(function(item) {
+        var toggle = item.querySelector('.dropdown-toggle');
+        var dropdown = item.querySelector('.dropdown');
+        if (toggle && dropdown) {
+            item.addEventListener('mouseenter', function() { dropdown.style.display = 'flex'; });
+            item.addEventListener('mouseleave', function() { dropdown.style.display = 'none'; });
+        }
+    });
 });
