@@ -350,3 +350,120 @@ body.light-mode {
     box-shadow: var(--shadow); border-left: 4px solid var(--accent);
 }
 .section-open h2 { margin: 0 0 8px; border: none; padding: 0; }
+
+
+/* ===== Tab Navigation ===== */
+.tab-nav {
+    display: flex; gap: 4px; margin-bottom: 24px;
+    border-bottom: 2px solid var(--border);
+    overflow-x: auto; scrollbar-width: none;
+}
+.tab-nav::-webkit-scrollbar { display: none; }
+.tab-btn {
+    flex-shrink: 0; padding: 10px 20px;
+    background: none; border: none; border-bottom: 3px solid transparent;
+    color: var(--text-muted); font-family: 'Orbitron', sans-serif;
+    font-size: 0.8rem; font-weight: 700; letter-spacing: 0.5px;
+    cursor: pointer; transition: all 0.2s; white-space: nowrap;
+}
+.tab-btn:hover { color: var(--accent); }
+.tab-btn.active { color: var(--accent); border-bottom-color: var(--accent); }
+
+/* Tab content panels */
+.tab-panel { display: none; }
+.tab-panel.active { display: block; }
+
+/* ===== Info Cards Grid ===== */
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 16px; margin: 16px 0;
+}
+.info-card {
+    background: var(--bg-card); border-radius: var(--radius);
+    padding: 20px; box-shadow: var(--shadow);
+    border-left: 4px solid var(--accent);
+    transition: all 0.2s;
+}
+.info-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-glow); }
+.info-card h4 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.85rem; font-weight: 700;
+    margin: 0 0 10px; color: var(--text);
+    display: flex; align-items: center; gap: 8px;
+}
+.info-card h4 .icon { font-size: 1.1rem; }
+.info-card p { margin: 0 0 8px; font-size: 0.85rem; color: var(--text-secondary); }
+.info-card .tag { font-size: 0.75rem; margin-top: 8px; }
+.info-card table { margin: 0; }
+.info-card th { font-size: 0.75rem; padding: 6px 10px; }
+.info-card td { font-size: 0.8rem; padding: 6px 10px; }
+
+/* ===== Hero Image Banner ===== */
+.hero-banner {
+    position: relative; border-radius: var(--radius);
+    overflow: hidden; margin-bottom: 24px;
+    height: 220px;
+}
+.hero-banner img {
+    width: 100%; height: 100%; object-fit: cover;
+    display: block;
+}
+.hero-banner .hero-overlay {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    padding: 40px 28px 20px;
+    background: linear-gradient(transparent, rgba(0,0,0,0.85));
+    color: #fff;
+}
+.hero-banner h2 { margin: 0; font-size: 1.1rem; color: #fff; }
+.hero-banner p { margin: 4px 0 0; font-size: 0.85rem; color: rgba(255,255,255,0.7); }
+
+/* ===== Image Gallery Row ===== */
+.img-gallery {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 12px; margin: 16px 0;
+}
+.img-gallery-item {
+    position: relative; border-radius: 6px; overflow: hidden;
+    aspect-ratio: 16/9;
+}
+.img-gallery-item img {
+    width: 100%; height: 100%; object-fit: cover;
+    transition: transform 0.3s;
+}
+.img-gallery-item:hover img { transform: scale(1.05); }
+.img-gallery-item .caption {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    padding: 6px 10px; background: rgba(0,0,0,0.7);
+    font-size: 0.75rem; color: #fff;
+}
+
+/* ===== Stat Row ===== */
+.stat-row {
+    display: flex; gap: 16px; flex-wrap: wrap; margin: 12px 0;
+}
+.stat-item {
+    background: var(--bg-card); border-radius: 6px;
+    padding: 12px 16px; flex: 1; min-width: 120px;
+    text-align: center; border-left: 3px solid var(--accent);
+}
+.stat-item .val {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.2rem; font-weight: 700; color: var(--accent);
+}
+.stat-item .label { font-size: 0.75rem; color: var(--text-muted); margin-top: 2px; }
+
+/* ===== Checklist ===== */
+.checklist { list-style: none; padding: 0; margin: 12px 0; }
+.checklist li {
+    display: flex; align-items: flex-start; gap: 10px;
+    padding: 8px 0; border-bottom: 1px solid var(--border);
+    font-size: 0.88rem; color: var(--text-secondary);
+}
+.checklist li::before { content: '☐'; font-size: 1rem; color: var(--accent); flex-shrink: 0; }
+
+/* ===== Comparison Table ===== */
+.compact-table { width: 100%; margin: 12px 0; }
+.compact-table th { font-size: 0.78rem; }
+.compact-table td { font-size: 0.82rem; padding: 7px 12px; }
+.compact-table tr:nth-child(even) td { background: rgba(255,255,255,0.02); }
