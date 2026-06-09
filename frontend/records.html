@@ -4,57 +4,71 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Records - SaveBook</title>
-    <meta name="description" content="Browse your past SaveBook conversions and re-download files.">
-    <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+    <meta name="description" content="Your conversion history on SaveBook.">
+    <meta name="theme-color" content="#b91c1c">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;0,800;0,900;1,500;1,700&display=swap">
-    <link rel="stylesheet" href="/css/style.css?v=6">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+    <link rel="apple-touch-icon" href="/assets/logo.svg">
+    <link rel="manifest" href="/assets/manifest.json">
+    <link rel="stylesheet" href="/css/style.css?v=10">
+    <meta property="og:title" content="Records - SaveBook">
+    <meta property="og:description" content="Your conversion history on SaveBook.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://app.savebook.net/records.html">
 </head>
 <body>
     <nav class="nav">
         <div class="nav-inner">
             <a href="/" class="nav-brand">
-                <span class="nav-brand-word">Save</span><img src="/assets/logo.svg" alt="" class="nav-logo" aria-hidden="true"><span class="nav-brand-word">Book</span>
+                <span class="nav-brand-word">Save</span>
+                <img src="/assets/logo.svg" alt="" class="nav-logo" aria-hidden="true">
+                <span class="nav-brand-word">Book</span>
             </a>
-            <div class="nav-links">
+            <button id="mobile-menu-btn" class="nav-toggle" aria-label="Toggle menu">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+            </button>
+            <div class="nav-links" id="nav-links">
                 <a href="/" class="nav-link">Home</a>
                 <a href="/records.html" class="nav-link active">Records</a>
                 <a href="/help.html" class="nav-link">Help</a>
+                <a href="https://toolsbase.net/" class="nav-link nav-link-soft" target="_blank" rel="noopener">Tools</a>
             </div>
         </div>
     </nav>
 
-    <main class="container records-page">
-        <header class="page-header">
-            <h1>Your records</h1>
-            <p class="page-subtitle">Files converted in this browser. Stored for 7 days.</p>
-        </header>
+    <main class="container" style="padding-top: 2rem;">
+        <h1 class="section-title">Conversion Records</h1>
+        <p class="section-subtitle">Your recent conversions appear here. Records are tied to this browser.</p>
 
-        <div id="records-empty" class="empty-state hidden">
-            <h2>No conversions yet</h2>
-            <p>Head to the <a href="/">home page</a> and convert your first article.</p>
+        <div id="records-empty" class="card hidden" style="margin-top: 2rem; text-align: center; padding: 2rem;">
+            <p style="color: var(--text-muted);">No conversions yet. <a href="/">Go to the home page</a> to convert your first article.</p>
         </div>
 
-        <div id="records-loading" class="loading">
-            <div class="spinner"></div>
-            <span>Loading records…</span>
+        <div id="records-loading" class="card" style="margin-top: 2rem; text-align: center; padding: 2rem;">
+            <p style="color: var(--text-muted);">Loading records…</p>
         </div>
 
-        <div id="records-list" class="records-list"></div>
+        <div id="records-list" style="margin-top: 2rem;"></div>
 
-        <div id="records-pagination" class="pagination hidden">
-            <button id="prev-page-btn" class="btn btn-soft">← Newer</button>
-            <span id="page-indicator" class="page-indicator">Page 1</span>
-            <button id="next-page-btn" class="btn btn-soft">Older →</button>
+        <div id="records-pagination" class="card hidden" style="margin-top: 1rem; display: flex; justify-content: center; gap: 1rem; align-items: center;">
+            <button id="prev-page-btn" class="btn btn-soft" disabled>← Newer</button>
+            <span id="page-indicator" style="color: var(--text-muted);">Page 1</span>
+            <button id="next-page-btn" class="btn btn-soft" disabled>Older →</button>
         </div>
 
-        <div id="records-error" class="alert alert-error hidden" role="alert"></div>
+        <div id="records-error" class="alert alert-error hidden" role="alert" style="margin-top: 1rem;"></div>
     </main>
 
     <footer class="footer">
         <div class="container">
             <p>© 2026 SaveBook · <a href="/privacy.html">Privacy</a> · <a href="/terms.html">Terms</a></p>
+            <p class="footer-tagline">Powered by Cloudflare Workers &amp; R2.</p>
         </div>
     </footer>
 

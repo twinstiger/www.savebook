@@ -2,86 +2,76 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Privacy Policy - SaveBook</title>
-    <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Privacy - SaveBook</title>
+    <meta name="description" content="SaveBook privacy policy.">
+    <meta name="theme-color" content="#b91c1c">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;0,800;0,900;1,500;1,700&display=swap">
-    <link rel="stylesheet" href="/css/style.css?v=6">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+    <link rel="apple-touch-icon" href="/assets/logo.svg">
+    <link rel="manifest" href="/assets/manifest.json">
+    <link rel="stylesheet" href="/css/style.css?v=10">
+    <meta property="og:title" content="Privacy - SaveBook">
+    <meta property="og:description" content="SaveBook privacy policy.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://app.savebook.net/privacy.html">
 </head>
 <body>
     <nav class="nav">
         <div class="nav-inner">
             <a href="/" class="nav-brand">
-                <span class="nav-brand-word">Save</span><img src="/assets/logo.svg" alt="" class="nav-logo" aria-hidden="true"><span class="nav-brand-word">Book</span>
+                <span class="nav-brand-word">Save</span>
+                <img src="/assets/logo.svg" alt="" class="nav-logo" aria-hidden="true">
+                <span class="nav-brand-word">Book</span>
             </a>
-            <div class="nav-links">
+            <button id="mobile-menu-btn" class="nav-toggle" aria-label="Toggle menu">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+            </button>
+            <div class="nav-links" id="nav-links">
                 <a href="/" class="nav-link">Home</a>
                 <a href="/records.html" class="nav-link">Records</a>
                 <a href="/help.html" class="nav-link">Help</a>
+                <a href="https://toolsbase.net/" class="nav-link nav-link-soft" target="_blank" rel="noopener">Tools</a>
             </div>
         </div>
     </nav>
 
-    <main class="container help-page">
-        <header class="page-header">
-            <h1>Privacy Policy</h1>
-            <p class="page-subtitle">Last updated: 2026</p>
-        </header>
+    <main class="container" style="padding-top: 2rem;">
+        <h1 class="section-title">Privacy Policy</h1>
+        <div class="card" style="margin-top: 2rem; max-width: 720px;">
+            <p><strong>Effective date:</strong> 2026-01-01</p>
 
-        <article class="prose">
-            <section>
-                <h2>What we collect</h2>
-                <p>SaveBook is designed to be anonymous. We do not require accounts, names, or email addresses for the core conversion service.</p>
-                <p>The only persistent identifier is a <strong>session ID</strong> stored in your browser's <code>localStorage</code>. It is a randomly generated string, used solely to associate your past conversions with the device you used to make them.</p>
-            </section>
+            <h2>What we collect</h2>
+            <p>We do not collect personal information. Conversion records are stored locally in your browser and are not sent to our servers beyond what's needed to deliver the file.</p>
 
-            <section>
-                <h2>What we process</h2>
-                <p>When you submit a URL for conversion, our Cloudflare Worker:</p>
-                <ul>
-                    <li>Fetches the HTML of the target page.</li>
-                    <li>Cleans it (removes ads, navigation, scripts).</li>
-                    <li>Generates a PDF or EPUB file.</li>
-                    <li>Stores the resulting file in Cloudflare R2 for 7 days.</li>
-                    <li>Records the conversion (URL, title, format, file size, session ID, timestamp) in Cloudflare D1.</li>
-                </ul>
-                <p>This data is necessary to deliver the service. The Worker sees the URL you submit, but we do not log or retain IP addresses beyond Cloudflare's standard security logs (which expire after 7 days per Cloudflare's default policy).</p>
-            </section>
+            <h2>How we use data</h2>
+            <p>Uploaded URLs are processed only to generate the requested file. The file is delivered to you and stored temporarily in Cloudflare R2 for 7 days before automatic deletion.</p>
 
-            <section>
-                <h2>What we don't do</h2>
-                <ul>
-                    <li>We do not track you across other websites.</li>
-                    <li>We do not sell or share your data with third parties.</li>
-                    <li>We do not run advertising or analytics on the site.</li>
-                    <li>We do not require accounts or email verification (except for Kindle push, which uses your Kindle email only at the moment of send).</li>
-                </ul>
-            </section>
+            <h2>Cookies</h2>
+            <p>We do not use tracking cookies. A session ID is stored in localStorage to associate your records with this browser.</p>
 
-            <section>
-                <h2>Your rights</h2>
-                <p>You can delete your records at any time from the <a href="/records.html">Records page</a>. Deleting a record also removes the underlying file from R2.</p>
-                <p>To start fresh in this browser, clear <code>localStorage</code> for this domain (or click the trash icon next to each record).</p>
-            </section>
+            <h2>Third parties</h2>
+            <p>Files are processed using Cloudflare Workers and stored in Cloudflare R2. These services operate under their own privacy policies.</p>
 
-            <section>
-                <h2>Data retention</h2>
-                <p>Converted files and their database records are automatically deleted after <strong>7 days</strong>.</p>
-            </section>
-
-            <section>
-                <h2>Contact</h2>
-                <p>For privacy questions, open an issue on the <a href="https://github.com/yourusername/savebook" target="_blank" rel="noopener">GitHub repository</a>.</p>
-            </section>
-        </article>
+            <h2>Contact</h2>
+            <p>Questions? Open an issue on <a href="https://github.com/yourusername/savebook" target="_blank" rel="noopener">GitHub</a>.</p>
+        </div>
     </main>
 
     <footer class="footer">
         <div class="container">
             <p>© 2026 SaveBook · <a href="/privacy.html">Privacy</a> · <a href="/terms.html">Terms</a></p>
+            <p class="footer-tagline">Powered by Cloudflare Workers &amp; R2.</p>
         </div>
     </footer>
+
+    <script src="/js/api.js"></script>
+    <script src="/js/main.js"></script>
 </body>
 </html>
