@@ -49,15 +49,15 @@ function renderRecords() {
     const page = records.slice(start, start + PAGE_SIZE);
 
     list.innerHTML = page.map(r => `
-        <div class="record-item" data-id="${r.id || r.conversionId || ''}">
+        <div class="record-card" data-id="${r.id || r.conversionId || ''}">
             <div class="record-info">
                 <div class="record-title">${escapeHtml(r.title || 'Untitled')}</div>
                 <div class="record-meta">
-                    <span>${r.format?.toUpperCase() || 'FILE'}</span> ·
-                    <span>${formatBytes(r.file_size || r.fileSize)}</span> ·
+                    <span class="record-format">${r.format?.toUpperCase() || 'FILE'}</span>
+                    <span>${formatBytes(r.file_size || r.fileSize)}</span>
                     <span>${formatDate(r.created_at || r.createdAt)}</span>
+                    <span>${escapeHtml(truncateUrl(r.url || r.source_url || '', 50))}</span>
                 </div>
-                <div class="record-url">${escapeHtml(truncateUrl(r.url || r.source_url || '', 60))}</div>
             </div>
             <div class="record-actions">
                 ${r.download_url || r.url ? `<a href="${r.download_url || r.url}" class="btn btn-soft btn-sm" download>Download</a>` : ''}
