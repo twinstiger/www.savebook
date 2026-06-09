@@ -2,47 +2,53 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>404 - Page Not Found | savebook.net</title>
-    <meta name="description" content="The page you are looking for does not exist. Return to savebook.net Forza Horizon 6 Guides homepage.">
-    <link rel="icon" type="image/svg+xml" href="favicon.svg">
-    <link rel="stylesheet" href="css/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>404 - SaveBook</title>
+    <meta name="theme-color" content="#b91c1c">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+    <link rel="apple-touch-icon" href="/assets/logo.svg">
+    <link rel="manifest" href="/assets/manifest.json">
+    <link rel="stylesheet" href="/css/style.css?v=10">
 </head>
 <body>
-<header>
-    <div class="nav-container">
-        <a href="index.html" class="logo">
-            <img src="logo.svg" alt="savebook.net - Forza Horizon 6 Guides">
-        </a>
-    </div>
-</header>
-
-<div class="container">
-    <div class="card" style="text-align:center; padding: 60px 20px;">
-        <h1 style="font-size: 80px; color: #ff6b35; margin-bottom: 10px;">404</h1>
-        <h2 style="margin-bottom: 20px;">Page Not Found</h2>
-        <p style="font-size: 16px; color: #aaa; margin-bottom: 30px;">The page you were looking for doesn't exist or has been moved.</p>
-        
-        <div style="margin: 30px 0;">
-            <a href="index.html" class="quick-tab">🏠 Back to Homepage</a>
+    <nav class="nav">
+        <div class="nav-inner">
+            <a href="/" class="nav-brand">
+                <span class="nav-brand-word">Save</span>
+                <img src="/assets/logo.svg" alt="" class="nav-logo" aria-hidden="true">
+                <span class="nav-brand-word">Book</span>
+            </a>
+            <button id="mobile-menu-btn" class="nav-toggle" aria-label="Toggle menu">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+            </button>
+            <div class="nav-links" id="nav-links">
+                <a href="/" class="nav-link">Home</a>
+                <a href="/records.html" class="nav-link">Records</a>
+                <a href="/help.html" class="nav-link">Help</a>
+                <a href="https://toolsbase.net/" class="nav-link nav-link-soft" target="_blank" rel="noopener">Tools</a>
+            </div>
         </div>
+    </nav>
 
-        <div style="margin: 30px 0; padding: 20px; background: #0d1b2a; border-radius: 12px; display: inline-block; text-align: left; max-width: 400px;">
-            <h3 style="color: #ff6b35; margin-bottom: 12px;">Quick Links</h3>
-            <ul style="list-style: none; padding: 0; line-height: 2;">
-                <li>→ <a href="index.html" style="color: #aaa;">Homepage</a></li>
-                <li>→ <a href="pages/tuning.html" style="color: #aaa;">Car Tuning Guide</a></li>
-                <li>→ <a href="pages/track.html" style="color: #aaa;">Track Racing Tips</a></li>
-                <li>→ <a href="pages/car.html" style="color: #aaa;">Full Car List</a></li>
-                <li>→ <a href="pages/collect.html" style="color: #aaa;">Map Collectibles</a></li>
-            </ul>
+    <main class="container" style="padding-top: 4rem; text-align: center;">
+        <h1 style="font-size: 6rem; font-weight: 900; color: var(--accent); margin-bottom: 0.5rem;">404</h1>
+        <h2 style="font-size: 1.5rem; color: var(--text); margin-bottom: 1rem;">Page not found</h2>
+        <p style="color: var(--text-muted); margin-bottom: 2rem;">The page you're looking for doesn't exist.</p>
+        <a href="/" class="btn btn-primary">Go Home</a>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>© 2026 SaveBook · <a href="/privacy.html">Privacy</a> · <a href="/terms.html">Terms</a></p>
+            <p class="footer-tagline">Powered by Cloudflare Workers &amp; R2.</p>
         </div>
-    </div>
-</div>
-
-<footer>
-    <p>© 2026 savebook.net | Forza Horizon 6 All Original Guides</p>
-    <p><a href="privacy.html">Privacy Policy</a> | <a href="about.html">About Us</a></p>
-</footer>
+    </footer>
 </body>
 </html>
