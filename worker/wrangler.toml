@@ -1,0 +1,27 @@
+name = "savebook-worker"
+main = "index.js"
+compatibility_date = "2025-03-01"
+compatibility_flags = ["nodejs_compat"]
+
+# D1 database binding
+[[d1_databases]]
+binding = "DB"
+database_name = "savebook-db"
+database_id = "d104a97a-a7b5-46c8-84d7-204782c43b63"
+
+# R2 bucket binding
+[[r2_buckets]]
+binding = "BUCKET"
+bucket_name = "savebook-files"
+
+# Environment variables (non-secret config)
+[vars]
+ENVIRONMENT = "production"
+ALLOWED_ORIGIN = "https://app.savebook.net"
+
+# Secrets (set via `wrangler secret put`):
+#   KINDLE_SMTP_HOST
+#   KINDLE_SMTP_PORT
+#   KINDLE_SMTP_USER
+#   KINDLE_SMTP_PASS
+#   R2_PUBLIC_URL (optional, for R2.dev public access)
