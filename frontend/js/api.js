@@ -1,7 +1,7 @@
 // SaveBook API Client
 
-// Worker now serves app.savebook.net directly via custom domain
-const API_BASE = '';
+// API served by the Worker at api.savebook.net
+const API_BASE = 'https://api.savebook.net';
 
 // Stable session ID — persists across page reloads within this browser.
 // Worker requires sessionId to associate conversions with a session.
