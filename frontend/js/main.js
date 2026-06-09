@@ -1,6 +1,6 @@
 // SaveBook Frontend — UI Logic
 
-import { convertPage, getRecords, deleteRecord, sendToKindle, getStats } from './api.js';
+import { convertPage, getRecords, deleteRecord, sendToKindle } from './api.js';
 
 // ---- DOM refs ----
 const convertForm = document.getElementById('convert-form');
@@ -23,11 +23,6 @@ const kindleEmail = document.getElementById('kindle-email');
 const sendKindleBtn = document.getElementById('send-kindle-btn');
 const errorArea = document.getElementById('error-area');
 const errorMessage = document.getElementById('error-message');
-
-// Stats
-const statTotal = document.getElementById('stat-total');
-const statPdf = document.getElementById('stat-pdf');
-const statEpub = document.getElementById('stat-epub');
 
 // ---- State ----
 let currentFile = null;
@@ -172,17 +167,3 @@ if (sendKindleBtn) {
     });
 }
 
-// ---- Stats ----
-async function loadStats() {
-    try {
-        const stats = await getStats();
-        if (statTotal) statTotal.textContent = stats.total?.toLocaleString() ?? '—';
-        if (statPdf) statPdf.textContent = stats.pdf?.toLocaleString() ?? '—';
-        if (statEpub) statEpub.textContent = stats.epub?.toLocaleString() ?? '—';
-    } catch (_) {
-        // Stats are non-critical
-    }
-}
-
-// ---- Init ----
-loadStats();
