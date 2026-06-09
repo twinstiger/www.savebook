@@ -78,6 +78,16 @@
                             <strong>EPUB</strong>
                             <span>Reflowable, Kindle-friendly</span>
                         </label>
+                        <input type="radio" name="format" id="fmt-txt" value="txt">
+                        <label for="fmt-txt" class="format-option">
+                            <strong>TXT</strong>
+                            <span>Plain text</span>
+                        </label>
+                        <input type="radio" name="format" id="fmt-md" value="md">
+                        <label for="fmt-md" class="format-option">
+                            <strong>MD</strong>
+                            <span>Markdown, editable</span>
+                        </label>
                     </div>
                 </div>
 
@@ -89,6 +99,22 @@
                             <select id="page-size" class="form-select">
                                 <option value="Letter">Letter</option>
                                 <option value="A4">A4</option>
+                            </select>
+                        </div>
+                        <div class="form-row">
+                            <label for="font-size" class="form-label">Font size</label>
+                            <select id="font-size" class="form-select">
+                                <option value="small">Small</option>
+                                <option value="medium" selected>Medium</option>
+                                <option value="large">Large</option>
+                            </select>
+                        </div>
+                        <div class="form-row">
+                            <label for="line-spacing" class="form-label">Line spacing</label>
+                            <select id="line-spacing" class="form-select">
+                                <option value="compact">Compact</option>
+                                <option value="normal" selected>Normal</option>
+                                <option value="spacious">Spacious</option>
                             </select>
                         </div>
                         <label class="form-checkbox">

@@ -94,6 +94,8 @@ if (convertForm) {
         const pageSize = document.getElementById('page-size')?.value || 'Letter';
         const keepImages = document.getElementById('keep-images')?.checked !== false;
         const removeAds = document.getElementById('remove-ads')?.checked !== false;
+        const fontSize = document.getElementById('font-size')?.value || 'medium';
+        const lineSpacing = document.getElementById('line-spacing')?.value || 'normal';
 
         if (convertBtn) {
             convertBtn.disabled = true;
@@ -103,7 +105,7 @@ if (convertForm) {
         setProgress(10, 'Fetching page…');
 
         try {
-            const result = await convertPage({ url, format, pageSize, keepImages, removeAds });
+            const result = await convertPage({ url, format, pageSize, keepImages, removeAds, fontSize, lineSpacing });
 
             setProgress(100, 'Done!');
 

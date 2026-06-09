@@ -2,7 +2,7 @@
 // Cloudflare Worker backend for SaveBook web-to-ebook converter
 // Handles: web scraping, content cleaning, PDF/EPUB generation, R2 storage, D1 persistence, Kindle push
 
-import { convertToPDF, convertToEPUB, cleanHTML, validatePageSize } from './src/convert.js';
+import { convertToPDF, convertToEPUB, convertToTXT, convertToMarkdown, cleanHTML, validatePageSize } from './src/convert.js';
 import { uploadToR2, deleteFromR2 } from './src/r2.js';
 import { saveConversion, getConversions, updateStats } from './src/d1.js';
 import { sendToKindle } from './src/kindle.js';
@@ -194,8 +194,8 @@ async function handleConvert(request, env) {
     if (!pageUrl || !format) {
         return jsonResponse({ error: 'Missing required fields: url, format' }, 400);
     }
-    if (!['pdf', 'epub'].includes(format)) {
-        return jsonResponse({ error: 'Invalid format. Must be pdf or epub' }, 400);
+    if (!['pdf', 'epub', 'txt', 'md'].includes(format)) {
+        return jsonResponse({ error: 'Invalid format. Must be pdf, epub, txt, or md' }, 400);
     }
     if (!sessionId) {
         return jsonResponse({ error: 'Missing sessionId' }, 400);
@@ -273,10 +273,18 @@ async function handleConvert(request, env) {
             fileBuffer = await convertToPDF(html, pageUrl, options);
             filename = `${safeTitle}_${timestamp}.pdf`;
             contentType = 'application/pdf';
-        } else {
+        } else if (format === 'epub') {
             fileBuffer = await convertToEPUB(html, title, pageUrl, options);
             filename = `${safeTitle}_${timestamp}.epub`;
             contentType = 'application/epub+zip';
+        } else if (format === 'txt') {
+            fileBuffer = convertToTXT(html, pageUrl, options);
+            filename = `${safeTitle}_${timestamp}.txt`;
+            contentType = 'text/plain; charset=utf-8';
+        } else if (format === 'md') {
+            fileBuffer = convertToMarkdown(html, pageUrl, options);
+            filename = `${safeTitle}_${timestamp}.md`;
+            contentType = 'text/markdown; charset=utf-8';
         }
     } catch (error) {
         return jsonResponse({ error: `Conversion failed: ${error.message}` }, 500);
@@ -322,8 +330,8 @@ async function handleConvert(request, env) {
         success: true,
         conversionId,
         filename,
-        fileSize: fileBuffer.length,
-        downloadUrl,
+        size: fileBuffer.length,
+        url: downloadUrl,
         title,
     });
 }

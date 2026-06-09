@@ -2,6 +2,17 @@
 
 const API_BASE = '';
 
+// Stable session ID — persists across page reloads within this browser.
+// Worker requires sessionId to associate conversions with a session.
+function getSessionId() {
+    let sid = localStorage.getItem('sb_sid');
+    if (!sid) {
+        sid = crypto.randomUUID();
+        localStorage.setItem('sb_sid', sid);
+    }
+    return sid;
+}
+
 // ---- Helpers ----
 async function apiRequest(method, path, body) {
     const opts = {
@@ -24,13 +35,18 @@ async function apiRequest(method, path, body) {
 }
 
 // ---- API calls ----
-export async function convertPage({ url, format, pageSize, keepImages, removeAds }) {
+export async function convertPage({ url, format, pageSize, keepImages, removeAds, fontSize, lineSpacing }) {
     return apiRequest('POST', '/api/convert', {
         url,
         format: format || 'pdf',
-        pageSize: pageSize || 'Letter',
-        keepImages: keepImages !== false,
-        removeAds: removeAds !== false,
+        sessionId: getSessionId(),
+        options: {
+            pageSize: pageSize || 'Letter',
+            keepImages: keepImages !== false,
+            removeAds: removeAds !== false,
+            fontSize: fontSize || 'medium',
+            lineSpacing: lineSpacing || 'normal',
+        },
     });
 }
 

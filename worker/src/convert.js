@@ -416,9 +416,16 @@ export async function convertToPDF(html, url, options = {}) {
     // but won't crash on unsupported glyphs.
     const courier        = helvetica;
 
-    const pageSize = PAGE_SIZES[options.pageSize === 'A4' ? 'A4' : 'LETTER'];
-    const margin   = 50;
-    const maxWidth = pageSize.w - 2 * margin;
+    // Typography options
+    const fontSizes  = { small: 10, medium: 12, large: 14 };
+    const spacings   = { compact: 1.2, normal: 1.5, spacious: 2.0 };
+    const margins    = { narrow: 36, normal: 50, wide: 72 };
+
+    const pageSize   = PAGE_SIZES[options.pageSize === 'A4' ? 'A4' : 'LETTER'];
+    const baseSize   = fontSizes[options.fontSize] || 12;
+    const lineMult   = spacings[options.lineSpacing] || 1.5;
+    const margin     = margins[options.margin] || 50;
+    const maxWidth   = pageSize.w - 2 * margin;
 
     // ---------- Title page ----------
     const titlePage = pdfDoc.addPage([pageSize.w, pageSize.h]);
@@ -463,6 +470,8 @@ export async function convertToPDF(html, url, options = {}) {
         helveticaBold,
         courier,
         options,
+        baseSize,   // typography: body font size in pt
+        lineMult,   // typography: line-height multiplier
     };
 
     walkNodes(document.body, ctx);
@@ -473,10 +482,10 @@ export async function convertToPDF(html, url, options = {}) {
 
 // Render a text block. Wraps long lines; auto-paginates when Y goes below margin.
 function drawTextBlock(ctx, text, opts = {}) {
-    const size    = opts.size    || 12;
+    const size    = opts.size    || ctx.baseSize || 12;
     const font    = opts.font    || ctx.helvetica;
     const color   = opts.color   || rgb(0, 0, 0);
-    const leading = opts.leading || (size * 1.35);
+    const leading = opts.leading || (size * (ctx.lineMult || 1.35));
     const indent  = opts.indent  || 0;
     const textWidth = ctx.maxWidth - indent;
 
@@ -636,6 +645,210 @@ function renderNode(node, ctx) {
 
 function truncate(s, n) {
     return s.length > n ? s.substring(0, n) + '...' : s;
+}
+
+// ─── Plain-text extractor (used by convertToTXT) ─────────────────────────────
+
+function extractTextNodes(node, lines, opts = {}) {
+    if (!node) return;
+    const isBlock = opts.block;
+
+    for (const child of node.childNodes) {
+        if (child.nodeType === 3) {
+            // Text node — collapse whitespace
+            const text = child.textContent.replace(/\s+/g, ' ').trim();
+            if (text) {
+                if (isBlock && lines.length > 0 && !lines[lines.length - 1].endsWith('\n')) {
+                    lines.push(' ' + text);
+                } else {
+                    lines.push(text);
+                }
+            }
+        } else if (child.nodeType === 1) {
+            const tag = child.tagName.toLowerCase();
+
+            if (tag === 'h1') {
+                const t = child.textContent.replace(/\s+/g, ' ').trim();
+                if (t) { lines.push(''); lines.push(t); lines.push('='.repeat(Math.min(t.length, 60))); lines.push(''); }
+            } else if (tag === 'h2') {
+                const t = child.textContent.replace(/\s+/g, ' ').trim();
+                if (t) { lines.push(''); lines.push(t); lines.push('-'.repeat(Math.min(t.length, 60))); lines.push(''); }
+            } else if (tag === 'h3' || tag === 'h4') {
+                const t = child.textContent.replace(/\s+/g, ' ').trim();
+                if (t) { lines.push(''); lines.push('## ' + t); lines.push(''); }
+            } else if (tag === 'p') {
+                extractTextNodes(child, lines, { block: true });
+                lines.push('');
+            } else if (tag === 'br') {
+                lines.push('');
+            } else if (tag === 'hr') {
+                lines.push(''); lines.push('─'.repeat(40)); lines.push('');
+            } else if (tag === 'blockquote') {
+                const inner = [];
+                extractTextNodes(child, inner, { block: false });
+                const t = inner.join(' ').trim();
+                if (t) lines.push(''); lines.push('> ' + t.split('\n').join('\n> ')); lines.push('');
+            } else if (tag === 'li') {
+                const inner = [];
+                extractTextNodes(child, inner, { block: false });
+                const t = inner.join(' ').replace(/\s+/g, ' ').trim();
+                if (t) lines.push('  • ' + t);
+            } else if (tag === 'ul' || tag === 'ol') {
+                extractTextNodes(child, lines, opts);
+                lines.push('');
+            } else if (tag === 'pre' || tag === 'code') {
+                const t = child.textContent.trim();
+                if (t) { lines.push(''); lines.push('```'); lines.push(t); lines.push('```'); lines.push(''); }
+            } else if (tag === 'img') {
+                const alt = child.getAttribute('alt') || '';
+                const src = child.getAttribute('src') || '';
+                if (alt) lines.push(`[${alt}]`);
+                else if (src) lines.push(`[Image: ${truncate(src, 60)}]`);
+            } else if (tag === 'a') {
+                const t = child.textContent.replace(/\s+/g, ' ').trim();
+                const href = child.getAttribute('href') || '';
+                if (t) {
+                    if (href && href !== t) lines.push(`${t} <${href}>`);
+                    else lines.push(t);
+                }
+            } else {
+                // Descend into other elements (div, span, strong, em, etc.)
+                extractTextNodes(child, lines, opts);
+            }
+        }
+    }
+}
+
+// ─── Markdown extractor (used by convertToMarkdown) ─────────────────────────
+
+function extractMarkdownNodes(node, lines, opts = {}) {
+    if (!node) return;
+    const depth = opts.listDepth || 0;
+
+    for (const child of node.childNodes) {
+        if (child.nodeType === 3) {
+            const text = child.textContent.replace(/\s+/g, ' ').trim();
+            if (text) lines.push(text);
+        } else if (child.nodeType === 1) {
+            const tag = child.tagName.toLowerCase();
+
+            if (tag === 'h1') {
+                const t = child.textContent.replace(/\s+/g, ' ').trim();
+                if (t) { lines.push(''); lines.push(`# ${t}`); lines.push(''); }
+            } else if (tag === 'h2') {
+                const t = child.textContent.replace(/\s+/g, ' ').trim();
+                if (t) { lines.push(''); lines.push(`## ${t}`); lines.push(''); }
+            } else if (tag === 'h3') {
+                const t = child.textContent.replace(/\s+/g, ' ').trim();
+                if (t) { lines.push(''); lines.push(`### ${t}`); lines.push(''); }
+            } else if (tag === 'h4') {
+                const t = child.textContent.replace(/\s+/g, ' ').trim();
+                if (t) { lines.push(''); lines.push(`#### ${t}`); lines.push(''); }
+            } else if (tag === 'p') {
+                extractMarkdownNodes(child, lines, opts);
+                lines.push('');
+            } else if (tag === 'br') {
+                lines.push('  '); // Two-space trail for hard break in MD
+            } else if (tag === 'hr') {
+                lines.push(''); lines.push('---'); lines.push('');
+            } else if (tag === 'blockquote') {
+                const inner = [];
+                extractMarkdownNodes(child, inner, opts);
+                const t = inner.join(' ').trim();
+                if (t) lines.push(''); lines.push('> ' + t.split('\n').join('\n> ')); lines.push('');
+            } else if (tag === 'li') {
+                const inner = [];
+                extractMarkdownNodes(child, inner, { listDepth: depth + 1 });
+                const t = inner.join(' ').replace(/\s+/g, ' ').trim();
+                if (t) lines.push(`${'  '.repeat(depth)}- ${t}`);
+            } else if (tag === 'ul' || tag === 'ol') {
+                extractMarkdownNodes(child, lines, { listDepth: depth });
+                lines.push('');
+            } else if (tag === 'pre') {
+                const t = child.textContent.trim();
+                if (t) { lines.push(''); lines.push('```'); lines.push(t); lines.push('```'); lines.push(''); }
+            } else if (tag === 'code') {
+                // Inline code
+                const t = child.textContent.trim();
+                if (t) lines.push(`\`${t}\``);
+            } else if (tag === 'img') {
+                const alt = child.getAttribute('alt') || '';
+                const src = child.getAttribute('src') || '';
+                if (src) lines.push(`![${alt}](${src})`);
+            } else if (tag === 'a') {
+                const t = child.textContent.replace(/\s+/g, ' ').trim();
+                const href = child.getAttribute('href') || '';
+                if (t) lines.push(`[${t}](${href})`);
+            } else if (tag === 'strong' || tag === 'b') {
+                const inner = [];
+                extractMarkdownNodes(child, inner, opts);
+                const t = inner.join('').trim();
+                if (t) lines.push(`**${t}**`);
+            } else if (tag === 'em' || tag === 'i') {
+                const inner = [];
+                extractMarkdownNodes(child, inner, opts);
+                const t = inner.join('').trim();
+                if (t) lines.push(`*${t}*`);
+            } else {
+                extractMarkdownNodes(child, lines, opts);
+            }
+        }
+    }
+}
+
+// ============================================================
+// TXT Export — pure text, no formatting
+// ============================================================
+
+/**
+ * Extract plain text from a clean HTML document.
+ * Block elements get a blank line before/after so paragraphs are clear.
+ */
+export function convertToTXT(html, url, options = {}) {
+    const document = parseFreshDocument(html);
+    const title = (document.querySelector('title')?.textContent || 'Document').trim();
+
+    const lines = [];
+
+    // Header
+    lines.push(title);
+    lines.push('─'.repeat(Math.min(title.length, 60)));
+    lines.push(`Source: ${url}`);
+    lines.push(`Generated: ${new Date().toISOString().split('T')[0]}`);
+    lines.push('');
+
+    extractTextNodes(document.body, lines, { block: true });
+
+    return Buffer.from(lines.join('\n'), 'utf-8');
+}
+
+// ============================================================
+// Markdown Export — structured text with MD syntax
+// ============================================================
+
+/**
+ * Extract content as GitHub-flavored Markdown.
+ * Headings, lists, blockquotes, code blocks, and inline formatting preserved.
+ */
+export function convertToMarkdown(html, url, options = {}) {
+    const document = parseFreshDocument(html);
+    const title = (document.querySelector('title')?.textContent || 'Document').trim();
+
+    const lines = [];
+
+    // YAML-style frontmatter
+    lines.push('---');
+    lines.push(`title: "${title.replace(/"/g, '\\"')}"`);
+    lines.push(`source: ${url}`);
+    lines.push(`date: ${new Date().toISOString().split('T')[0]}`);
+    lines.push('---');
+    lines.push('');
+    lines.push(`# ${title}`);
+    lines.push('');
+
+    extractMarkdownNodes(document.body, lines, { listDepth: 0 });
+
+    return Buffer.from(lines.join('\n'), 'utf-8');
 }
 
 // ============================================================
