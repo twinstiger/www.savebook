@@ -52,11 +52,11 @@ export async function convertPage({ url, format, pageSize, keepImages, removeAds
 }
 
 export async function getRecords() {
-    return apiRequest('GET', '/api/records', null);
+    return apiRequest('GET', `/api/records?sessionId=${getSessionId()}`, null);
 }
 
 export async function deleteRecord(id) {
-    return apiRequest('POST', '/api/delete-record', { id });
+    return apiRequest('POST', `/api/delete-record?sessionId=${getSessionId()}`, { id });
 }
 
 export async function sendToKindle({ email, filename }) {
