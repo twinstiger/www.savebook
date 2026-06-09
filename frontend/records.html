@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Records - SaveBook</title>
+    <meta name="description" content="Browse your past SaveBook conversions and re-download files.">
+    <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;0,800;0,900;1,500;1,700&display=swap">
+    <link rel="stylesheet" href="/css/style.css?v=6">
+</head>
+<body>
+    <nav class="nav">
+        <div class="nav-inner">
+            <a href="/" class="nav-brand">
+                <span class="nav-brand-word">Save</span><img src="/assets/logo.svg" alt="" class="nav-logo" aria-hidden="true"><span class="nav-brand-word">Book</span>
+            </a>
+            <div class="nav-links">
+                <a href="/" class="nav-link">Home</a>
+                <a href="/records.html" class="nav-link active">Records</a>
+                <a href="/help.html" class="nav-link">Help</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container records-page">
+        <header class="page-header">
+            <h1>Your records</h1>
+            <p class="page-subtitle">Files converted in this browser. Stored for 7 days.</p>
+        </header>
+
+        <div id="records-empty" class="empty-state hidden">
+            <h2>No conversions yet</h2>
+            <p>Head to the <a href="/">home page</a> and convert your first article.</p>
+        </div>
+
+        <div id="records-loading" class="loading">
+            <div class="spinner"></div>
+            <span>Loading records…</span>
+        </div>
+
+        <div id="records-list" class="records-list"></div>
+
+        <div id="records-pagination" class="pagination hidden">
+            <button id="prev-page-btn" class="btn btn-soft">← Newer</button>
+            <span id="page-indicator" class="page-indicator">Page 1</span>
+            <button id="next-page-btn" class="btn btn-soft">Older →</button>
+        </div>
+
+        <div id="records-error" class="alert alert-error hidden" role="alert"></div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>© 2026 SaveBook · <a href="/privacy.html">Privacy</a> · <a href="/terms.html">Terms</a></p>
+        </div>
+    </footer>
+
+    <script src="/js/api.js"></script>
+    <script src="/js/records.js"></script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+# ============================================================
+# Cloudflare Pages — Cache Headers
+# HTML: no-cache (always revalidate from origin, new deploys appear instantly)
+# Static assets: long-lived immutable cache (7 days already, extend to 1 year)
+# ============================================================
+
+# --- HTML: no cache so new deployments are always fresh ---
+/index.html
+  Cache-Control: max-age=0, must-revalidate
+
+/*.html
+  Cache-Control: max-age=0, must-revalidate
+
+/records.html
+  Cache-Control: max-age=0, must-revalidate
+
+/help.html
+  Cache-Control: max-age=0, must-revalidate
+
+/privacy.html
+  Cache-Control: max-age=0, must-revalidate
+
+/terms.html
+  Cache-Control: max-age=0, must-revalidate
+
+/404.html
+  Cache-Control: max-age=0, must-revalidate
+
+# --- Static assets: long-lived immutable cache ---
+# CSS / JS — immutable (content-hash based, safe to cache forever)
+/css/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/js/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Images / fonts / media
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Favicon & manifest
+/favicon.svg
+  Cache-Control: public, max-age=31536000, immutable
+
+/assets/logo.svg
+  Cache-Control: public, max-age=31536000, immutable
+
+/assets/favicon.svg
+  Cache-Control: public, max-age=31536000, immutable
+
+/assets/manifest.json
+  Cache-Control: public, max-age=31536000, immutable
+
+# robots.txt / ads.txt — often checked, keep short TTL but not zero
+/robots.txt
+  Cache-Control: public, max-age=3600, must-revalidate
+
+/assets/ads.txt
+  Cache-Control: public, max-age=3600, must-revalidate
+
+/assets/sitemap.xml
+  Cache-Control: public, max-age=3600, must-revalidate

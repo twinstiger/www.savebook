@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Help - SaveBook</title>
+    <meta name="description" content="How to use SaveBook, Kindle setup tips, and troubleshooting.">
+    <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;0,800;0,900;1,500;1,700&display=swap">
+    <link rel="stylesheet" href="/css/style.css?v=6">
+</head>
+<body>
+    <nav class="nav">
+        <div class="nav-inner">
+            <a href="/" class="nav-brand">
+                <span class="nav-brand-word">Save</span><img src="/assets/logo.svg" alt="" class="nav-logo" aria-hidden="true"><span class="nav-brand-word">Book</span>
+            </a>
+            <div class="nav-links">
+                <a href="/" class="nav-link">Home</a>
+                <a href="/records.html" class="nav-link">Records</a>
+                <a href="/help.html" class="nav-link active">Help</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container help-page">
+        <header class="page-header">
+            <h1>Help &amp; FAQ</h1>
+            <p class="page-subtitle">Everything you need to know to get the most out of SaveBook.</p>
+        </header>
+
+        <article class="prose">
+            <section>
+                <h2>Quick start</h2>
+                <ol>
+                    <li>Paste any article URL into the home page input.</li>
+                    <li>Choose <strong>PDF</strong> (universal) or <strong>EPUB</strong> (Kindle-friendly).</li>
+                    <li>Click <em>Convert</em> and wait a few seconds.</li>
+                    <li>Download the file, or send it straight to your Kindle.</li>
+                </ol>
+            </section>
+
+            <section>
+                <h2>Setting up Kindle push</h2>
+                <ol>
+                    <li>Find your Kindle email address on Amazon's <em>Manage Your Content and Devices</em> page (under <em>Settings</em> → <em>Personal Document Settings</em>).</li>
+                    <li>Add <code>noreply@savebook.net</code> to your <strong>Approved Personal Document E-mail List</strong>.</li>
+                    <li>Use that email when you click <em>Send to Kindle</em>.</li>
+                    <li>Your file appears in your Kindle library within a few minutes. Make sure the device is connected to Wi-Fi.</li>
+                </ol>
+            </section>
+
+            <section>
+                <h2>Why does some content not extract cleanly?</h2>
+                <p>SaveBook uses <a href="https://github.com/mozilla/readability" target="_blank" rel="noopener">Mozilla Readability</a> to detect the main article. Some pages (login walls, JavaScript-heavy apps, PDF-only sources) don't have extractable text. In those cases, try opening the page in a normal browser first and copy the link from the address bar.</p>
+            </section>
+
+            <section>
+                <h2>How long are files kept?</h2>
+                <p>Generated files are stored in Cloudflare R2 for <strong>7 days</strong>, then automatically cleaned up. Your records page will stop showing expired entries.</p>
+            </section>
+
+            <section>
+                <h2>Privacy</h2>
+                <p>SaveBook doesn't require an account. We use a randomly-generated session ID stored in your browser's local storage to associate records with your device. The Worker that processes conversions sees the URL you submit, but we do not log IP addresses or sell data to third parties.</p>
+                <p>Read the full <a href="/privacy.html">Privacy Policy</a>.</p>
+            </section>
+
+            <section>
+                <h2>Common errors</h2>
+                <dl class="faq">
+                    <dt>HTTP 403 / 401</dt>
+                    <dd>The source page is paywalled or behind a login. SaveBook can't fetch it.</dd>
+
+                    <dt>Conversion timeout</dt>
+                    <dd>The page is very large or has many images. Try toggling off <em>Keep images</em> in Advanced options.</dd>
+
+                    <dt>Unsupported content type</dt>
+                    <dd>The URL points to a binary file (PDF, image, video) — there's nothing to convert.</dd>
+
+                    <dt>Kindle send fails</dt>
+                    <dd>Check that you used your Kindle email (not your Amazon login email), and that our sender is approved.</dd>
+                </dl>
+            </section>
+
+            <section>
+                <h2>Self-hosting</h2>
+                <p>SaveBook is a small Cloudflare Workers app — easy to deploy yourself:</p>
+                <pre><code>cd worker
+npm install
+npx wrangler d1 create savebook-db
+npx wrangler d1 execute savebook-db --file=../schema.sql
+npx wrangler r2 bucket create savebook-files
+npx wrangler secret put RESEND_API_KEY
+npx wrangler deploy</code></pre>
+                <p>Then point your Pages project at the <code>frontend/</code> directory.</p>
+            </section>
+
+            <section>
+                <h2>Contact</h2>
+                <p>Found a bug or have a feature request? Open an issue on <a href="https://github.com/yourusername/savebook" target="_blank" rel="noopener">GitHub</a>.</p>
+            </section>
+        </article>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>© 2026 SaveBook · <a href="/privacy.html">Privacy</a> · <a href="/terms.html">Terms</a></p>
+        </div>
+    </footer>
+</body>
+</html>
