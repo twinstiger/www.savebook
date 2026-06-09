@@ -457,16 +457,19 @@ async function handleDownload(request, env, path) {
         contentType = 'application/x-mobipocket-ebook';
     } else if (lowerKey.endsWith('.txt')) {
         contentType = 'text/plain; charset=utf-8';
+    } else if (lowerKey.endsWith('.md')) {
+        contentType = 'text/markdown; charset=utf-8';
     } else if (object.httpMetadata && object.httpMetadata.contentType) {
         contentType = object.httpMetadata.contentType;
     }
 
     // Filename for the download prompt (just the basename, no path)
     const filename = key.split('/').pop() || 'download';
+    const encodedFilename = encodeURIComponent(filename);
 
     const headers = {
         'Content-Type': contentType,
-        'Content-Disposition': `attachment; filename="${filename.replace(/"/g, '')}"`,
+        'Content-Disposition': `attachment; filename="${filename.replace(/"/g, '')}"; filename*=UTF-8''${encodedFilename}`,
         'Content-Length': String(object.size),
         'Cache-Control': 'public, max-age=3600',
         ...corsHeadersFor(request),

@@ -60,7 +60,7 @@ function renderRecords() {
                 </div>
             </div>
             <div class="record-actions">
-                ${r.download_url || r.url ? `<a href="${r.download_url || r.url}" class="btn btn-soft btn-sm" download>Download</a>` : ''}
+                ${r.downloadUrl ? `<a href="${r.downloadUrl}" class="btn btn-soft btn-sm" download target="_blank" rel="noopener">Download</a>` : ''}
                 <button class="btn btn-soft btn-sm record-delete" data-id="${r.id || r.conversionId || ''}">Delete</button>
             </div>
         </div>
