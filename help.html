@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Help - SaveBook</title>
+    <meta name="description" content="How to use SaveBook, Kindle setup tips, and troubleshooting.">
+    <meta name="theme-color" content="#b91c1c">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+    <link rel="apple-touch-icon" href="/assets/logo.svg">
+    <link rel="manifest" href="/assets/manifest.json">
+    <link rel="stylesheet" href="/css/style.css?v=10">
+    <meta property="og:title" content="Help - SaveBook">
+    <meta property="og:description" content="How to use SaveBook.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://app.savebook.net/help.html">
+</head>
+<body>
+    <nav class="nav">
+        <div class="nav-inner">
+            <a href="/" class="nav-brand">
+                <span class="nav-brand-word">Save</span>
+                <img src="/assets/logo.svg" alt="" class="nav-logo" aria-hidden="true">
+                <span class="nav-brand-word">Book</span>
+            </a>
+            <button id="mobile-menu-btn" class="nav-toggle" aria-label="Toggle menu">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+            </button>
+            <div class="nav-links" id="nav-links">
+                <a href="/" class="nav-link">Home</a>
+                <a href="/records.html" class="nav-link">Records</a>
+                <a href="/help.html" class="nav-link active">Help</a>
+                <a href="https://toolsbase.net/" class="nav-link nav-link-soft" target="_blank" rel="noopener">Tools</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container" style="padding-top: 2rem;">
+        <h1 class="section-title">Help &amp; FAQ</h1>
+        <div class="card" style="margin-top: 2rem; max-width: 720px;">
+            <section style="margin-bottom: 2rem;">
+                <h2>Quick start</h2>
+                <ol style="padding-left: 1.5rem;">
+                    <li>Paste any article URL into the home page input.</li>
+                    <li>Choose <strong>PDF</strong>, <strong>EPUB</strong>, <strong>TXT</strong>, or <strong>MD</strong>.</li>
+                    <li>Click <em>Convert</em> and wait a few seconds.</li>
+                    <li>Download the file, or send it straight to your Kindle.</li>
+                </ol>
+            </section>
+
+            <section style="margin-bottom: 2rem;">
+                <h2>Setting up Kindle push</h2>
+                <ol style="padding-left: 1.5rem;">
+                    <li>Find your Kindle email address on Amazon's <em>Manage Your Content and Devices</em> page.</li>
+                    <li>Add <code>noreply@savebook.net</code> to your <strong>Approved Personal Document E-mail List</strong>.</li>
+                    <li>After converting, click <em>Send to Kindle</em> and enter your Kindle email.</li>
+                    <li>Your file appears in your Kindle library within a few minutes.</li>
+                </ol>
+            </section>
+
+            <section style="margin-bottom: 2rem;">
+                <h2>Why does some content not extract cleanly?</h2>
+                <p>SaveBook uses Mozilla Readability to detect the main article. Some pages (login walls, JavaScript-heavy apps, PDF-only sources) don't have extractable text. Try opening the page in a normal browser first and copy the link from the address bar.</p>
+            </section>
+
+            <section style="margin-bottom: 2rem;">
+                <h2>Common errors</h2>
+                <dl style="display: grid; grid-template-columns: auto 1fr; gap: 0.5rem 1rem;">
+                    <dt><strong>HTTP 403 / 401</strong></dt>
+                    <dd>The source page is paywalled or behind a login.</dd>
+                    <dt><strong>Conversion timeout</strong></dt>
+                    <dd>The page is very large. Try toggling off <em>Keep images</em> in Advanced options.</dd>
+                    <dt><strong>Unsupported content type</strong></dt>
+                    <dd>The URL points to a binary file — there's nothing to convert.</dd>
+                    <dt><strong>Kindle send fails</strong></dt>
+                    <dd>Check that you used your Kindle email (not your Amazon login email).</dd>
+                </dl>
+            </section>
+
+            <section>
+                <h2>Contact</h2>
+                <p>Open an issue on <a href="https://github.com/yourusername/savebook" target="_blank" rel="noopener">GitHub</a>.</p>
+            </section>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>© 2026 SaveBook · <a href="/privacy.html">Privacy</a> · <a href="/terms.html">Terms</a></p>
+            <p class="footer-tagline">Powered by Cloudflare Workers &amp; R2.</p>
+        </div>
+    </footer>
+
+    <script type="module" src="/js/api.js"></script>
+    <script type="module" src="/js/main.js"></script>
+</body>
+</html>

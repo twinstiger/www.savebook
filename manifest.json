@@ -1,21 +1,21 @@
 {
-  "name": "Forza Horizon 6 Guides - savebook.net",
-  "short_name": "FH6 Guides",
-  "description": "The best Forza Horizon 6 guide website. Car tuning, track tips, collectibles, and more.",
+  "name": "SaveBook",
+  "short_name": "SaveBook",
+  "description": "Convert any webpage into a clean PDF or EPUB for offline reading.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#1a1a2e",
-  "theme_color": "#ff6b35",
+  "background_color": "#ffffff",
+  "theme_color": "#b91c1c",
   "orientation": "portrait-primary",
   "icons": [
     {
-      "src": "logo.svg",
+      "src": "/assets/favicon.svg",
       "sizes": "any",
       "type": "image/svg+xml",
       "purpose": "any maskable"
     }
   ],
-  "categories": ["games", "utilities"],
+  "categories": ["utilities", "productivity"],
   "lang": "en",
   "dir": "ltr"
 }
