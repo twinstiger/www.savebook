@@ -906,6 +906,8 @@ input, select, textarea {
     align-items: center;
     justify-content: space-between;
     gap: 1rem;
+    width: 80%;
+    margin: 0 auto;
 }
 .footer-brand {
     display: flex;
@@ -916,12 +918,14 @@ input, select, textarea {
 .footer-logo {
     width: 24px;
     height: 24px;
+    vertical-align: middle;
+    margin: 0 0.1em;
     filter: drop-shadow(0 1px 3px rgba(220, 38, 38, 0.3));
 }
-.footer-brand-name {
+.footer-brand-word {
     font-family: var(--font-serif);
     font-weight: 700;
-    font-size: 0.9rem;
+    font-size: 2.625rem;
     color: var(--text);
     text-transform: uppercase;
     letter-spacing: 0.06em;
@@ -934,11 +938,11 @@ input, select, textarea {
     text-align: center;
 }
 .footer-tagline {
-    font-size: 0.8rem;
+    font-size: 0.8125rem;
     color: var(--text-soft);
 }
 .footer-copy {
-    font-size: 0.75rem;
+    font-size: 0.8125rem;
     color: var(--text-muted);
 }
 .footer-links {
@@ -949,7 +953,7 @@ input, select, textarea {
     justify-content: flex-end;
 }
 .footer-links a {
-    font-size: 0.8rem;
+    font-size: 0.8125rem;
     color: var(--text-soft);
     transition: color 0.15s;
 }
