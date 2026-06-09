@@ -1,6 +1,7 @@
 // SaveBook API Client
 
-const API_BASE = '';
+// Direct to the deployed Worker — bypasses Pages /api/* routing issue
+const API_BASE = 'https://savebook-worker.413012298.workers.dev';
 
 // Stable session ID — persists across page reloads within this browser.
 // Worker requires sessionId to associate conversions with a session.
