@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>SaveBook - Web to PDF & EPUB Converter</title>
+    <meta name="description" content="Convert any webpage into a clean PDF or EPUB for offline reading. Free, fast, and powered by Cloudflare.">
+    <meta name="theme-color" content="#b91c1c">
+    <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+    <link rel="apple-touch-icon" href="/assets/logo.svg">
+    <link rel="manifest" href="/assets/manifest.json">
+    <link rel="stylesheet" href="/css/style.css">
+    <meta property="og:title" content="SaveBook - Web to PDF & EPUB">
+    <meta property="og:description" content="Save any webpage as a clean e-book. Free, fast, no signup.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://app.savebook.net/">
+    <meta name="twitter:card" content="summary_large_image">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-inner">
+            <a href="/" class="nav-brand">
+                <img src="/assets/logo.svg" alt="SaveBook" class="nav-logo">
+                <span>SaveBook</span>
+            </a>
+            <button id="mobile-menu-btn" class="nav-toggle" aria-label="Toggle menu">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+            </button>
+            <div class="nav-links" id="nav-links">
+                <a href="/" class="nav-link active">Home</a>
+                <a href="/records.html" class="nav-link">Records</a>
+                <a href="/help.html" class="nav-link">Help</a>
+                <a href="https://github.com/yourusername/savebook" class="nav-link nav-link-soft" target="_blank" rel="noopener">GitHub</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <header class="hero">
+        <div class="container">
+            <div class="hero-eyebrow">
+                <span class="hero-eyebrow-dot"></span>
+                Free · No signup · Edge-fast
+            </div>
+            <h1 class="hero-title">Web to PDF &amp; EPUB,<br>instantly.</h1>
+            <p class="hero-subtitle">Paste a link. Get a clean e-book. No signup, no ads, no clutter — just your article, ready to read offline.</p>
+
+            <!-- Convert Form -->
+            <form id="convert-form" class="card convert-form" autocomplete="off">
+                <div class="form-field">
+                    <label for="url-input" class="form-label">Webpage URL</label>
+                    <input
+                        type="url"
+                        id="url-input"
+                        class="form-input"
+                        placeholder="https://example.com/article-you-want-to-save"
+                        required
+                        autofocus>
+                </div>
+
+                <div class="form-field">
+                    <span class="form-label">Output format</span>
+                    <div class="format-toggle">
+                        <input type="radio" name="format" id="fmt-pdf" value="pdf" checked>
+                        <label for="fmt-pdf" class="format-option">
+                            <strong>PDF</strong>
+                            <span>Universal, print-ready</span>
+                        </label>
+                        <input type="radio" name="format" id="fmt-epub" value="epub">
+                        <label for="fmt-epub" class="format-option">
+                            <strong>EPUB</strong>
+                            <span>Reflowable, Kindle-friendly</span>
+                        </label>
+                    </div>
+                </div>
+
+                <details class="advanced">
+                    <summary class="advanced-toggle">Advanced options</summary>
+                    <div class="advanced-body">
+                        <div class="form-row">
+                            <label for="page-size" class="form-label">Page size</label>
+                            <select id="page-size" class="form-select">
+                                <option value="Letter">Letter</option>
+                                <option value="A4">A4</option>
+                            </select>
+                        </div>
+                        <label class="form-checkbox">
+                            <input type="checkbox" id="keep-images" checked>
+                            <span>Keep images from page</span>
+                        </label>
+                        <label class="form-checkbox">
+                            <input type="checkbox" id="remove-ads" checked>
+                            <span>Strip ads &amp; navigation</span>
+                        </label>
+                    </div>
+                </details>
+
+                <button type="submit" id="convert-btn" class="btn btn-primary btn-block">
+                    Convert to e-book
+                </button>
+            </form>
+
+            <!-- Progress -->
+            <div id="progress-area" class="card progress hidden" aria-live="polite">
+                <div class="progress-header">
+                    <span id="progress-text" class="progress-text">Fetching page…</span>
+                    <span id="progress-percent" class="progress-percent">0%</span>
+                </div>
+                <div class="progress-track">
+                    <div id="progress-bar" class="progress-bar" style="width: 0%"></div>
+                </div>
+            </div>
+
+            <!-- Result -->
+            <div id="result-area" class="card result hidden">
+                <div class="result-header">
+                    <span class="result-badge">Ready</span>
+                    <h2 id="result-title" class="result-title"></h2>
+                </div>
+                <dl class="result-meta">
+                    <div><dt>File</dt><dd id="result-filename"></dd></div>
+                    <div><dt>Size</dt><dd id="result-size"></dd></div>
+                    <div><dt>Format</dt><dd id="result-format"></dd></div>
+                </dl>
+                <div class="result-actions">
+                    <button id="download-btn" class="btn btn-success">Download</button>
+                    <button id="kindle-btn" class="btn btn-secondary">Send to Kindle</button>
+                    <button id="save-record-btn" class="btn btn-soft">Save to records</button>
+                </div>
+                <div id="kindle-email-area" class="kindle-area hidden">
+                    <label for="kindle-email" class="form-label">Your Kindle email</label>
+                    <input type="email" id="kindle-email" class="form-input" placeholder="your-name@kindle.com">
+                    <p class="form-hint">Make sure <code>noreply@savebook.net</code> is on your approved senders list.</p>
+                    <button id="send-kindle-btn" class="btn btn-primary btn-block">Send now</button>
+                </div>
+            </div>
+
+            <!-- Error -->
+            <div id="error-area" class="alert alert-error hidden" role="alert">
+                <strong>Conversion failed.</strong>
+                <span id="error-message"></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Features -->
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title">Why SaveBook</h2>
+            <p class="section-subtitle">Built for readers who want the web, but without the noise.</p>
+            <div class="feature-grid">
+                <div class="feature">
+                    <div class="feature-icon">📄</div>
+                    <h3>Reader-ready</h3>
+                    <p>Strips ads, sidebars, and clutter. Keeps the article, the way you want to read it.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">📚</div>
+                    <h3>Kindle push</h3>
+                    <p>Send to your Kindle device in one click. No cables, no manual transfers.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🔒</div>
+                    <h3>Anonymous</h3>
+                    <p>No account, no tracking. Your session lives in your browser; files are tied to it.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Edge-fast</h3>
+                    <p>Powered by Cloudflare's global network. Convert in seconds, anywhere in the world.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats -->
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat">
+                    <span id="stat-total" class="stat-value">—</span>
+                    <span class="stat-label">E-books generated</span>
+                </div>
+                <div class="stat">
+                    <span id="stat-pdf" class="stat-value">—</span>
+                    <span class="stat-label">PDFs</span>
+                </div>
+                <div class="stat">
+                    <span id="stat-epub" class="stat-value">—</span>
+                    <span class="stat-label">EPUBs</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>© 2026 SaveBook · <a href="/privacy.html">Privacy</a> · <a href="/terms.html">Terms</a></p>
+            <p class="footer-tagline">Powered by Cloudflare Workers &amp; R2.</p>
+        </div>
+    </footer>
+
+    <script src="/js/api.js"></script>
+    <script src="/js/main.js"></script>
+</body>
+</html>
